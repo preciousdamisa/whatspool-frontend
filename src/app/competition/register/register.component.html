@@ -1,0 +1,46 @@
+<section>
+  <div class="modal" [ngClass]="{show: showModal}">
+    <div class="center">
+      <h1 class="modal-title">Registration successful!</h1>
+      <p>Congratulations! You've successfully registered for the next WhatsPool. We
+        hope you emerge a winner! Remember to set your alarm clock to 9:00 P.M. Goodluck!!!</p>
+    </div>
+    <div class="center">
+      <button class="btn modal-action" type="button" (click)="onCloseModal()">Okay</button>
+    </div>
+  </div>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <h1 class="form-title">WhatsPool Registration</h1>
+    <div>
+      <label for="firstName">First name</label>
+      <input id="firstName" type="text" name="firstName" #firstName="ngModel" [ngModel]="user?.firstName" required>
+      <span *ngIf="firstName.invalid && firstName.touched">First name is required.</span>
+    </div>
+    <div>
+      <label for="lastName">Last name</label>
+      <input id="lastName" type="text" name="lastName" #lastName="ngModel" [ngModel]="user?.lastName" required>
+      <span *ngIf="lastName.invalid && lastName.touched">Last name is required.</span>
+    </div>
+    <div>
+      <label for="email">E-Mail</label>
+      <input id="email" type="email" name="email" #email="ngModel" [ngModel]="user?.email" required email>
+      <span *ngIf="email.invalid && email.touched">Enter a valid E-Mail.</span>
+    </div>
+    <div>
+      <label for="phone">Phone number</label>
+      <input type="text" id="phone" name="phone" #phone="ngModel" [ngModel]="user?.phone" minlength="11" maxlength="11"
+        required>
+      <span *ngIf="phone.invalid && phone.touched">Phone number must be 11 digits.</span>
+    </div>
+    <div class="err-msg-container" *ngIf="errMsg">
+      <h4>Error!</h4>
+      <p>{{errMsg}}</p>
+      <button class="btn err-btn" type="button" (click)="errMsg = ''">Okay</button>
+    </div>
+    <p class="center">Registration fee of <strong>#100</strong> would be deducted from your account.</p>
+    <button class="btn register-btn px4" [disabled]="f.invalid">
+      <app-spinner *ngIf="isLoading"></app-spinner> {{isLoading ? 'Registering you...' :
+      'Register'}}
+    </button>
+  </form>
+</section>

@@ -1,0 +1,90 @@
+.modal {
+  position: fixed;
+  display: none;
+  z-index: 200;
+  width: 90%;
+  top: 30%;
+  left: 5%;
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.modal-title {
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+
+.show {
+  display: block;
+}
+
+.form-title {
+  text-align: center;
+  color: #3f51b5;
+}
+
+form {
+  padding: 1rem;
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input:focus {
+  outline: none;
+  background: #dadbe4;
+  border-color: #3f51b5;
+}
+
+span {
+  display: block;
+  font-size: 0.8rem;
+  color: red;
+}
+
+input,
+label,
+span {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  font: inherit;
+}
+
+label {
+  font-weight: bold;
+}
+
+input.ng-touched.ng-invalid {
+  border: 1px solid red;
+  background: #f6c1c1;
+}
+
+button:disabled {
+  color: #a1a1a1;
+  background-color: #ccc;
+  border-color: #a1a1a1;
+  cursor: not-allowed;
+}
+
+.register-btn {
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+@media (min-width: 40rem) {
+  form {
+    margin: auto;
+    width: 25rem;
+  }
+
+  .modal {
+    width: 40%;
+    left: 30%;
+  }
+}

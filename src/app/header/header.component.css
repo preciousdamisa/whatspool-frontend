@@ -1,0 +1,162 @@
+.main-header {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background-color: #303f9f;
+  position: fixed;
+  top: 0;
+}
+
+.main-header > div {
+  display: inline-block;
+  vertical-align: center;
+}
+
+.toggle-button {
+  width: 3rem;
+  background: transparent;
+  border: none;
+  padding-top: 0;
+  padding-bottom: 0;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.toggle-button:focus {
+  outline: none;
+}
+
+.toggle-button-bar {
+  width: 100%;
+  height: 0.2rem;
+  background: white;
+  display: block;
+  margin: 0.6rem 0;
+}
+
+.main-header__brand {
+  font-weight: bold;
+  color: #303f9f;
+  text-decoration: none;
+  background-color: white;
+  height: 2.7rem;
+  padding: 0.5rem;
+  display: inline-block;
+  border-radius: 30px;
+  vertical-align: middle;
+}
+
+.main-header__brand > img {
+  height: 100%;
+}
+
+.main-nav {
+  display: none;
+  width: calc(100% - 126px);
+  text-align: right;
+  vertical-align: middle;
+}
+
+.main-nav__items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-nav__item {
+  display: inline-block;
+  margin: 0 1rem;
+}
+
+.main-nav__item > a,
+.mobile-nav-item > a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 0.2rem 0;
+}
+
+.mobile-nav-item > a {
+  color: #303f9f;
+}
+
+.main-nav__item > a:hover,
+.main-nav__item > a:active {
+  border-bottom: 3px solid white;
+  border-radius: 3px;
+}
+
+.call-to-action > a {
+  border: 2px solid white;
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+}
+
+.call-to-action > a:hover,
+.call-to-action > a:active {
+  background: white;
+  color: #303f9f;
+}
+
+.mobile-nav-item.call-to-action > a {
+  border: 2px solid #303f9f;
+}
+
+.call-to-action.mobile-nav-item > a:hover,
+.call-to-action.mobile-nav-item > a:active {
+  background: #303f9f;
+  color: white;
+}
+
+nav img {
+  position: absolute;
+  left: 80%;
+  top: 4px;
+}
+
+.mobile-nav {
+  position: fixed;
+  display: none;
+  background: white;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 80%;
+  z-index: 101;
+  overflow-y: scroll;
+}
+
+.mobile-nav-items {
+  width: 90%;
+  height: 100%;
+  list-style: none;
+  margin: 20% auto;
+  padding: 0;
+  text-align: center;
+}
+
+.mobile-nav-item {
+  margin: 1rem 0;
+}
+
+.mobile-nav-item > a {
+  font-size: 1.5rem;
+}
+
+.active {
+  border-bottom: 3px solid white;
+  border-radius: 3px;
+}
+
+.show {
+  display: block;
+}
+
+@media (min-width: 40rem) {
+  .main-nav {
+    display: inline-block;
+  }
+
+  .toggle-button {
+    display: none;
+  }
+}

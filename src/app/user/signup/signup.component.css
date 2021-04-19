@@ -1,0 +1,98 @@
+.form-title {
+  text-align: center;
+  color: #3f51b5;
+}
+
+form {
+  padding: 1rem;
+}
+
+input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input:focus {
+  outline: none;
+  background: #dadbe4;
+  border-color: #3f51b5;
+}
+
+span {
+  display: block;
+  font-size: 0.8rem;
+  color: red;
+}
+
+input,
+label,
+span {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  font: inherit;
+}
+
+label,
+a {
+  font-weight: bold;
+}
+
+input.ng-touched.ng-invalid {
+  border: 1px solid red;
+  background: #f6c1c1;
+}
+
+.agree-terms-container {
+  margin-top: 1rem;
+}
+
+a {
+  color: #3f51b5;
+}
+
+a:active,
+a:hover {
+  color: white;
+  background: #3f51b5;
+}
+
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  appearance: none;
+}
+
+input[type="checkbox"]:checked {
+  background: #3f51b5;
+}
+
+span[for="agree-terms"] {
+  color: #212121;
+}
+
+input[id="agree-terms"],
+span[for="agree-terms"] {
+  display: inline-block;
+  width: auto;
+  vertical-align: bottom;
+}
+
+button:disabled {
+  color: #a1a1a1;
+  background-color: #ccc;
+  border-color: #a1a1a1;
+  cursor: not-allowed;
+}
+
+.signup-btn {
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+@media (min-width: 40rem) {
+  form {
+    margin: auto;
+    width: 25rem;
+  }
+}

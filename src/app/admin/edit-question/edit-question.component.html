@@ -1,0 +1,66 @@
+<section>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <h1 class="form-title">Add Question</h1>
+    <div>
+      <label for="question">Question Text</label>
+      <textarea id="question" type="text" rows="5" name="que" #question="ngModel" ngModel required></textarea>
+      <span *ngIf="question.invalid && question.touched">Question is required.</span>
+    </div>
+    <div>
+      <label for="option-a">Option A</label>
+      <input id="option-a" type="text" name="optA" #optionA="ngModel" ngModel required>
+      <span *ngIf="optionA.invalid && optionA.touched">Option A is required.</span>
+    </div>
+    <div>
+      <label for="option-b">Option B</label>
+      <input id="option-b" type="text" name="optB" #optionB="ngModel" ngModel required>
+      <span *ngIf="optionB.invalid && optionB.touched">Option B is required.</span>
+    </div>
+    <div>
+      <label for="option-c">Option C</label>
+      <input id="option-c" type="text" name="optC" #optionC="ngModel" ngModel required>
+      <span *ngIf="optionC.invalid && optionC.touched">Option C is required.</span>
+    </div>
+    <div>
+      <label for="option-d">Option D</label>
+      <input id="option-d" type="text" name="optD" #optionD="ngModel" ngModel required>
+      <span *ngIf="optionD.invalid && optionD.touched">Option D is required.</span>
+    </div>
+    <div>
+      <label for="option-e">Option E</label>
+      <input id="option-e" type="text" name="optE" #optionE="ngModel" ngModel required>
+      <span *ngIf="optionE.invalid && optionE.touched">Option E is required.</span>
+    </div>
+    <div>
+      <label for="answer">Answer</label>
+      <input id="answer" type="text" name="ans" #answer="ngModel" ngModel required maxlength="1" pattern="[A-E]">
+      <span *ngIf="answer.invalid && answer.touched">Answer is required and should be either A, B, C, D, or E.</span>
+    </div>
+    <div>
+      <label for="answer">Question number</label>
+      <input id="answer" type="number" name="no" #questionNumber="ngModel" [ngModel]="nextQuestionNo" required pattern="^[1-9]+[0-9]*$">
+      <span *ngIf="questionNumber.invalid && questionNumber.touched">Question number is required.</span>
+    </div>
+    <div>
+      <label for="subject">Subject</label>
+      <select name="subj" id="subject" ngModel #subject required>
+        <option *ngFor="let subj of subjects" [value]="subj">{{subj}}</option>
+      </select>
+    </div>
+    <div class="err-msg-container" *ngIf="errMsg">
+      <h4>Error!</h4>
+      <p>{{errMsg}}</p>
+      <button class="btn err-btn" type="button" (click)="errMsg = ''">Okay</button>
+    </div>
+    <div class="success-msg-container" *ngIf="questionInfo">
+      <h4>Success!</h4>
+      <hr>
+      <p>Question Number: {{questionInfo.no}}</p>
+      <p>Amount: {{questionInfo.que}}</p>
+      <button class="btn success-btn" type="button" (click)="onSuccess(f)">Okay</button>
+    </div>
+    <button class="btn add-question-btn" type="submit" [disabled]="f.invalid">
+      <app-spinner *ngIf="isLoading"></app-spinner> {{isLoading ? 'Adding Question...' : 'Add Question'}}
+    </button>
+  </form>
+</section>

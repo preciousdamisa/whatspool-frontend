@@ -1,1 +1,400 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Montserrat, sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+main {
+  min-height: calc(100vh - 3.7rem - 8rem);
+  margin-top: 3.7rem;
+}
+
+a {
+  cursor: pointer;
+}
+
+label {
+  display: block;
+}
+
+.btn {
+  font: inherit;
+  outline: none;
+  padding: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  background: #ff5722;
+  border: 1px solid #ff5722;
+  color: white;
+}
+
+.btn:hover,
+.btn:active {
+  background: rgba(255, 87, 34, 0.8);
+  border: 1px solid rgba(255, 87, 34, 0.8);
+}
+
+/* ***** UTILITIES ***** */
+.err-msg-container {
+  padding: 0.5rem;
+  border-radius: 5px;
+  background: #ffc4c4;
+  color: #fd4848;
+  font-weight: bold;
+}
+
+.err-btn {
+  background: #fd4848;
+}
+
+.err-btn:hover,
+.err-btn:active {
+  background: rgba(253, 72, 72, 0.8);
+  border: 1px solid rgba(253, 72, 72, 0.8);
+}
+
+.success-msg-container {
+  padding: 0.5rem;
+  border-radius: 5px;
+  background: #aeffae;
+  color: white;
+  font-weight: bold;
+}
+
+.success-btn {
+  background: #67ff67;
+  border: 1px solid #67ff67;
+}
+
+.success-btn:hover,
+.success-btn:active {
+  background: rgba(103, 255, 103, 0.8);
+  border: 1px solid rgba(103, 255, 103, 0.8);
+}
+
+.card {
+  padding: 0.5rem;
+  margin: 1rem;
+  width: 90%;
+  display: inline-block;
+  border-radius: 5px;
+  height: auto;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 40rem) {
+  .card {
+    width: 45%;
+  }
+}
+
+/* ***** PADDING ***** */
+
+/* ***** PADDING LEFT ***** */
+.pl1 {
+  padding-left: 4px;
+}
+
+.pl2 {
+  padding-left: 8px;
+}
+
+.pl3 {
+  padding-left: 12px;
+}
+
+.pl4 {
+  padding-left: 16px;
+}
+
+/* ***** PADDING RIGHT ***** */
+.pr1 {
+  padding-right: 4px;
+}
+
+.pr2 {
+  padding-right: 8px;
+}
+
+.pr3 {
+  padding-right: 12px;
+}
+
+.pr4 {
+  padding-right: 16px;
+}
+
+/* ***** PADDING TOP ***** */
+.pt1 {
+  padding-top: 4px;
+}
+
+.pt2 {
+  padding-top: 8px;
+}
+
+.pt3 {
+  padding-top: 12px;
+}
+
+.pt4 {
+  padding-top: 16px;
+}
+
+/* ***** PADDING BOTTOM ***** */
+.pb1 {
+  padding-bottom: 4px;
+}
+
+.pb2 {
+  padding-bottom: 8px;
+}
+
+.pb3 {
+  padding-bottom: 12px;
+}
+
+.pb4 {
+  padding-bottom: 16px;
+}
+
+/* ***** PADDING TOP AND BOTTOM ***** */
+.py1 {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.py2 {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.py3 {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.py4 {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+/* ***** PADDING LEFT AND RIGHT ***** */
+.px1 {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.px2 {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.px3 {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.px4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.px5 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* ***** MARGIN ***** */
+
+.m1 {
+  margin: 0.2rem;
+}
+
+.m2 {
+  margin: 0.5rem;
+}
+
+.m3 {
+  margin: 0.7rem;
+}
+
+.m4 {
+  margin: 1rem;
+}
+
+.m5 {
+  margin: 2rem;
+}
+
+/* ***** MARGIN LEFT ***** */
+.ml1 {
+  margin-left: 4px;
+}
+
+.ml2 {
+  margin-left: 8px;
+}
+
+.ml3 {
+  margin-left: 12px;
+}
+
+.ml4 {
+  margin-left: 16px;
+}
+
+/* ***** MARGIN RIGHT ***** */
+.mr1 {
+  margin-right: 4px;
+}
+
+.mr2 {
+  margin-right: 8px;
+}
+
+.mr3 {
+  margin-right: 12px;
+}
+
+.mr4 {
+  margin-right: 16px;
+}
+
+/* ***** MARGIN TOP ***** */
+.mt1 {
+  margin-top: 4px;
+}
+
+.mt2 {
+  margin-top: 8px;
+}
+
+.mt3 {
+  margin-top: 12px;
+}
+
+.mt4 {
+  margin-top: 1rem;
+}
+
+.mt5 {
+margin-top: 2rem;
+}
+
+/* ***** MARGIN BOTTOM ***** */
+.mb1 {
+  margin-bottom: 4px;
+}
+
+.mb2 {
+  margin-bottom: 8px;
+}
+
+.mb3 {
+  margin-bottom: 12px;
+}
+
+.mb4 {
+  margin-bottom: 16px;
+}
+
+/* ***** MARGIN TOP AND BOTTOM ***** */
+.my1 {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.my2 {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.my3 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.my4 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.my5 {
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+/* ***** MARGIN LEFT AND RIGHT ***** */
+.mx1 {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.mx2 {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.mx3 {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.mx4 {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+/* ***** POSITIONING ***** */
+.center {
+  text-align: center;
+}
+
+/* ***** COLOURS ***** */
+.white {
+  color: white;
+}
+
+.primary-color {
+  color: #3f51b5;
+}
+
+.dark-primary-color {
+  color: #303f9f;
+}
+
+.light-primary-color {
+  color: #c5cae9;
+}
+
+.accent-color {
+  color: #ff5722;
+}
+
+.divider-color {
+  color: #bdbdbd;
+}
+
+.primary-text {
+  color: #212121;
+}
+
+.secondary-text {
+  color: #757575;
+}
+
+/* ***** BUTTON ***** */
+.btn-shadow {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ***** TEXT ***** */
+.bold {
+  font-weight: bold;
+}

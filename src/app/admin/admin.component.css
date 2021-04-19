@@ -1,0 +1,22 @@
+nav {
+  padding: 2rem 0;
+  background: #303f9f;
+  width: 100%;
+  overflow-x: scroll;
+}
+
+.nav-items {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nav-item {
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+
+.nav-item > a {
+  color: white;
+  font-weight: bold;
+}

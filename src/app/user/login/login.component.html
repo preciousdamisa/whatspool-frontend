@@ -1,0 +1,24 @@
+<section>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <h1 class="form-title">Login</h1>
+    <div>
+      <label for="email">E-Mail</label>
+      <input id="email" type="email" name="email" #email="ngModel" [ngModel]="defaultEmail" required email>
+      <span *ngIf="email.invalid && email.touched">Enter a valid E-Mail.</span>
+    </div>
+    <div>
+      <label for="password">Password</label>
+      <input id="password" type="password" name="password" #password="ngModel" ngModel required>
+      <span *ngIf="password.invalid && password.touched">Password is required.</span>
+    </div>
+    <div class="err-msg-container" *ngIf="errMsg">
+      <h4>Error!</h4>
+      <p>{{errMsg}}</p>
+      <button class="btn err-btn" type="button" (click)="errMsg = ''">Okay</button>
+    </div>
+    <button class="btn login-btn" [disabled]="f.invalid">
+      <app-spinner *ngIf="isLoading"></app-spinner> {{isLoading ? 'Logging you in...' :
+      'Login'}}
+    </button>
+  </form>
+</section>

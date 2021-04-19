@@ -1,0 +1,70 @@
+.form-title {
+  text-align: center;
+  color: #3f51b5;
+  margin-bottom: 2rem;
+}
+
+form {
+  padding: 0 1rem;
+}
+
+input,
+textarea,
+select {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  background: #dadbe4;
+  border-color: #3f51b5;
+}
+
+span {
+  display: block;
+  font-size: 0.8rem;
+  color: red;
+}
+
+input,
+label,
+span,
+textarea,
+select {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  font: inherit;
+}
+
+label {
+  font-weight: bold;
+}
+
+input.ng-touched.ng-invalid,
+select.ng-touched.ng-invalid,
+textarea.ng-touched.ng-invalid {
+  border: 1px solid red;
+  background: #f6c1c1;
+}
+
+button:disabled {
+  color: #a1a1a1;
+  background-color: #ccc;
+  border-color: #a1a1a1;
+  cursor: not-allowed;
+}
+
+.add-question-btn {
+  margin-top: 1.5rem;
+  width: 100%;
+}
+
+@media (min-width: 40rem) {
+  form {
+    margin: auto;
+    width: 25rem;
+  }
+}

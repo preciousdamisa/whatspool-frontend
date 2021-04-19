@@ -1,0 +1,84 @@
+<header class="center">
+  <app-page-spinner *ngIf="isLoading"></app-page-spinner>
+  <h2 class="px3">{{getQuizDate()}}</h2>
+</header>
+<section>
+  <h2 class="center" *ngIf="firstPlaceWinners.length === 0">No First Place Winners</h2>
+  <table *ngIf="firstPlaceWinners.length !== 0">
+    <caption>First Place Winners</caption>
+    <tr>
+      <th>#</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+    </tr>
+    <tr *ngFor="let firstPW of firstPlaceWinners; let i1 = index">
+      <td>{{i1 + 1}}</td>
+      <td>{{firstPW.firstName}}</td>
+      <td>{{firstPW.lastName}}</td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h2 class="center" *ngIf="secondPlaceWinners.length === 0">No Second Place Winners</h2>
+  <table *ngIf="secondPlaceWinners.length !== 0">
+    <caption>Second Place Winners</caption>
+    <tr>
+      <th>#</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+    </tr>
+    <tr *ngFor="let secondPW of secondPlaceWinners; let i2 = index">
+      <td>{{i2 + 1}}</td>
+      <td>{{secondPW.firstName}}</td>
+      <td>{{secondPW.lastName}}</td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h2 class="center" *ngIf="thirdPlaceWinners.length === 0">No Third Place Winners</h2>
+  <table *ngIf="thirdPlaceWinners.length !== 0">
+    <caption>Third Place Winners</caption>
+    <tr>
+      <th>#</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+    </tr>
+    <tr *ngFor="let thirdPW of thirdPlaceWinners; let i3 = index">
+      <td>{{i3 + 1}}</td>
+      <td>{{thirdPW.firstName}}</td>
+      <td>{{thirdPW.lastName}}</td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h2 class="center" *ngIf="fourthPlaceWinners.length === 0">No Fourth Place Winners</h2>
+  <table *ngIf="fourthPlaceWinners.length !== 0">
+    <caption>Fourth Place Winners</caption>
+    <tr>
+      <th>#</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+    </tr>
+    <tr *ngFor="let fourthPW of fourthPlaceWinners; let i4 = index">
+      <td>{{i4 + 1}}</td>
+      <td>{{fourthPW.firstName}}</td>
+      <td>{{fourthPW.lastName}}</td>
+    </tr>
+  </table>
+</section>
+<section>
+  <h2 class="center" *ngIf="fifthPlaceWinners.length === 0">No Fifth Place Winners</h2>
+  <table *ngIf="fifthPlaceWinners.length !== 0">
+    <caption>Fifth Place Winners</caption>
+    <tr>
+      <th>#</th>
+      <th>Firstname</th>
+      <th>Lastname</th>
+    </tr>
+    <tr *ngFor="let fifthPW of fifthPlaceWinners; let i5 = index">
+      <td>{{i5 + 1}}</td>
+      <td>{{fifthPW.firstName}}</td>
+      <td>{{fifthPW.lastName}}</td>
+    </tr>
+  </table>
+</section>

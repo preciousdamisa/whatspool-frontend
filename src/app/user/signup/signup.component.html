@@ -1,0 +1,75 @@
+<section>
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <h1 class="form-title">Signup</h1>
+    <div>
+      <label>First name</label>
+      <input type="text" formControlName="firstName">
+      <span *ngIf="firstName.invalid && firstName.touched">
+        <span *ngIf="firstName.errors?.required">First name is required.</span>
+        <span *ngIf="firstName.errors?.minlength">First name should be a minimum of 2 characters.</span>
+        <span *ngIf="firstName.errors?.maxlength">First name should be a maximum of 25 characters.</span>
+      </span>
+    </div>
+    <div>
+      <label>Last name</label>
+      <input type="text" formControlName="lastName">
+      <span *ngIf="lastName.invalid && lastName.touched">
+        <span *ngIf="lastName.errors?.required">Last name is required.</span>
+        <span *ngIf="lastName.errors?.minlength">Last name should be a minimum of 2
+          characters.</span>
+        <span *ngIf="lastName.errors?.maxlength">Last name should be a maximum of 25
+          characters.</span>
+      </span>
+    </div>
+    <div>
+      <label>Phone number</label>
+      <input type="text" formControlName="phone">
+      <span *ngIf="phone.invalid && phone.touched">
+        <span *ngIf="phone.errors?.required">Phone number is required.</span>
+        <span *ngIf="phone.errors?.charLengthMustBeEleven">Phone number must be 11 digits.</span>
+      </span>
+    </div>
+    <div>
+      <label>E-Mail</label>
+      <input type="email" formControlName="email">
+      <span *ngIf="email.invalid && email.touched">
+        <span *ngIf="email.errors?.required">E-Mail is required.</span>
+        <span *ngIf="email.errors?.email">E-Mail must be valid.</span>
+      </span>
+    </div>
+    <div>
+      <label>Password</label>
+      <input type="password" formControlName="password">
+      <span *ngIf="password.invalid && password.touched">
+        <span *ngIf="password.errors?.required">Password is required.</span>
+        <span *ngIf="password.errors?.minlength">Password should be a minimum of 5
+          characters.</span>
+        <span *ngIf="password.errors?.maxlength">Password should be a maximum of 250
+          characters.</span>
+      </span>
+    </div>
+    <div>
+      <label>Confirm Password</label>
+      <input type="password" formControlName="confirmPassword">
+      <span *ngIf="confirmPassword.invalid && confirmPassword.touched">
+        <span *ngIf="confirmPassword.errors?.required">Confirm password is required.</span>
+        <span *ngIf="confirmPassword.errors?.passwordsMustBeSame">Both passwords must be the same.</span>
+      </span>
+    </div>
+    <!-- <div class="agree-terms-container">
+      <input type="checkbox" id="agree-terms" class="mr2">
+      <span for="agree-terms">Agree to
+        <a>Terms &amp; Conditions</a>
+      </span>
+    </div> -->
+    <div class="err-msg-container" *ngIf="errMsg">
+      <h4>Error!</h4>
+      <p>{{errMsg}}</p>
+      <button class="btn err-btn" type="button" (click)="errMsg = ''">Okay</button>
+    </div>
+    <button class="btn signup-btn" [disabled]="signupForm.invalid">
+      <app-spinner *ngIf="isLoading"></app-spinner> {{isLoading ? 'Signing you up...' :
+      'Signup'}}
+    </button>
+  </form>
+</section>

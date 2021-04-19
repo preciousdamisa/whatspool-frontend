@@ -1,0 +1,34 @@
+<div class="center mx4" *ngIf="!hasStarted">
+  <h3 class="start-info">WhatsPool has begun, click the button below to start. Goodluck!!!</h3>
+  <button class="btn start-btn mt5" (click)="onStartQuiz()">Start</button>
+</div>
+<app-page-spinner *ngIf="isLoading"></app-page-spinner>
+<section *ngIf="!isLoading && hasStarted">
+  <div class="remaining-time">
+    <h1>{{getRemainingTime().minutes}}</h1> <span class="separator mx3">:</span>
+    <h1>{{getRemainingTime().seconds}}</h1>
+  </div>
+  <div>
+    <div class="question mt5">
+      <h2>Question {{question.no}}</h2>
+      <p>{{question.que}}</p>
+    </div>
+    <div>
+      <form (ngSubmit)="onSubmit(f.value)" #f="ngForm">
+        <label for="optA"><input id="optA" type="radio" value="A" name="answer" ngModel
+            required>{{question.optA}}</label>
+        <label for="optB"><input id="optB" type="radio" value="B" name="answer" ngModel
+            required>{{question.optB}}</label>
+        <label for="optC"><input id="optC" type="radio" value="C" name="answer" ngModel
+            required>{{question.optC}}</label>
+        <label for="optD"><input id="optD" type="radio" value="D" name="answer" ngModel
+            required>{{question.optD}}</label>
+        <label for="optE"><input id="optE" type="radio" value="E" name="answer" ngModel
+            required>{{question.optE}}</label>
+        <button class="submit-btn btn my4" (click)="onSubmit(f.value)" [disabled]="isSubmitting || f.invalid">
+          <app-spinner *ngIf="isSubmitting"></app-spinner> {{getSubmitBtnText()}}
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

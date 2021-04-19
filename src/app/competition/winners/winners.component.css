@@ -1,0 +1,45 @@
+header {
+  padding: 2rem 0;
+  background: #303f9f;
+  width: 100%;
+  color: white;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+section {
+  padding: 1rem;
+}
+
+table {
+  width: 100%;
+}
+
+h2 {
+  font-size: 1.2rem;
+}
+
+caption {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+th,
+td {
+  padding: 5px;
+  text-align: left;
+}
+
+@media (min-width: 40rem) {
+  table {
+    padding: 1rem;
+    width: 50%;
+    margin: auto;
+  }
+}

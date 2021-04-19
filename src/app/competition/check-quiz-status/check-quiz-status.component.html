@@ -1,0 +1,12 @@
+<section class="center">
+  <h2>The following checks would be done:</h2>
+  <ul>
+    <li>1. If you're registered.</li>
+    <li>2. If it's time for WhatsPool.</li>
+    <li>3. If WhatsPool has ended.</li>
+  </ul>
+  <p class="py2"><strong>You would be redirected to the appropriate page, based on the result.</strong></p>
+  <button class="btn check-status-btn" (click)="onCheckCompetitionStatus()">
+    <app-spinner *ngIf="isLoading"></app-spinner> {{isLoading ? 'Checking...' : 'Check Competition Status'}}
+  </button>
+</section>

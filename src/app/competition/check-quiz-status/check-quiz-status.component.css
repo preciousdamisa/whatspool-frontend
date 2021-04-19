@@ -1,0 +1,30 @@
+section {
+  padding: 2rem 1rem;
+}
+
+ul,
+h2 {
+  text-align: start;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+li {
+  font-size: 1.2rem;
+}
+
+.check-status-btn {
+  width: 80%;
+}
+
+@media (min-width: 40rem) {
+  section,
+  .check-status-btn {
+    width: 25rem;
+    margin: 2rem auto;
+  }
+}
