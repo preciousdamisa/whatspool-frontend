@@ -37,6 +37,7 @@ import { CompletionComponent } from './competition/completion/completion.compone
 import { PageSpinnerComponent } from './shared/page-spinner/page-spinner.component';
 import { WinnersComponent } from './competition/winners/winners.component';
 import { QuestionsComponent } from './admin/questions/questions.component';
+import { CompetitorsComponent } from './admin/competitors/competitors.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { QuestionsComponent } from './admin/questions/questions.component';
     PageSpinnerComponent,
     WinnersComponent,
     QuestionsComponent,
+    CompetitorsComponent,
   ],
   imports: [
     BrowserModule,

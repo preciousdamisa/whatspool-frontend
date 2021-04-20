@@ -10,16 +10,16 @@ import { MyHttpService } from '../../shared/services/my-http.service';
 
 @Injectable({ providedIn: 'root' })
 export class EditQuestionService {
-  constructor(private http: HttpClient, private myHttpService: MyHttpService) {}
+  constructor(private http: HttpClient, private myHttp: MyHttpService) {}
 
   addQuestion(question: Question) {
     return this.http
       .post<Question>(environment.whatspoolApiUrl + 'questions', question)
-      .pipe(catchError(this.myHttpService.handleErr));
+      .pipe(catchError(this.myHttp.handleErr));
   }
 
   getQuestionCount() {
-    return this.myHttpService.http.get(
+    return this.myHttp.http.get(
       environment.whatspoolApiUrl + 'questions/count'
     );
   }

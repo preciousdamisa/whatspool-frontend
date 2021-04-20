@@ -11,7 +11,7 @@ import { Winner } from './winner.model';
   styleUrls: ['./winners.component.css'],
 })
 export class WinnersComponent implements OnInit {
-  isLoading!: boolean;
+  isLoading = false;
   subscription!: Subscription;
   quizDate!: number | undefined;
   haveWinners = false;

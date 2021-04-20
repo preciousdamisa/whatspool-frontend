@@ -1,11 +1,11 @@
 .product-overview {
   background: #3f51b5;
-  height: 540px;
+  height: 600px;
 }
 
 @media (min-width: 40rem) {
   .product-overview {
-    height: 500px;
+    height: 450px;
   }
 }
 

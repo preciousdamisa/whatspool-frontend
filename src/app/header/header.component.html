@@ -16,7 +16,7 @@
       </li>
       <li class="main-nav__item call-to-action" *ngIf="isLoggedIn"><a routerLink="competition/check-status">Compete</a>
       </li>
-      <li class="main-nav__item" *ngIf="isLoggedIn"><a routerLink="competition/winners">Winners</a>
+      <li class="main-nav__item"><a routerLink="competition/winners">Winners</a>
       </li>
       <li class="main-nav__item"><a routerLink="about" routerLinkActive="active">About</a></li>
       <li class="main-nav__item"><a routerLink="contact-us" routerLinkActive="active">Contact Us</a></li>
@@ -39,7 +39,7 @@
     <li class="mobile-nav-item call-to-action" *ngIf="isLoggedIn"><a routerLink="competition/check-status"
         (click)="onCloseDrawer()">Compete</a>
     </li>
-    <li class="mobile-nav-item" *ngIf="isLoggedIn"><a routerLink="competition/winners"
+    <li class="mobile-nav-item"><a routerLink="competition/winners"
         (click)="onCloseDrawer()">Winners</a>
     </li>
     <li class="mobile-nav-item"><a routerLink="about" routerLinkActive="active" (click)="onCloseDrawer()">About</a>

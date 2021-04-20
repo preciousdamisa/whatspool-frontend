@@ -1,20 +1,25 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
-import { Subject, throwError } from 'rxjs';
+import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 
 import { AuthResponseData } from './auth-response-data.model';
 
 import { User } from './user.model';
 import { environment } from '../../environments/environment';
+import { MyHttpService } from '../shared/services/my-http.service';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
   userSubj = new Subject<User | null>();
   private tokenExpirationTimer: any;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private myHttp: MyHttpService,
+    private router: Router
+  ) {}
 
   getUser() {
     const user = this.getStoredUserData();
@@ -48,7 +53,7 @@ export class UserService {
         tap((res) => {
           this.handleAuth(res);
         }),
-        catchError(this.handleErr)
+        catchError(this.myHttp.handleErr)
       );
   }
 
@@ -62,7 +67,7 @@ export class UserService {
         tap((res) => {
           this.handleAuth(res);
         }),
-        catchError(this.handleErr)
+        catchError(this.myHttp.handleErr)
       );
   }
 
@@ -114,13 +119,5 @@ export class UserService {
     this.userSubj.next(user);
     localStorage.setItem('userData', JSON.stringify(user));
     this.autoLogout(tokenLifeSpan);
-  }
-
-  private handleErr(err: HttpErrorResponse) {
-    let errMsg = 'An error occured. Please check your internet connection';
-    if (err.error) {
-      errMsg = err.error;
-    }
-    return throwError(errMsg);
   }
 }

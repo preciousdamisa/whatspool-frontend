@@ -1,8 +1,8 @@
-<div class="center">
+<section class="center">
   <h3 class="delete-info">Click the button below to delete all questions.</h3>
   <h3 *ngIf="successMsg" class="mt5">{{successMsg}}</h3>
   <h3 *ngIf="errMsg" class="mt5">{{errMsg}}</h3>
   <button class="btn delete-btn mt2" (click)="onDeleteQuestions()">
     <app-spinner *ngIf="isLoading"></app-spinner>{{isLoading ? 'Deleting...' : 'Delete'}}
   </button>
-</div>
+</section>

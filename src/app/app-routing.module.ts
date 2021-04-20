@@ -24,6 +24,7 @@ import { QuestionsComponent } from './admin/questions/questions.component';
 
 import { AuthGuardService } from './user/auth-guard.service';
 import { AdminGuardService } from './admin/admin-guard.service';
+import { CompetitorsComponent } from './admin/competitors/competitors.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -59,6 +60,7 @@ const routes: Routes = [
       { path: 'fund-account', component: FundAccountComponent },
       { path: 'add-question', component: EditQuestionComponent },
       { path: 'questions', component: QuestionsComponent },
+      { path: 'competitors', component: CompetitorsComponent },
     ],
   },
   { path: 'about', component: AboutComponent },
@@ -70,6 +72,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-exports: [RouterModule],
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

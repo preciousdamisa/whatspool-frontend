@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Question } from 'src/app/shared/models/question.model';
+import { Subscription } from 'rxjs';
 
 import { EditQuestionService } from './edit-question.service';
 
@@ -9,12 +10,13 @@ import { EditQuestionService } from './edit-question.service';
   templateUrl: './edit-question.component.html',
   styleUrls: ['./edit-question.component.css'],
 })
-export class EditQuestionComponent implements OnInit {
+export class EditQuestionComponent implements OnInit, OnDestroy {
   subjects = ['Maths', 'English', 'General', 'Current Affairs'];
   isLoading = false;
   questionInfo!: Question | null;
   nextQuestionNo!: number;
   errMsg = '';
+  subscription!: Subscription;
 
   constructor(private addQueService: EditQuestionService) {}
 
@@ -41,7 +43,7 @@ export class EditQuestionComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     this.isLoading = true;
-    this.addQueService.addQuestion(form.value).subscribe(
+    this.subscription = this.addQueService.addQuestion(form.value).subscribe(
       (res) => {
         this.isLoading = false;
         this.questionInfo = res;
@@ -57,5 +59,11 @@ export class EditQuestionComponent implements OnInit {
     form.reset();
     this.getQuestionsCount();
     this.questionInfo = null;
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }

@@ -1,0 +1,11 @@
+<app-page-spinner *ngIf="isFetching"></app-page-spinner>
+<section class="center">
+  <h3>Competitors Count:</h3>
+  <h1>{{competitorsCount}}</h1>
+  <h3 class="delete-info">Click the button below to delete all competitors.</h3>
+  <h3 *ngIf="successMsg" class="mt2">{{successMsg}}</h3>
+  <h3 *ngIf="errMsg" class="mt2">{{errMsg}}</h3>
+  <button class="btn delete-btn mt2" (click)="onDeleteCompetitors()">
+    <app-spinner *ngIf="isLoading"></app-spinner>{{isLoading ? 'Deleting...' : 'Delete'}}
+  </button>
+</section>

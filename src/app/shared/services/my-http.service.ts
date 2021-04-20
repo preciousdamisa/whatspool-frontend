@@ -3,14 +3,21 @@ import { Injectable } from '@angular/core';
 import { throwError } from 'rxjs';
 
 import axios from 'axios';
-import { UserService } from 'src/app/user/user.service';
 import { environment } from '../../../environments/environment';
+import { User } from '../../user/user.model';
 
 @Injectable({ providedIn: 'root' })
 export class MyHttpService {
-  constructor(private userService: UserService) {}
   get http() {
-    const token = this.userService.getUser()?.token;
+    // If saved user data is not found, due to the fact that it's been
+    // deleted or for some other reason. Then using the string "'Error'"
+    // would cause the application to be put in a bad state. As a user can't
+    // be created and his/her token used for authentication.
+    // An error message should be shown to the user when this happens, and the
+    // user should be directed to the login page (TO BE IMPLEMENTED).
+    const userData = localStorage.getItem('userData') || 'Error';
+    const token = User.fromJson(JSON.parse(userData)).token;
+
     return axios.create({
       baseURL: environment.whatspoolApiUrl,
       headers: { 'x-auth-token': token },
@@ -19,7 +26,7 @@ export class MyHttpService {
 
   handleErr(err: HttpErrorResponse) {
     let errMsg = 'An error occured. Please check your internet connection';
-    if (err.error) {
+    if (typeof err.error === 'string') {
       errMsg = err.error;
     }
     return throwError(errMsg);

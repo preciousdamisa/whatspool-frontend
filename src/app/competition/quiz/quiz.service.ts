@@ -28,19 +28,19 @@ export class QuizService {
   }
 
   getCompetitor() {
-    return this.myHttpService.http.get('competitors');
+    return this.myHttpService.http?.get('competitors');
   }
 
   getQuestion(questionNo: number) {
-    return this.myHttpService.http.get('questions/' + questionNo);
+    return this.myHttpService.http?.get('questions/' + questionNo);
   }
 
   startQuiz() {
-    return this.myHttpService.http.get('start-quiz');
+    return this.myHttpService.http?.get('start-quiz');
   }
 
   submitAnswer(competitorId: string, questionNumber: number, ans: string) {
-    return this.myHttpService.http.post('submit', {
+    return this.myHttpService.http?.post('submit', {
       competitorId,
       questionNumber,
       ans,

@@ -6,12 +6,18 @@ import { MyHttpService } from './../../shared/services/my-http.service';
 import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
-export class QuestionsService {
+export class CompetitorsService {
   constructor(private http: HttpClient, private myHttp: MyHttpService) {}
 
-  deleteQuestions() {
+  deleteCompetitors() {
     return this.http
-      .delete(environment.whatspoolApiUrl + 'questions')
+      .delete(environment.whatspoolApiUrl + 'competitors')
       .pipe(catchError(this.myHttp.handleErr));
+  }
+
+  getCompetitorsCount() {
+    return this.myHttp.http.get(
+      environment.whatspoolApiUrl + 'competitors/count'
+    );
   }
 }

@@ -55,8 +55,8 @@
     <div class="success-msg-container" *ngIf="questionInfo">
       <h4>Success!</h4>
       <hr>
-      <p>Question Number: {{questionInfo.no}}</p>
-      <p>Amount: {{questionInfo.que}}</p>
+      <p>Question No: {{questionInfo.no}}</p>
+      <p>Question Text: {{questionInfo.que}}</p>
       <button class="btn success-btn" type="button" (click)="onSuccess(f)">Okay</button>
     </div>
     <button class="btn add-question-btn" type="submit" [disabled]="f.invalid">
