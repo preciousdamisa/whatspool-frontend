@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { AuthResponseData } from './auth-response-data.model';
 
 import { User } from './user.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -36,7 +37,7 @@ export class UserService {
     password: string
   ) {
     return this.http
-      .post<AuthResponseData>('http://localhost:4000/api/users', {
+      .post<AuthResponseData>(environment.whatspoolApiUrl + 'users', {
         firstName,
         lastName,
         phone,
@@ -53,7 +54,7 @@ export class UserService {
 
   login(email: string, password: string) {
     return this.http
-      .post<AuthResponseData>('http://localhost:4000/api/auth', {
+      .post<AuthResponseData>(environment.whatspoolApiUrl + 'auth', {
         email,
         password,
       })

@@ -4,6 +4,7 @@ import { catchError, exhaustMap } from 'rxjs/operators';
 
 import { MyHttpService } from '../../shared/services/my-http.service';
 import { Winner } from '../winners/winner.model';
+import { environment } from '../../../environments/environment';
 
 export class QuizTime {
   constructor(
@@ -19,9 +20,9 @@ export class QuizService {
   constructor(private http: HttpClient, private myHttpService: MyHttpService) {}
 
   checkQuizStatus() {
-    return this.http.get('http://localhost:4000/api/competitors').pipe(
+    return this.http.get(environment.whatspoolApiUrl + 'competitors').pipe(
       exhaustMap(() => {
-        return this.http.get('http://localhost:4000/api/start-quiz');
+        return this.http.get(environment.whatspoolApiUrl + 'start-quiz');
       })
     );
   }
@@ -55,7 +56,7 @@ export class QuizService {
         thirdPlaceWinners: [Winner];
         fourthPlaceWinners: [Winner];
         fifthPlaceWinners: [Winner];
-      }>('http://localhost:4000/api/winners')
+      }>(environment.whatspoolApiUrl + 'winners')
       .pipe(catchError(this.myHttpService.handleErr));
   }
 }

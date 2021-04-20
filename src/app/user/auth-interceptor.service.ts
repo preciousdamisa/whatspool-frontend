@@ -7,6 +7,7 @@ import {
 import { Injectable } from '@angular/core';
 
 import { UserService } from './user.service';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthInterceptorService implements HttpInterceptor {
@@ -18,8 +19,8 @@ export class AuthInterceptorService implements HttpInterceptor {
     console.log(req.url);
 
     if (
-      req.url === 'http://localhost:4000/api/users' ||
-      req.url === 'http://localhost:4000/api/auth'
+      req.url === environment.whatspoolApiUrl + 'users' ||
+      req.url === environment.whatspoolApiUrl + 'auth'
     ) {
       return next.handle(req);
     } else {

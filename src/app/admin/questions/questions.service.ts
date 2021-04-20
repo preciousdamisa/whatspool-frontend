@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 
 import { MyHttpService } from './../../shared/services/my-http.service';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class QuestionsService {
@@ -10,7 +11,7 @@ export class QuestionsService {
 
   deleteQuestions() {
     return this.http
-      .delete('http://localhost:4000/api/questions')
+      .delete(environment.whatspoolApiUrl + 'questions')
       .pipe(catchError(this.myHttp.handleErr));
   }
 }

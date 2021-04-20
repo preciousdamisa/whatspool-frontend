@@ -4,6 +4,7 @@ import { throwError } from 'rxjs';
 
 import axios from 'axios';
 import { UserService } from 'src/app/user/user.service';
+import { environment } from '../../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class MyHttpService {
@@ -11,7 +12,7 @@ export class MyHttpService {
   get http() {
     const token = this.userService.getUser()?.token;
     return axios.create({
-      baseURL: 'http://localhost:4000/api/',
+      baseURL: environment.whatspoolApiUrl,
       headers: { 'x-auth-token': token },
     });
   }

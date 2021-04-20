@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 
+import { environment } from '../../../environments/environment';
+
 import { Question } from '../../shared/models/question.model';
 
 import { MyHttpService } from '../../shared/services/my-http.service';
@@ -12,11 +14,13 @@ export class EditQuestionService {
 
   addQuestion(question: Question) {
     return this.http
-      .post<Question>('http://localhost:4000/api/questions', question)
+      .post<Question>(environment.whatspoolApiUrl + 'questions', question)
       .pipe(catchError(this.myHttpService.handleErr));
   }
 
   getQuestionCount() {
-    return this.myHttpService.http.get('questions/count');
+    return this.myHttpService.http.get(
+      environment.whatspoolApiUrl + 'questions/count'
+    );
   }
 }

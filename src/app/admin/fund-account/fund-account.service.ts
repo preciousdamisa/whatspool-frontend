@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 
 import { MyHttpService } from '../../shared/services/my-http.service';
+import { environment } from '../../../environments/environment';
 
 export interface FundAccountResponseData {
   user: string;
@@ -20,7 +21,7 @@ export class FundAccountService {
 
   fundAccount(phone: string, amount: number) {
     return this.http
-      .post<FundAccountResponseData>('http://localhost:4000/api/manual-fund', {
+      .post<FundAccountResponseData>(environment.whatspoolApiUrl + 'manual-fund', {
         phone,
         amount,
       })
