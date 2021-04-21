@@ -5,7 +5,10 @@ export class User {
     public lastName: string,
     public email: string,
     public phone: string,
+    public balance: number,
+    public referralBonus: number,
     public roles: [],
+    public wins: [],
     public referralCode: string,
     private _token: string,
     private _tokenExpiryTime: Date
@@ -17,7 +20,10 @@ export class User {
     lastName: string;
     email: string;
     phone: string;
+    balance: number;
+    referralBonus: number;
     roles: [];
+    wins: [];
     referralCode: string;
     _token: string;
     _tokenExpiryTime: string;
@@ -28,7 +34,10 @@ export class User {
       userData.lastName,
       userData.email,
       userData.phone,
+      userData.balance,
+      userData.referralBonus,
       userData.roles,
+      userData.wins,
       userData.referralCode,
       userData._token,
       new Date(userData._tokenExpiryTime)

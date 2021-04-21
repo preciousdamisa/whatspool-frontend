@@ -21,6 +21,7 @@ import { NotYetTimeComponent } from './competition/not-yet-time/not-yet-time.com
 import { CompletionComponent } from './competition/completion/completion.component';
 import { WinnersComponent } from './competition/winners/winners.component';
 import { QuestionsComponent } from './admin/questions/questions.component';
+import { QuestionsAndAnswersComponent } from './competition/questions-and-answers/questions-and-answers.component';
 
 import { AuthGuardService } from './user/auth-guard.service';
 import { AdminGuardService } from './admin/admin-guard.service';
@@ -50,6 +51,10 @@ const routes: Routes = [
       { path: 'completion/:score', component: CompletionComponent },
       { path: 'has-ended', component: HasEndedComponent },
       { path: 'winners', component: WinnersComponent },
+      {
+        path: 'questions-and-answers',
+        component: QuestionsAndAnswersComponent,
+      },
     ],
   },
   {

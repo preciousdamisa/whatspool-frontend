@@ -7,5 +7,6 @@ export class Question {
     public optD: string,
     public optE: string,
     public no: number,
+    public ans?: string
   ) {}
 }

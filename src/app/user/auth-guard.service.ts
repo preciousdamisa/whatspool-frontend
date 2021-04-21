@@ -22,7 +22,7 @@ export class AuthGuardService implements CanActivate {
     | boolean
     | UrlTree {
     const user = this.userService.getUser();
-    if (user) {
+    if (user || state.url === '/competition/winners') {
       return true;
     } else {
       return this.router.navigate(['/login']);

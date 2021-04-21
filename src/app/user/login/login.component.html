@@ -16,7 +16,10 @@
       <p>{{errMsg}}</p>
       <button class="btn err-btn" type="button" (click)="errMsg = ''">Okay</button>
     </div>
-    <button class="btn login-btn" [disabled]="f.invalid">
+    <div class="center">
+      <p>Don't have an account? <a routerLink="/signup">Signup</a></p>
+    </div>
+    <button class="btn login-btn" [disabled]="f.invalid || isLoading">
       <app-spinner *ngIf="isLoading"></app-spinner> {{isLoading ? 'Logging you in...' :
       'Login'}}
     </button>

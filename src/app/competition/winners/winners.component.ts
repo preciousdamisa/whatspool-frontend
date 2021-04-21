@@ -28,14 +28,16 @@ export class WinnersComponent implements OnInit {
     this.isLoading = true;
     this.quizService.getWinners().subscribe(
       (res) => {
-        this.quizDate = res.firstPlaceWinners[0].createdAt;
+        if (res.haveWinners) {
+          this.quizDate = res.firstPlaceWinners[0].createdAt;
 
-        this.haveWinners = res.haveWinners;
-        this.firstPlaceWinners = this.createWinners(res.firstPlaceWinners);
-        this.secondPlaceWinners = this.createWinners(res.secondPlaceWinners);
-        this.thirdPlaceWinners = this.createWinners(res.thirdPlaceWinners);
-        this.fourthPlaceWinners = this.createWinners(res.fourthPlaceWinners);
-        this.fifthPlaceWinners = this.createWinners(res.fifthPlaceWinners);
+          this.haveWinners = res.haveWinners;
+          this.firstPlaceWinners = this.createWinners(res.firstPlaceWinners);
+          this.secondPlaceWinners = this.createWinners(res.secondPlaceWinners);
+          this.thirdPlaceWinners = this.createWinners(res.thirdPlaceWinners);
+          this.fourthPlaceWinners = this.createWinners(res.fourthPlaceWinners);
+          this.fifthPlaceWinners = this.createWinners(res.fifthPlaceWinners);
+        }
 
         this.isLoading = false;
       },

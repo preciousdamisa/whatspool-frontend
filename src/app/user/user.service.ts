@@ -110,7 +110,10 @@ export class UserService {
       res.lastName,
       res.email,
       res.phone,
+      res.referralBonus,
+      res.balance,
       res.roles,
+      res.wins,
       res.referralCode,
       res.token,
       tokenExpiryTime

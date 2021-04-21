@@ -3,6 +3,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
+import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -13,8 +15,6 @@ import { CompetitionComponent } from './competition/competition.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { AccountComponent } from './account/account.component';
-
-import { AppRoutingModule } from './app-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ReferralInfoComponent } from './referral-info/referral-info.component';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
@@ -25,8 +25,6 @@ import { StatisticsComponent } from './account/statistics/statistics.component';
 import { FundAccountInfoComponent } from './account/fund-account-info/fund-account-info.component';
 import { AdminComponent } from './admin/admin.component';
 import { FundAccountComponent } from './admin/fund-account/fund-account.component';
-
-import { AuthInterceptorService } from './user/auth-interceptor.service';
 import { RegisterComponent } from './competition/register/register.component';
 import { EditQuestionComponent } from './admin/edit-question/edit-question.component';
 import { QuizComponent } from './competition/quiz/quiz.component';
@@ -34,10 +32,14 @@ import { CheckQuizStatusComponent } from './competition/check-quiz-status/check-
 import { NotYetTimeComponent } from './competition/not-yet-time/not-yet-time.component';
 import { HasEndedComponent } from './competition/has-ended/has-ended.component';
 import { CompletionComponent } from './competition/completion/completion.component';
-import { PageSpinnerComponent } from './shared/page-spinner/page-spinner.component';
+import { PageSpinnerComponent } from './shared/components/page-spinner/page-spinner.component';
 import { WinnersComponent } from './competition/winners/winners.component';
 import { QuestionsComponent } from './admin/questions/questions.component';
 import { CompetitorsComponent } from './admin/competitors/competitors.component';
+import { QuestionsAndAnswersComponent } from './competition/questions-and-answers/questions-and-answers.component';
+
+import { AuthInterceptorService } from './user/auth-interceptor.service';
+import { InPageSpinnerComponent } from './shared/components/in-page-spinner/in-page-spinner.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +74,8 @@ import { CompetitorsComponent } from './admin/competitors/competitors.component'
     WinnersComponent,
     QuestionsComponent,
     CompetitorsComponent,
+    QuestionsAndAnswersComponent,
+    InPageSpinnerComponent,
   ],
   imports: [
     BrowserModule,

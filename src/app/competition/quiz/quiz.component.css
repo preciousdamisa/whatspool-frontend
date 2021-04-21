@@ -2,6 +2,14 @@ section {
   padding: 1.5rem;
 }
 
+.start-info {
+  padding-top: 8rem;
+}
+
+.start-btn {
+  width: 100%;
+}
+
 .remaining-time {
   background: #3f51b5;
   width: 200px;

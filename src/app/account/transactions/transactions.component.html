@@ -1,1 +1,25 @@
-<p>transactions works!</p>
+<div class="card">
+  <div class="center">
+    <h3>Transactions</h3>
+  </div>
+  <hr class="card-title-divider">
+  <div class="card-body">
+    <div *ngIf="isLoading" class="center">
+      <app-in-page-spinner></app-in-page-spinner>
+    </div>
+    <div *ngIf="!isLoading && transactions.length === 0 && !errMsg">
+      <h3 class="center">No Transactions yet.</h3>
+    </div>
+    <div *ngIf="!isLoading && errMsg">
+      <h3 class="center">Error in fetching transactions. Please check your network connection.</h3>
+    </div>
+    <div *ngIf="!isLoading && transactions.length > 1">
+      <div *ngFor="let transaction of transactions">
+        <p><strong>Purpose:</strong> {{transaction.purpose}}</p>
+        <p><strong>Amount:</strong> {{transaction.amount}}</p>
+        <p><strong>Date:</strong> {{transaction.createdAt}}</p>
+        <hr>
+      </div>
+    </div>
+  </div>
+</div>

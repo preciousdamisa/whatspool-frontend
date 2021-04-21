@@ -113,7 +113,7 @@ export class SignupComponent implements OnInit {
       .subscribe(
         (res) => {
           this.isLoading = false;
-          this.router.navigate(['/about']);
+          this.router.navigate(['']);
         },
         (errMsg) => {
           this.isLoading = false;

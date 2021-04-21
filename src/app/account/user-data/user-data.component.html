@@ -1,13 +1,16 @@
 <div class="card">
   <div class="center">
+    <input style="display: none" type="text" [value]="getRefLink()" #refLinkInput>
     <button class="btn mr3 my2">Fund Account</button>
-    <button class="btn">Get Referral Link</button>
+    <button class="btn" (click)="copyRefLinkToClipboard(refLinkInput)">{{isLinkCopied ? 'Link Copied' : 'Copy Referral
+      Link'}}</button>
   </div>
-  <hr>
+  <hr class="card-title-divider">
   <div>
-    <h4>Name: {{user?.firstName + ' ' + user?.lastName}}</h4>
-    <h4>Phone: {{user?.phone}}</h4>
-    <h4>E-Mail: {{user?.email}}</h4>
-    <h4>Referral Code: {{user?.referralCode}}</h4>
+    <p><span>Name:</span> {{user?.firstName + ' ' + user?.lastName}}</p>
+    <p><span>Phone:</span> {{user?.phone}}</p>
+    <p><span>Balance:</span> #{{user?.balance}}.0</p>
+    <p><span>Referal Bonus:</span> #{{user?.referralBonus}}.0</p>
+    <p><span>E-Mail:</span> {{user?.email}}</p>
   </div>
 </div>

@@ -78,13 +78,24 @@ label {
 }
 
 .card {
-  padding: 0.5rem;
+  padding: 1rem;
   margin: 1rem;
   width: 90%;
   display: inline-block;
   border-radius: 5px;
-  height: auto;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+  vertical-align: top;
+}
+
+.card-title-divider {
+  background: #303f9f;
+  height: 3px;
+}
+
+.card-body {
+  overflow-y: scroll;
+  height: 300px;
+  max-height: 300px;
 }
 
 @media (min-width: 40rem) {
@@ -284,7 +295,7 @@ label {
 }
 
 .mt5 {
-margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 /* ***** MARGIN BOTTOM ***** */
