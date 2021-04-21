@@ -11,9 +11,9 @@
       <h3 class="center">No Transactions yet.</h3>
     </div>
     <div *ngIf="!isLoading && errMsg">
-      <h3 class="center">Error in fetching transactions. Please check your network connection.</h3>
+      <h3 class="center">Error in loading transactions. Please check your network connection.</h3>
     </div>
-    <div *ngIf="!isLoading && transactions.length > 1">
+    <div *ngIf="!isLoading && transactions.length > 0">
       <div *ngFor="let transaction of transactions">
         <p><strong>Purpose:</strong> {{transaction.purpose}}</p>
         <p><strong>Amount:</strong> {{transaction.amount}}</p>

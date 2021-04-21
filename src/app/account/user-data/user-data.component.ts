@@ -20,8 +20,7 @@ export class UserDataComponent implements OnInit {
   }
 
   copyRefLinkToClipboard(el: HTMLInputElement) {
-    console.log(el);
-    el.select();
+    el.select()
     document.execCommand('copy');
     this.isLinkCopied = true;
 
@@ -31,6 +30,6 @@ export class UserDataComponent implements OnInit {
   }
 
   getRefLink() {
-    return `${environment}/signup?refCode=${this.user?.firstName}-${this.user?.referralCode}`;
+    return `${environment.whatspoolApiUrl}/signup?refCode=${this.user?.firstName}-${this.user?.referralCode}`;
   }
 }

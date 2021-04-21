@@ -24,8 +24,8 @@ export class TransfersComponent implements OnInit, OnDestroy {
 
   getTransfers() {
     this.isLoading = true;
-    this.transfersService.getTransfers().subscribe(
-      (res: Transfer[]) => {        
+    this.subscription = this.transfersService.getTransfers().subscribe(
+      (res: Transfer[]) => {
         this.transfers = this.createTransfers(res);
         this.isLoading = false;
       },
@@ -37,6 +37,8 @@ export class TransfersComponent implements OnInit, OnDestroy {
   }
 
   createTransfers(transfers: Transfer[]) {
+    console.log(transfers);
+
     const modifiedTransfers: Transfer[] = [];
     for (let transfer of transfers) {
       modifiedTransfers.unshift(

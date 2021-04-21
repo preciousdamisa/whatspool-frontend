@@ -1,3 +1,18 @@
 span {
   font-weight: bold;
 }
+
+input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  margin: 0.5rem 0;
+  font: inherit;
+}
+
+input:focus {
+  outline: none;
+  background: #dadbe4;
+  border-color: #3F51B5;
+}

@@ -11,9 +11,9 @@
       <h3 class="center">No Transfers yet.</h3>
     </div>
     <div *ngIf="!isLoading && errMsg">
-      <h3 class="center">Error in fetching transfers. Please check your network connection.</h3>
+      <h3 class="center">Error in loading transfers. Please check your network connection.</h3>
     </div>
-    <div *ngIf="!isLoading && transfers.length > 1">
+    <div *ngIf="!isLoading && transfers.length > 0">
       <div *ngFor="let transfer of transfers">
         <p><strong>Mode:</strong> {{transfer.mode}}</p>
         <p><strong>Amount:</strong> {{transfer.amount}}</p>

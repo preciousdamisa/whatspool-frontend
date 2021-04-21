@@ -1,9 +1,9 @@
 <div class="card">
   <div class="center">
-    <input style="display: none" type="text" [value]="getRefLink()" #refLinkInput>
     <button class="btn mr3 my2">Fund Account</button>
-    <button class="btn" (click)="copyRefLinkToClipboard(refLinkInput)">{{isLinkCopied ? 'Link Copied' : 'Copy Referral
+    <button class="btn" (click)="copyRefLinkToClipboard(refLinkInput)">{{isLinkCopied ? 'Ref Link Copied' : 'Copy Referral
       Link'}}</button>
+      <input type="text" [value]="getRefLink()" readonly #refLinkInput>
   </div>
   <hr class="card-title-divider">
   <div>

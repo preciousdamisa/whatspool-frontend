@@ -24,7 +24,7 @@ export class TransactionsComponent implements OnInit, OnDestroy {
 
   getTransactions() {
     this.isLoading = true;
-    this.transactionsService.getTransactions().subscribe(
+    this.subscription = this.transactionsService.getTransactions().subscribe(
       (res: Transaction[]) => {
         this.transactions = this.createTransactions(res);
         this.isLoading = false;
