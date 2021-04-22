@@ -21,6 +21,8 @@ label {
   display: block;
 }
 
+/* ***** BUTTON ***** */
+
 .btn {
   font: inherit;
   outline: none;
@@ -104,7 +106,47 @@ label {
   }
 }
 
+.modal {
+  position: fixed;
+  display: none;
+  z-index: 200;
+  width: 90%;
+  max-height: 500px;
+  top: 10%;
+  left: 5%;
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  overflow-y: scroll;
+}
+
+.modal-title {
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+
 /* ***** PADDING ***** */
+.p1 {
+  padding: 4px;
+}
+
+.p2 {
+  padding: 8px;
+}
+
+.p3 {
+  padding: 12px;
+}
+
+.p4 {
+  padding: 1rem;
+}
+
+.p5 {
+  padding: 2rem;
+}
 
 /* ***** PADDING LEFT ***** */
 .pl1 {
@@ -120,7 +162,11 @@ label {
 }
 
 .pl4 {
-  padding-left: 16px;
+  padding-left: 1rem;
+}
+
+.pl5 {
+  padding-left: 2rem;
 }
 
 /* ***** PADDING RIGHT ***** */
@@ -154,7 +200,11 @@ label {
 }
 
 .pt4 {
-  padding-top: 16px;
+  padding-top: 1rem;
+}
+
+.pt5 {
+  padding-top: 2rem;
 }
 
 /* ***** PADDING BOTTOM ***** */

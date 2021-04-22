@@ -1,0 +1,46 @@
+h1 {
+  font-size: 2rem;
+}
+
+h1, h2 {
+  color: #3f51b5;
+}
+
+p, li {
+  font-size: 1.3rem;
+  color: #212121;
+}
+
+li {
+  margin-top: 0.5rem;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+table {
+  width: 100%;
+}
+
+th,
+td {
+  padding: 5px;
+  text-align: left;
+  font-size: 1.3rem;
+}
+
+@media (min-width: 40rem) {
+  section {
+    width: 50%;
+  }
+
+  table {
+    padding: 1rem;
+    width: 50%;
+    margin: auto;
+  }
+}

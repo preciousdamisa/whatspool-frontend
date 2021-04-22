@@ -1,6 +1,30 @@
+<div class="modal" [ngClass]="{show: showModal}">
+  <div class="p4">
+    <h1 class="modal-title center">Fund Account</h1>
+    <h2 className='mb-3'>Bank Details</h2>
+    <h4>Bank:</h4>
+    <p>Wema Bank</p>
+    <h5>Account Name:</h5>
+    <p>ITIODE</p>
+    <h5>Account Number:</h5>
+    <p>09066581852</p>
+    <p>
+      After making your transfer, kindly send a proof of payment (screenshot)
+      of the succesful transaction or a picture of the bank teller to the WhatsPool E-Mail:
+    </p>
+    <strong>whatspoolgame@gmail.com</strong>
+    <p>
+      Once your payment is confirmed, your account would be credited with the
+      paid amount.
+    </p>
+  </div>
+  <div class="center">
+    <button class="btn modal-action px4" type="button" (click)="onCloseModal()">Okay</button>
+  </div>
+</div>
 <div class="card">
   <div class="center">
-    <button class="btn mr3 my2">Fund Account</button>
+    <button class="btn mr3 my2" (click)="onShowModal()">Fund Account</button>
     <button class="btn" (click)="copyRefLinkToClipboard(refLinkInput)">{{isLinkCopied ? 'Ref Link Copied' : 'Copy Referral
       Link'}}</button>
       <input type="text" [value]="getRefLink()" readonly #refLinkInput>

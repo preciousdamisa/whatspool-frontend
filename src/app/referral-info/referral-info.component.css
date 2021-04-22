@@ -1,0 +1,14 @@
+p, li {
+  font-size: 1.2rem;
+  color: #212121;
+}
+
+h2 {
+  color: #3f51b5;
+}
+
+@media (min-width: 40rem) {
+  section {
+    width: 50%;
+  }
+}

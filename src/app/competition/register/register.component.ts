@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -12,7 +12,7 @@ import { BackdropService } from '../../shared/services/backdrop.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
   isLoading = false;
   showModal = false;
   errMsg = '';
@@ -61,7 +61,13 @@ export class RegisterComponent implements OnInit {
   }
 
   onCloseModal() {
+    this.showModal = false;
     this.backdropService.showBackdrop.next(false);
     this.router.navigate(['']);
+  }
+
+  ngOnDestroy() {
+    this.showModal = false;
+    this.backdropService.showBackdrop.next(false);
   }
 }

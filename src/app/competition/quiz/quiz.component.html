@@ -2,7 +2,10 @@
   <h3 class="start-info">WhatsPool has begun, click the button below to start. Goodluck!!!</h3>
   <button class="btn start-btn mt5" (click)="onStartQuiz()">Start</button>
 </div>
-<app-page-spinner *ngIf="isLoading"></app-page-spinner>
+<div class="center" *ngIf="isLoading" style="padding-top: 5rem">
+  <app-in-page-spinner></app-in-page-spinner>
+  <h2 class="pt5">Loading...</h2>
+</div>
 <section *ngIf="!isLoading && hasStarted">
   <div class="remaining-time">
     <h1>{{getRemainingTime().minutes}}</h1> <span class="separator mx3">:</span>

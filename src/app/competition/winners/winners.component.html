@@ -1,4 +1,7 @@
-<app-page-spinner *ngIf="isLoading"></app-page-spinner>
+<div *ngIf="isLoading" style="padding-top: 5rem">
+  <app-in-page-spinner></app-in-page-spinner>
+  <h2 class="center pt5">Loading winners...</h2>
+</div>
 <header *ngIf="!isLoading" class="center">
   <h2 class="px3">{{getQuizDate()}}</h2>
 </header>

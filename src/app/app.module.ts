@@ -32,14 +32,13 @@ import { CheckQuizStatusComponent } from './competition/check-quiz-status/check-
 import { NotYetTimeComponent } from './competition/not-yet-time/not-yet-time.component';
 import { HasEndedComponent } from './competition/has-ended/has-ended.component';
 import { CompletionComponent } from './competition/completion/completion.component';
-import { PageSpinnerComponent } from './shared/components/page-spinner/page-spinner.component';
 import { WinnersComponent } from './competition/winners/winners.component';
 import { QuestionsComponent } from './admin/questions/questions.component';
 import { CompetitorsComponent } from './admin/competitors/competitors.component';
 import { QuestionsAndAnswersComponent } from './competition/questions-and-answers/questions-and-answers.component';
 
 import { AuthInterceptorService } from './user/auth-interceptor.service';
-import { InPageSpinnerComponent } from './shared/components/in-page-spinner/in-page-spinner.component';
+import { InPageSpinnerComponent } from './shared/components/in-page-spinner/in-page-spinner.component'
 
 @NgModule({
   declarations: [
@@ -70,7 +69,6 @@ import { InPageSpinnerComponent } from './shared/components/in-page-spinner/in-p
     NotYetTimeComponent,
     HasEndedComponent,
     CompletionComponent,
-    PageSpinnerComponent,
     WinnersComponent,
     QuestionsComponent,
     CompetitorsComponent,
