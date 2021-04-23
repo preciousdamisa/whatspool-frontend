@@ -5,12 +5,14 @@
       <p>Thank you for your message, we will attend to it soonest.</p>
     </div>
     <div class="center">
-      <button class="btn modal-action px4" type="button" (click)="onCloseModal()">Okay</button>
+      <button class="btn modal-action px4" type="button" (click)="onCloseModal(f)">Okay</button>
     </div>
   </div>
   <header *ngIf="!isLoading" class="center">
     <h2 class="px3">We Would Love To Hear From You</h2>
   </header>
+  <p class="caution-text center px3">Please only feedback and complains should be sent through this medium. Thank you!
+  </p>
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div>
       <label for="firstName">First name</label>

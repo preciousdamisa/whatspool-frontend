@@ -22,10 +22,11 @@ import { CompletionComponent } from './competition/completion/completion.compone
 import { WinnersComponent } from './competition/winners/winners.component';
 import { QuestionsComponent } from './admin/questions/questions.component';
 import { QuestionsAndAnswersComponent } from './competition/questions-and-answers/questions-and-answers.component';
+import { CompetitorsComponent } from './admin/competitors/competitors.component';
+import { QuizTimeComponent } from './admin/quiz-time/quiz-time.component';
 
 import { AuthGuardService } from './user/auth-guard.service';
 import { AdminGuardService } from './admin/admin-guard.service';
-import { CompetitorsComponent } from './admin/competitors/competitors.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -66,6 +67,7 @@ const routes: Routes = [
       { path: 'add-question', component: EditQuestionComponent },
       { path: 'questions', component: QuestionsComponent },
       { path: 'competitors', component: CompetitorsComponent },
+      { path: 'quiz-time', component: QuizTimeComponent },
     ],
   },
   { path: 'about', component: AboutComponent },

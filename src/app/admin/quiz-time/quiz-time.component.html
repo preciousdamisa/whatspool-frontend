@@ -1,0 +1,29 @@
+<section>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <h2 class="center py4">Set Next Quiz Time</h2>
+    <div>
+      <label for="date">Date</label>
+      <input type="date" id="date" name="date" ngModel required>
+    </div>
+    <div>
+      <label for="time">Time</label>
+      <input type="time" name="time" id="time" ngModel required>
+    </div>
+    <div class="err-msg-container" *ngIf="errMsg">
+      <h4>Error!</h4>
+      <p>{{errMsg}}</p>
+      <button class="btn err-btn" type="button" (click)="errMsg = ''">Okay</button>
+    </div>
+    <div class="success-msg-container" *ngIf="showSuccessDialog">
+      <h4>Success!</h4>
+      <hr>
+      <p>Next Quiz Time: {{getQuizTime().time}}</p>
+      <p>Duration: {{getQuizTime().duration}}</p>
+      <button class="btn success-btn" type="button" (click)="onSuccess(f)">Okay</button>
+    </div>
+    <span *ngIf="f.invalid && f.touched">All values must set.</span>
+    <button class="btn set-time-btn" [disabled]="isLoading || f.invalid" type="submit">
+      <app-spinner *ngIf="isLoading"></app-spinner> {{isLoading ? 'Setting...' : 'Set Quiz Date'}}
+    </button>
+  </form>
+</section>

@@ -59,9 +59,10 @@ export class ContactUsComponent implements OnInit, OnDestroy {
     return this.user?.firstName + ' ' + this.user?.lastName;
   }
 
-  onCloseModal() {
+  onCloseModal(form: NgForm) {
     this.showModal = false;
     this.backdropService.showBackdrop.next(false);
+    form.reset();
   }
 
   ngOnDestroy() {
