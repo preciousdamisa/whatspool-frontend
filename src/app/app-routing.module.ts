@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { AccountComponent } from './account/account.component';
 import { CompetitionComponent } from './competition/competition.component';
-import { ContactComponent } from './contact/contact.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './user/login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -69,7 +69,7 @@ const routes: Routes = [
     ],
   },
   { path: 'about', component: AboutComponent },
-  { path: 'contact-us', component: ContactComponent },
+  { path: 'contact-us', component: ContactUsComponent },
   { path: 'referral-info', component: ReferralInfoComponent },
   { path: 'not-found', component: PageNotFoundComponent },
   { path: '**', redirectTo: '/not-found' },

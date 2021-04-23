@@ -13,7 +13,7 @@ import { LoginComponent } from './user/login/login.component';
 import { SignupComponent } from './user/signup/signup.component';
 import { CompetitionComponent } from './competition/competition.component';
 import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AccountComponent } from './account/account.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ReferralInfoComponent } from './referral-info/referral-info.component';
@@ -49,7 +49,7 @@ import { InPageSpinnerComponent } from './shared/components/in-page-spinner/in-p
     LoginComponent,
     SignupComponent,
     AboutComponent,
-    ContactComponent,
+    ContactUsComponent,
     AccountComponent,
     CompetitionComponent,
     PageNotFoundComponent,
@@ -76,7 +76,7 @@ import { InPageSpinnerComponent } from './shared/components/in-page-spinner/in-p
     InPageSpinnerComponent,
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

@@ -1,19 +1,18 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-import { User } from '../../user/user.model';
-import { UserService } from '../../user/user.service';
-import { RegisterService } from './register.service';
-import { BackdropService } from '../../shared/services/backdrop.service';
+import { User } from '../user/user.model';
+import { UserService } from '../user/user.service';
+import { BackdropService } from '../shared/services/backdrop.service';
+import { ContactUsService } from './contact-us.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
+  selector: 'app-contact-us',
+  templateUrl: './contact-us.component.html',
+  styleUrls: ['./contact-us.component.css'],
 })
-export class RegisterComponent implements OnInit, OnDestroy {
+export class ContactUsComponent implements OnInit, OnDestroy {
   subscription!: Subscription;
   isLoading = false;
   showModal = false;
@@ -21,10 +20,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
   user!: User | null;
 
   constructor(
-    private router: Router,
     private userService: UserService,
-    private registerService: RegisterService,
-    private backdropService: BackdropService
+    private backdropService: BackdropService,
+    private contactService: ContactUsService
   ) {}
 
   ngOnInit(): void {
@@ -32,20 +30,19 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(form: NgForm) {
-    const { firstName, lastName, email, phone } = form.value;
+    const { firstName, lastName, email, phone, message } = form.value;
 
-    const regInfo = {
-      userId: this.user?.id,
-      firstName,
-      lastName,
+    const msgInfo = {
+      name: firstName + ' ' + lastName,
       email,
       phone,
-      amount: 100,
-      purpose: 'WhatsPool registration.',
+      msg: message,
     };
 
+    console.log(msgInfo);
+
     this.isLoading = true;
-    this.subscription = this.registerService.register(regInfo).subscribe(
+    this.subscription = this.contactService.sendMessage(msgInfo).subscribe(
       (res) => {
         this.isLoading = false;
         this.backdropService.showBackdrop.next(true);
@@ -65,7 +62,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
   onCloseModal() {
     this.showModal = false;
     this.backdropService.showBackdrop.next(false);
-    this.router.navigate(['']);
   }
 
   ngOnDestroy() {

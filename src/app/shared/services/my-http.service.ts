@@ -25,6 +25,7 @@ export class MyHttpService {
   }
 
   handleErr(err: HttpErrorResponse) {
+    console.log(err);
     let errMsg = 'An error occured. Please check your internet connection';
     if (typeof err.error === 'string') {
       errMsg = err.error;

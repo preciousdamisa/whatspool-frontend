@@ -12,7 +12,7 @@
   <div *ngIf="!isLoading && errMsg">
     <h3 class="center">Error in fetching wins. Please check your network connection.</h3>
   </div>
-  <div *ngIf="!isLoading && wins.length > 1">
+  <div *ngIf="!isLoading && wins.length > 0">
     <div *ngFor="let win of wins">
       <p><strong>Date:</strong> {{win.date}}</p>
       <p><strong>Position:</strong> {{win.pos}}</p>
