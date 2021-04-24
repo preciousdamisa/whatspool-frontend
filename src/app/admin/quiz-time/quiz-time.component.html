@@ -22,6 +22,7 @@
       <button class="btn success-btn" type="button" (click)="onSuccess(f)">Okay</button>
     </div>
     <span *ngIf="f.invalid && f.touched">All values must set.</span>
+    <p class="center"><strong>Note:</strong> Time should be 1 hr less than the actual time.</p>
     <button class="btn set-time-btn" [disabled]="isLoading || f.invalid" type="submit">
       <app-spinner *ngIf="isLoading"></app-spinner> {{isLoading ? 'Setting...' : 'Set Quiz Date'}}
     </button>

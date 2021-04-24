@@ -25,3 +25,10 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+## TODO:
+- When the time for the quiz is over, clicking on the button should
+take the user to the completion screen.
+- Fetch and show the user's current balances whenever the Account page 
+is loaded.

@@ -1,33 +1,33 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { CompetitorsService } from './competitors.service';
+import { EditWinnersService } from './edit-winners.service';
 
 @Component({
-  selector: 'app-competitors',
-  templateUrl: './competitors.component.html',
-  styleUrls: ['./competitors.component.css'],
+  selector: 'app-edit-winners',
+  templateUrl: './edit-winners.component.html',
+  styleUrls: ['./edit-winners.component.css'],
 })
-export class CompetitorsComponent implements OnInit, OnDestroy {
+export class EditWinnersComponent implements OnInit, OnDestroy {
   isDeleting = false;
   isFetching = false;
   successMsg!: string;
   errMsg!: string;
-  competitorsCount!: number;
+  winnersCount!: number;
   subscription!: Subscription;
 
-  constructor(private competitorsService: CompetitorsService) {}
+  constructor(private editWinnersService: EditWinnersService) {}
 
   ngOnInit() {
-    this.getCompetitorsCount();
+    this.getWinnersCount();
   }
 
-  getCompetitorsCount() {
+  getWinnersCount() {
     this.isFetching = true;
-    this.competitorsService
-      .getCompetitorsCount()
+    this.editWinnersService
+      .getWinnersCount()
       .then((res) => {
-        this.competitorsCount = res.data.count;
+        this.winnersCount = res.data.count;
         this.isFetching = false;
       })
       .catch((ex) => {
@@ -36,13 +36,13 @@ export class CompetitorsComponent implements OnInit, OnDestroy {
       });
   }
 
-  onDeleteCompetitors() {
+  onDeleteWinners() {
     this.isDeleting = true;
-    this.subscription = this.competitorsService.deleteCompetitors().subscribe(
+    this.subscription = this.editWinnersService.deleteWinners().subscribe(
       (res) => {
+        this.winnersCount = 0;
         this.isDeleting = false;
-        this.competitorsCount = 0;
-        this.successMsg = 'Competitors deleted Successfully!';
+        this.successMsg = 'Winners deleted Successfully!';
       },
       (errMsg) => {
         this.isDeleting = false;

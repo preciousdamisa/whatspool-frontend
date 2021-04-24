@@ -24,6 +24,7 @@ import { QuestionsComponent } from './admin/questions/questions.component';
 import { QuestionsAndAnswersComponent } from './competition/questions-and-answers/questions-and-answers.component';
 import { CompetitorsComponent } from './admin/competitors/competitors.component';
 import { QuizTimeComponent } from './admin/quiz-time/quiz-time.component';
+import { EditWinnersComponent } from './admin/edit-winners/edit-winners.component';
 
 import { AuthGuardService } from './user/auth-guard.service';
 import { AdminGuardService } from './admin/admin-guard.service';
@@ -66,6 +67,7 @@ const routes: Routes = [
       { path: 'fund-account', component: FundAccountComponent },
       { path: 'add-question', component: EditQuestionComponent },
       { path: 'questions', component: QuestionsComponent },
+      { path: 'edit-winners', component: EditWinnersComponent },
       { path: 'competitors', component: CompetitorsComponent },
       { path: 'quiz-time', component: QuizTimeComponent },
     ],

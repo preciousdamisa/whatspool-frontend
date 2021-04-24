@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./questions.component.css'],
 })
 export class QuestionsComponent implements OnDestroy {
-  isLoading!: boolean;
+  isDeleting!: boolean;
   successMsg!: string;
   errMsg!: string;
   subscription!: Subscription;
@@ -17,14 +17,14 @@ export class QuestionsComponent implements OnDestroy {
   constructor(private queService: QuestionsService) {}
 
   onDeleteQuestions() {
-    this.isLoading = true;
+    this.isDeleting = true;
     this.subscription = this.queService.deleteQuestions().subscribe(
       (res) => {
         this.successMsg = 'Questions deleted Successfully!';
-        this.isLoading = false;
+        this.isDeleting = false;
       },
       (errMsg) => {
-        this.isLoading = false;
+        this.isDeleting = false;
         this.errMsg = errMsg;
       }
     );

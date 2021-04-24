@@ -36,10 +36,11 @@ import { WinnersComponent } from './competition/winners/winners.component';
 import { QuestionsComponent } from './admin/questions/questions.component';
 import { CompetitorsComponent } from './admin/competitors/competitors.component';
 import { QuestionsAndAnswersComponent } from './competition/questions-and-answers/questions-and-answers.component';
-import {QuizTimeComponent} from './admin/quiz-time/quiz-time.component';
+import { QuizTimeComponent } from './admin/quiz-time/quiz-time.component';
+import { EditWinnersComponent } from './admin/edit-winners/edit-winners.component';
 
 import { AuthInterceptorService } from './user/auth-interceptor.service';
-import { InPageSpinnerComponent } from './shared/components/in-page-spinner/in-page-spinner.component'
+import { InPageSpinnerComponent } from './shared/components/in-page-spinner/in-page-spinner.component';
 
 @NgModule({
   declarations: [
@@ -76,9 +77,10 @@ import { InPageSpinnerComponent } from './shared/components/in-page-spinner/in-p
     QuestionsAndAnswersComponent,
     InPageSpinnerComponent,
     QuizTimeComponent,
+    EditWinnersComponent,
   ],
   imports: [
-  BrowserModule,
+    BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

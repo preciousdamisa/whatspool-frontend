@@ -3,6 +3,6 @@
   <h3 *ngIf="successMsg" class="mt5">{{successMsg}}</h3>
   <h3 *ngIf="errMsg" class="mt5">{{errMsg}}</h3>
   <button class="btn delete-btn mt2" (click)="onDeleteQuestions()">
-    <app-spinner *ngIf="isLoading"></app-spinner>{{isLoading ? 'Deleting...' : 'Delete'}}
+    <app-spinner *ngIf="isDeleting"></app-spinner>{{isDeleting ? 'Deleting...' : 'Delete'}}
   </button>
 </section>

@@ -37,8 +37,6 @@ export class TransfersComponent implements OnInit, OnDestroy {
   }
 
   createTransfers(transfers: Transfer[]) {
-    console.log(transfers);
-
     const modifiedTransfers: Transfer[] = [];
     for (let transfer of transfers) {
       modifiedTransfers.unshift(

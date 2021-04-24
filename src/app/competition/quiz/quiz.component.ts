@@ -38,8 +38,6 @@ export class QuizComponent implements OnDestroy {
         res.data.score
       );
 
-      console.log(this.competitor);
-
       if (this.competitor.currentQuestionNumber > 10) {
         this.router.navigate([
           '/competition/completion/' + this.competitor.score,
