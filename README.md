@@ -28,9 +28,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 ## TODO:
-- When the time for the quiz is over, clicking on the button should
-take the user to the completion screen.
 - Fetch and show the user's current balances whenever the Account page 
 is loaded.
 - Get the referral link to work
 - Fix the wins card in the account page.
+- Show the questions, answers and optional explanation after the quiz.

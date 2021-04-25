@@ -88,7 +88,9 @@ export class QuizComponent implements OnDestroy {
 
       this.quizEndTime = quizTime.startTime + quizTime.duration;
 
-      console.log(this.quizRemainingTime);
+      if (new Date() > new Date(this.quizEndTime)) {
+        this.buttonText = 'Submit';
+      }
     }, 1000);
 
     this.timeoutId = setTimeout(() => {
@@ -97,6 +99,12 @@ export class QuizComponent implements OnDestroy {
   }
 
   async onSubmit(data: { answer: string }) {
+    if (new Date() > new Date(this.quizEndTime)) {
+      this.router.navigate([
+        '/competition/completion/' + this.competitor.score,
+      ]);
+    }
+
     this.isSubmitting = true;
 
     try {
@@ -107,7 +115,7 @@ export class QuizComponent implements OnDestroy {
       );
 
       // Clear the current interval and timeout,
-      // before calling startQuiz(), which sets them again.
+      // before calling onStartQuiz(), which sets them again.
       this.clearTimers();
       this.isSubmitting = false;
       this.onStartQuiz();
