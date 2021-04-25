@@ -32,3 +32,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 take the user to the completion screen.
 - Fetch and show the user's current balances whenever the Account page 
 is loaded.
+- Get the referral link to work
+- Fix the wins card in the account page.
