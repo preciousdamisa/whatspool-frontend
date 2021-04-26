@@ -53,7 +53,7 @@ export class UserDataComponent implements OnInit, OnDestroy {
   }
 
   getRefLink() {
-    return `${environment.whatspoolApiUrl}signup?refCode=${this.user?.firstName}-${this.user?.referralCode}`;
+    return `${environment.whatspoolUrl}signup?refCode=${this.user?.firstName}-${this.user?.referralCode}`;
   }
 
   onShowModal() {

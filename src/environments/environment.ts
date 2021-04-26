@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  whatspoolApiUrl: 'http://localhost:4000/api/'
+  whatspoolApiUrl: 'http://localhost:4000/api/',
+  whatspoolUrl: 'http://localhost:4200/'
 };
 
 /*

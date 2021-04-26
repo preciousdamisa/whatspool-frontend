@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 import { UserService } from '../user.service';
 
@@ -20,35 +20,49 @@ export class SignupComponent implements OnInit {
     email: '',
     password: '',
   };
+  referrer!: string;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit() {
+    const refCode: string = this.route.snapshot.queryParams['refCode'];
+
+    if (refCode) {
+      this.referrer = refCode.split('-')[1];
+
+      // Save the ref code, just in case the user navigates away
+      // and later comes back.
+      localStorage.setItem('refCode', this.referrer);
+    } else {
+      const refCode = localStorage.getItem('refCode');
+      if (refCode) {
+        this.referrer = refCode;
+      }
+    }
+
     this.signupForm = new FormGroup({
-      firstName: new FormControl('Precious', [
+      firstName: new FormControl('', [
         Validators.required,
         Validators.minLength(2),
         Validators.maxLength(25),
       ]),
-      lastName: new FormControl('Damisa', [
+      lastName: new FormControl('', [
         Validators.required,
         Validators.minLength(2),
         Validators.maxLength(25),
       ]),
-      phone: new FormControl('09111111111', [
-        Validators.required,
-        this.charLength,
-      ]),
-      email: new FormControl('test@gmail.com', [
-        Validators.required,
-        Validators.email,
-      ]),
-      password: new FormControl('55555', [
+      phone: new FormControl('', [Validators.required, this.charLength]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [
         Validators.required,
         Validators.minLength(5),
         Validators.maxLength(250),
       ]),
-      confirmPassword: new FormControl('55555', [
+      confirmPassword: new FormControl('', [
         Validators.required,
         this.samePasswords.bind(this),
       ]),
@@ -109,7 +123,7 @@ export class SignupComponent implements OnInit {
 
     this.isLoading = true;
     this.userService
-      .signup(firstName, lastName, phone, email, password)
+      .signup(firstName, lastName, phone, email, password, this.referrer)
       .subscribe(
         (res) => {
           this.isLoading = false;

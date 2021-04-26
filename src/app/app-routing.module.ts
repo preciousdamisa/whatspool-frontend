@@ -30,7 +30,7 @@ import { AuthGuardService } from './user/auth-guard.service';
 import { AdminGuardService } from './admin/admin-guard.service';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
   {

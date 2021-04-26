@@ -39,19 +39,29 @@ export class UserService {
     lastName: string,
     phone: string,
     email: string,
-    password: string
+    password: string,
+    referrer?: string
   ) {
+    const signupData = {
+      firstName,
+      lastName,
+      phone,
+      email,
+      password,
+      referrer,
+    };
+
+    if (!referrer) delete signupData.referrer;
+
     return this.http
-      .post<AuthResponseData>(environment.whatspoolApiUrl + 'users', {
-        firstName,
-        lastName,
-        phone,
-        email,
-        password,
-      })
+      .post<AuthResponseData>(environment.whatspoolApiUrl + 'users', signupData)
       .pipe(
         tap((res) => {
           this.handleAuth(res);
+          // Remove the ref code that was probably saved, if the
+          // user was referred. Ref code gets saved in ngOnInit of
+          // signup component.
+          localStorage.removeItem('refCode');
         }),
         catchError(this.myHttp.handleErr)
       );
