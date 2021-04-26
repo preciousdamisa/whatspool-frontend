@@ -14,7 +14,6 @@ export class QuizComponent implements OnDestroy {
   hasStarted = false;
   isLoading = false;
   isSubmitting = false;
-  buttonText = '';
   competitor!: Competitor;
   question!: Question;
   quizRemainingTime!: number;
@@ -87,10 +86,6 @@ export class QuizComponent implements OnDestroy {
         quizTime.startTime + quizTime.duration - new Date().getTime();
 
       this.quizEndTime = quizTime.startTime + quizTime.duration;
-
-      if (new Date() > new Date(this.quizEndTime)) {
-        this.buttonText = 'Submit';
-      }
     }, 1000);
 
     this.timeoutId = setTimeout(() => {
@@ -103,6 +98,8 @@ export class QuizComponent implements OnDestroy {
       this.router.navigate([
         '/competition/completion/' + this.competitor.score,
       ]);
+
+      return;
     }
 
     this.isSubmitting = true;
@@ -145,9 +142,7 @@ export class QuizComponent implements OnDestroy {
   }
 
   getSubmitBtnText() {
-    return this.competitor.currentQuestionNumber === 10
-      ? 'Submit'
-      : 'Next Question';
+    return this.competitor.currentQuestionNumber === 10 ? 'Submit' : 'Next Question';
   }
 
   ngOnDestroy() {
