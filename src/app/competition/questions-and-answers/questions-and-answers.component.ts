@@ -18,11 +18,18 @@ export class QuestionsAndAnswersComponent implements OnInit {
   constructor(private qnaService: QuestionsAndAnswersService) {}
 
   ngOnInit(): void {
+    this.isLoading = true;
+
     this.qnaService.getQuestionsAndAnswers().subscribe(
       (res: Question[]) => {
         console.log(res);
+        this.questionsAndAnswers = res;
+        this.isLoading = false;
       },
-      (errMsg) => {}
+      (errMsg) => {
+        this.errMsg = errMsg;
+        this.isLoading = false;
+      }
     );
   }
 }

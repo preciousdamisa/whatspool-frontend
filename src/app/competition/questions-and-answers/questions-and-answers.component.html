@@ -1,1 +1,18 @@
-<p>questions-and-answers works!</p>
+<section class="p4">
+  <div class="center pt4" *ngIf="errMsg && !isLoading">
+    <h2>WhatsPool has not ended!</h2>
+    <p>Questions and answers can only be viewed after WhatsPool has ended (9:10PM).</p>
+  </div>
+  <div *ngIf="!isLoading && questionsAndAnswers.length > 0">
+    <div *ngFor="let q of questionsAndAnswers">
+      <h3>Question {{q.no}}</h3>
+      <p>{{q.que}}</p>
+      <p>(A) {{q.optA}}</p>
+      <p>(B) {{q.optB}}</p>
+      <p>(C) {{q.optC}}</p>
+      <p>(D) {{q.optD}}</p>
+      <p>(E) {{q.optE}}</p>
+      <h5>Answer: {{q.ans}}</h5>
+    </div>
+  </div>
+</section>
