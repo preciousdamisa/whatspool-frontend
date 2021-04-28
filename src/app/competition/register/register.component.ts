@@ -6,7 +6,6 @@ import { Subscription } from 'rxjs';
 import { User } from '../../user/user.model';
 import { UserService } from '../../user/user.service';
 import { RegisterService } from './register.service';
-import { BackdropService } from '../../shared/services/backdrop.service';
 
 @Component({
   selector: 'app-register',
@@ -16,15 +15,14 @@ import { BackdropService } from '../../shared/services/backdrop.service';
 export class RegisterComponent implements OnInit, OnDestroy {
   subscription!: Subscription;
   isLoading = false;
-  showModal = false;
+  showAlert = true;
   errMsg = '';
   user!: User | null;
 
   constructor(
     private router: Router,
     private userService: UserService,
-    private registerService: RegisterService,
-    private backdropService: BackdropService
+    private registerService: RegisterService
   ) {}
 
   ngOnInit(): void {
@@ -48,8 +46,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.subscription = this.registerService.register(regInfo).subscribe(
       (res) => {
         this.isLoading = false;
-        this.backdropService.showBackdrop.next(true);
-        this.showModal = true;
+        this.showAlert = true;
       },
       (errMsg) => {
         this.errMsg = errMsg;
@@ -62,15 +59,13 @@ export class RegisterComponent implements OnInit, OnDestroy {
     return this.user?.firstName + ' ' + this.user?.lastName;
   }
 
-  onCloseModal() {
-    this.showModal = false;
-    this.backdropService.showBackdrop.next(false);
+  onDismissAlert() {
+    this.showAlert = false;
     this.router.navigate(['']);
   }
 
   ngOnDestroy() {
-    this.showModal = false;
-    this.backdropService.showBackdrop.next(false);
+    this.showAlert = false;
     if (this.subscription) {
       this.subscription.unsubscribe();
     }

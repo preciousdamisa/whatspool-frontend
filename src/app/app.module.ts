@@ -41,6 +41,7 @@ import { EditWinnersComponent } from './admin/edit-winners/edit-winners.componen
 
 import { AuthInterceptorService } from './user/auth-interceptor.service';
 import { InPageSpinnerComponent } from './shared/components/in-page-spinner/in-page-spinner.component';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { InPageSpinnerComponent } from './shared/components/in-page-spinner/in-p
     InPageSpinnerComponent,
     QuizTimeComponent,
     EditWinnersComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,

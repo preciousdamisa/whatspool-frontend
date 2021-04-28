@@ -12,7 +12,7 @@ import { UserService } from '../user.service';
 export class LoginComponent implements OnInit {
   isLoading = false;
   errMsg = '';
-  defaultEmail = 'preciousdamisa@gmail.com';
+  defaultEmail = '';
   formData = {
     email: '',
     password: '',
@@ -20,7 +20,12 @@ export class LoginComponent implements OnInit {
 
   constructor(private userService: UserService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const currentUserEmail = localStorage.getItem('email');
+    if (currentUserEmail) {
+      this.defaultEmail = currentUserEmail;
+    }
+  }
 
   onSubmit(loginForm: NgForm) {
     const { email, password } = loginForm.value;

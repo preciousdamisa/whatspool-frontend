@@ -102,10 +102,6 @@
   font-size: 1.2rem;
 }
 
-.referral-link {
-  text-decoration: none;
-}
-
 @media (min-width: 40rem) {
   .key-feature {
     display: inline-block;

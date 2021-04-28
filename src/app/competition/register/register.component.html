@@ -1,14 +1,7 @@
 <section>
-  <div class="modal" [ngClass]="{show: showModal}">
-    <div class="center">
-      <h1 class="modal-title">Registration successful!</h1>
-      <p>Congratulations! You've successfully registered for the next WhatsPool. We
-        hope you emerge a winner! Remember to set your alarm clock to 9:00 P.M. Goodluck!!!</p>
-    </div>
-    <div class="center">
-      <button class="btn modal-action px4" type="button" (click)="onCloseModal()">Okay</button>
-    </div>
-  </div>
+  <app-alert *ngIf="showAlert" title="Registration successful!" message="Congratulations! You've successfully registered for the next WhatsPool. We
+  hope you emerge a winner! Remember to set your alarm clock to 9:00 P.M. Goodluck!!!" (dismiss)="onDismissAlert()">
+  </app-alert>
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <h1 class="form-title">WhatsPool Registration</h1>
     <div>

@@ -131,6 +131,7 @@ export class UserService {
 
     this.userSubj.next(user);
     localStorage.setItem('userData', JSON.stringify(user));
+    localStorage.setItem('email', user.email);
     this.autoLogout(tokenLifeSpan);
   }
 }
