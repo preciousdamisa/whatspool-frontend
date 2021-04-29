@@ -1,4 +1,4 @@
-<div class="modal" [ngClass]="{show: showModal}">
+<app-alert2 *ngIf="showAlert" (dismiss)="onDismissAlert()">
   <div class="p4">
     <h1 class="modal-title center">Fund Account</h1>
     <h2 className='mb-3'>Bank Details</h2>
@@ -18,13 +18,10 @@
       paid amount.
     </p>
   </div>
-  <div class="center">
-    <button class="btn modal-action px4" type="button" (click)="onCloseModal()">Okay</button>
-  </div>
-</div>
+</app-alert2>
 <div class="card">
   <div class="center">
-    <button class="btn mr3 my2" (click)="onShowModal()">Fund Account</button>
+    <button class="btn mr3 my2" (click)="onShowAlert()">Fund Account</button>
     <button class="btn" (click)="copyRefLinkToClipboard(refLinkInput)">{{isLinkCopied ? 'Ref Link Copied' : 'Copy
       Referral
       Link'}}</button>

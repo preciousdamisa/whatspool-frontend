@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs';
 import { User } from '../../user/user.model';
 import { UserService } from '../../user/user.service';
 import { environment } from '../../../environments/environment';
-import { BackdropService } from '../../shared/services/backdrop.service';
 import { UserDataService, AccountBalance } from './user-data.service';
 
 @Component({
@@ -15,14 +14,13 @@ import { UserDataService, AccountBalance } from './user-data.service';
 export class UserDataComponent implements OnInit, OnDestroy {
   user!: User | null;
   isLinkCopied = false;
-  showModal = false;
+  showAlert = false;
   accBalance!: AccountBalance;
   subscription!: Subscription;
   isLoading = false;
 
   constructor(
     private userService: UserService,
-    private backdropService: BackdropService,
     private userDataService: UserDataService
   ) {}
 
@@ -56,18 +54,16 @@ export class UserDataComponent implements OnInit, OnDestroy {
     return `${environment.whatspoolUrl}signup?refCode=${this.user?.firstName}-${this.user?.referralCode}`;
   }
 
-  onShowModal() {
-    this.backdropService.showBackdrop.next(true);
-    this.showModal = true;
+  onShowAlert() {
+    this.showAlert = true;
   }
 
-  onCloseModal() {
-    this.backdropService.showBackdrop.next(false);
-    this.showModal = false;
+  onDismissAlert() {
+    this.showAlert = false;
   }
 
   ngOnDestroy() {
-    this.onCloseModal();
+    this.onDismissAlert();
     this.subscription.unsubscribe();
   }
 }

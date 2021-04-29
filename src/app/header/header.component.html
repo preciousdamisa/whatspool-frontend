@@ -1,6 +1,6 @@
 <header class="main-header">
   <div>
-    <button class="toggle-button" (click)="onOpenDrawer()">
+    <button class="toggle-button" (click)="onOpenNav()">
       <span class="toggle-button-bar"></span>
       <span class="toggle-button-bar"></span>
       <span class="toggle-button-bar"></span>
@@ -20,40 +20,40 @@
       </li>
       <li class="main-nav__item"><a routerLink="about" routerLinkActive="active">About</a></li>
       <li class="main-nav__item"><a routerLink="contact-us" routerLinkActive="active">Contact Us</a></li>
-      <li class="main-nav__item" *ngIf="isLoggedIn && isAdmin"><a routerLink="admin" routerLinkActive="active"
-          (click)="onCloseDrawer()">Admin</a></li>
+      <li class="main-nav__item" *ngIf="isLoggedIn && isAdmin"><a routerLink="admin" routerLinkActive="active">Admin</a>
+      </li>
       <li class="main-nav__item" *ngIf="!isLoggedIn"><a routerLink="login" routerLinkActive="active">Log in</a></li>
       <li class="main-nav__item" *ngIf="!isLoggedIn"><a routerLink="signup" routerLinkActive="active">Signup</a></li>
       <li class="main-nav__item" *ngIf="isLoggedIn"><a (click)="onLogout()">Log out</a></li>
     </ul>
   </nav>
 </header>
-<nav class="mobile-nav" [ngClass]="{show: openDrawer}">
-  <img src="../../assets/images/cancelSVG.svg" alt="Close" (click)="onCloseDrawer()">
-  <ul class="mobile-nav-items">
-    <li class="mobile-nav-item"><a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
-        (click)="onCloseDrawer()">Home</a></li>
-    <li class="mobile-nav-item" *ngIf="isLoggedIn"><a routerLink="account" routerLinkActive="active"
-        (click)="onCloseDrawer()">My
-        Account</a></li>
-    <li class="mobile-nav-item call-to-action" *ngIf="isLoggedIn"><a routerLink="competition/check-status"
-        (click)="onCloseDrawer()">Compete</a>
-    </li>
-    <li class="mobile-nav-item"><a routerLink="competition/winners"
-        (click)="onCloseDrawer()">Winners</a>
-    </li>
-    <li class="mobile-nav-item"><a routerLink="about" routerLinkActive="active" (click)="onCloseDrawer()">About</a>
-    </li>
-    <li class="mobile-nav-item"><a routerLink="contact-us" routerLinkActive="active" (click)="onCloseDrawer()">Contact
-        Us</a></li>
-    <li class="mobile-nav-item" *ngIf="isLoggedIn && isAdmin"><a routerLink="admin" routerLinkActive="active"
-        (click)="onCloseDrawer()">Admin</a></li>
-    <li class="mobile-nav-item" *ngIf="!isLoggedIn"><a routerLink="login" routerLinkActive="active"
-        (click)="onCloseDrawer()">Log in</a></li>
-    <li class="mobile-nav-item" *ngIf="!isLoggedIn"><a routerLink="signup" routerLinkActive="active"
-        (click)="onCloseDrawer()">Signup</a>
-    </li>
-    <li class="mobile-nav-item" *ngIf="isLoggedIn"><a (click)="onLogout()">Log out</a>
-    </li>
-  </ul>
+<nav class="backdrop" *ngIf="openNav" (click)="onCloseNav()">
+  <div class="mobile-nav">
+    <ul class="mobile-nav-items">
+      <li class="mobile-nav-item"><a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+          (click)="onCloseNav()">Home</a></li>
+      <li class="mobile-nav-item" *ngIf="isLoggedIn"><a routerLink="account" routerLinkActive="active"
+          (click)="onCloseNav()">My
+          Account</a></li>
+      <li class="mobile-nav-item call-to-action" *ngIf="isLoggedIn"><a routerLink="competition/check-status"
+          (click)="onCloseNav()">Compete</a>
+      </li>
+      <li class="mobile-nav-item"><a routerLink="competition/winners" (click)="onCloseNav()">Winners</a>
+      </li>
+      <li class="mobile-nav-item"><a routerLink="about" routerLinkActive="active" (click)="onCloseNav()">About</a>
+      </li>
+      <li class="mobile-nav-item"><a routerLink="contact-us" routerLinkActive="active" (click)="onCloseNav()">Contact
+          Us</a></li>
+      <li class="mobile-nav-item" *ngIf="isLoggedIn && isAdmin"><a routerLink="admin" routerLinkActive="active"
+          (click)="onCloseNav()">Admin</a></li>
+      <li class="mobile-nav-item" *ngIf="!isLoggedIn"><a routerLink="login" routerLinkActive="active"
+          (click)="onCloseNav()">Log in</a></li>
+      <li class="mobile-nav-item" *ngIf="!isLoggedIn"><a routerLink="signup" routerLinkActive="active"
+          (click)="onCloseNav()">Signup</a>
+      </li>
+      <li class="mobile-nav-item" *ngIf="isLoggedIn"><a (click)="onLogout()">Log out</a>
+      </li>
+    </ul>
+  </div>
 </nav>

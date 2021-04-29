@@ -16,7 +16,6 @@ import { AboutComponent } from './about/about.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { AccountComponent } from './account/account.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ReferralInfoComponent } from './referral-info/referral-info.component';
 import { SpinnerComponent } from './shared/components/spinner/spinner.component';
 import { TransactionsComponent } from './account/transactions/transactions.component';
 import { UserDataComponent } from './account/user-data/user-data.component';
@@ -38,10 +37,11 @@ import { CompetitorsComponent } from './admin/competitors/competitors.component'
 import { QuestionsAndAnswersComponent } from './competition/questions-and-answers/questions-and-answers.component';
 import { QuizTimeComponent } from './admin/quiz-time/quiz-time.component';
 import { EditWinnersComponent } from './admin/edit-winners/edit-winners.component';
+import { InPageSpinnerComponent } from './shared/components/in-page-spinner/in-page-spinner.component';
+import { AlertComponent } from './shared/components/alert/alert.component';
 
 import { AuthInterceptorService } from './user/auth-interceptor.service';
-import { InPageSpinnerComponent } from './shared/components/in-page-spinner/in-page-spinner.component';
-import { AlertComponent } from './alert/alert.component';
+import { Alert2Component } from './shared/components/alert2/alert2.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +80,7 @@ import { AlertComponent } from './alert/alert.component';
     QuizTimeComponent,
     EditWinnersComponent,
     AlertComponent,
+    Alert2Component,
   ],
   imports: [
     BrowserModule,

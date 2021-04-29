@@ -15,7 +15,7 @@ import { RegisterService } from './register.service';
 export class RegisterComponent implements OnInit, OnDestroy {
   subscription!: Subscription;
   isLoading = false;
-  showAlert = true;
+  showAlert = false;
   errMsg = '';
   user!: User | null;
 

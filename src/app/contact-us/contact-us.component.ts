@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs';
 
 import { User } from '../user/user.model';
 import { UserService } from '../user/user.service';
-import { BackdropService } from '../shared/services/backdrop.service';
 import { ContactUsService } from './contact-us.service';
 
 @Component({
@@ -15,13 +14,12 @@ import { ContactUsService } from './contact-us.service';
 export class ContactUsComponent implements OnInit, OnDestroy {
   subscription!: Subscription;
   isLoading = false;
-  showModal = false;
+  showAlert = false;
   errMsg = '';
   user!: User | null;
 
   constructor(
     private userService: UserService,
-    private backdropService: BackdropService,
     private contactService: ContactUsService
   ) {}
 
@@ -39,14 +37,11 @@ export class ContactUsComponent implements OnInit, OnDestroy {
       msg: message,
     };
 
-    console.log(msgInfo);
-
     this.isLoading = true;
     this.subscription = this.contactService.sendMessage(msgInfo).subscribe(
       (res) => {
         this.isLoading = false;
-        this.backdropService.showBackdrop.next(true);
-        this.showModal = true;
+        this.showAlert = true;
       },
       (errMsg) => {
         this.errMsg = errMsg;
@@ -59,15 +54,13 @@ export class ContactUsComponent implements OnInit, OnDestroy {
     return this.user?.firstName + ' ' + this.user?.lastName;
   }
 
-  onCloseModal(form: NgForm) {
-    this.showModal = false;
-    this.backdropService.showBackdrop.next(false);
+  onDismissAlert(form: NgForm) {
+    this.showAlert = false;
     form.reset();
   }
 
   ngOnDestroy() {
-    this.showModal = false;
-    this.backdropService.showBackdrop.next(false);
+    this.showAlert = false;
     if (this.subscription) {
       this.subscription.unsubscribe();
     }

@@ -8,7 +8,6 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './user/login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ReferralInfoComponent } from './referral-info/referral-info.component';
 import { SignupComponent } from './user/signup/signup.component';
 import { AdminComponent } from './admin/admin.component';
 import { FundAccountComponent } from './admin/fund-account/fund-account.component';
@@ -74,7 +73,6 @@ const routes: Routes = [
   },
   { path: 'about', component: AboutComponent },
   { path: 'contact-us', component: ContactUsComponent },
-  { path: 'referral-info', component: ReferralInfoComponent },
   { path: 'not-found', component: PageNotFoundComponent },
   { path: '**', redirectTo: '/not-found' },
 ];

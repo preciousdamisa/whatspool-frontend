@@ -31,6 +31,38 @@
     </li>
   </ul>
 </section>
+<app-alert2 *ngIf="showAlert" (dismiss)="onDismissAlert()">
+  <div class="ln-height1 font-size1">
+    <h2 class="primary-color">Step 1</h2>
+    <p>
+      Go to the <strong>Account</strong> page and get your referral
+      link by clicking on the "Copy Referral Link" button.
+    </p>
+    <h2 class="primary-color">Step 2</h2>
+    <p>
+      Share the link along with an explanatory message. You can do
+      this via the following ways:
+    </p>
+    <ul>
+      <li>
+        Share your referral link on your social networks. E.g
+        WhatsApp, Facebook, etc.
+      </li>
+      <li>
+        Send an SMS to your contacts with your referral link.
+      </li>
+      <li>Send an email to your contacts with your referral link.</li>
+    </ul>
+    <p>
+      With that done, your friend clicks on your referral link, then signs up. The system links them to you as the
+      referrer.
+    </p>
+    <p><strong>
+        You get a #25 bonus for each referree. This money would
+        accumulate and could be used in participating in WhatsPool.
+      </strong></p>
+  </div>
+</app-alert2>
 <section id="referral">
   <div class="center">
     <div class="referral-image-container">
@@ -41,6 +73,6 @@
   <div class="center">
     <p class="referral-description white bold">Get a bonus for each of
       your referrals.
-      Click <a class="referral-link accent-color" routerLink="referral-info">here</a> to learn how it works.</p>
+      Click <a class="referral-link accent-color" (click)="onShowAlert()">here</a> to learn how it works.</p>
   </div>
 </section>

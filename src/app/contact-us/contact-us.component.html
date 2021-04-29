@@ -1,13 +1,6 @@
 <section>
-  <div class="modal" [ngClass]="{show: showModal}">
-    <div class="center">
-      <h1 class="modal-title">Message Sent!</h1>
-      <p>Thank you for your message, we will attend to it soonest.</p>
-    </div>
-    <div class="center">
-      <button class="btn modal-action px4" type="button" (click)="onCloseModal(f)">Okay</button>
-    </div>
-  </div>
+  <app-alert *ngIf="showAlert" title="Message Sent!" message="Thank you for your message, we will attend to it soonest."
+    (dismiss)="onDismissAlert(f)"></app-alert>
   <header *ngIf="!isLoading" class="center">
     <h2 class="px3">We Would Love To Hear From You</h2>
   </header>

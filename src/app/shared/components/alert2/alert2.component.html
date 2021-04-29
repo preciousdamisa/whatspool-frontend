@@ -1,0 +1,8 @@
+<div class="backdrop" (click)="onDismiss()">
+  <div class="alert">
+    <ng-content></ng-content>
+    <div class="center">
+      <button class="btn alert-action px5" type="button" (click)="onDismiss()">Okay</button>
+    </div>
+  </div>
+</div>

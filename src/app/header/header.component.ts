@@ -1,8 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
-import { BackdropService } from '../shared/services/backdrop.service';
-import { NavDrawerService } from '../shared/services/nav-drawer.service';
 import { UserService } from '../user/user.service';
 
 @Component({
@@ -13,23 +11,13 @@ import { UserService } from '../user/user.service';
 export class HeaderComponent implements OnInit, OnDestroy {
   isLoggedIn = false;
   isAdmin: boolean | undefined;
-  openDrawer = false;
+  openNav = false;
   drawerSub = new Subscription();
   userSub = new Subscription();
 
-  constructor(
-    private drawerService: NavDrawerService,
-    private backdropService: BackdropService,
-    private userService: UserService
-  ) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
-    this.drawerSub = this.drawerService.openDrawer.subscribe(
-      (open: boolean) => {
-        this.openDrawer = open;
-      }
-    );
-
     this.isLoggedIn = !!this.userService.getUser();
     this.isAdmin = this.userService.getUser()?.isAdmin;
 
@@ -39,23 +27,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
     });
   }
 
-  onOpenDrawer() {
-    this.backdropService.showBackdrop.next(true);
-    this.openDrawer = true;
+  onOpenNav() {
+    this.openNav = true;
   }
 
-  onCloseDrawer() {
-    this.backdropService.showBackdrop.next(false);
-    this.openDrawer = false;
+  onCloseNav() {
+    this.openNav = false;
   }
 
   onLogout() {
     this.userService.logout();
-    this.onCloseDrawer();
+    this.onCloseNav();
   }
 
   ngOnDestroy() {
-    this.drawerSub.unsubscribe();
     this.userSub.unsubscribe();
   }
 }

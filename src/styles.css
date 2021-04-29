@@ -42,6 +42,33 @@ label {
 }
 
 /* ***** UTILITIES ***** */
+.alert {
+  position: fixed;
+  z-index: 100;
+  width: 90vw;
+  max-height: 80vh;
+  top: 10vh;
+  left: 5vw;
+  background: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  overflow-y: scroll;
+}
+
+.alert-title {
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+
+@media (min-width: 40rem) {
+  .alert {
+    width: 60vw;
+    left: 20vw;
+    overflow-y: scroll;
+  }
+}
+
 .backdrop {
   position: fixed;
   z-index: 50;
@@ -447,4 +474,12 @@ label {
 /* ***** TEXT ***** */
 .bold {
   font-weight: bold;
+}
+
+.ln-height1 {
+  line-height: 2rem;
+}
+
+.font-size1 {
+  font-size: 1.2rem;
 }

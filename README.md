@@ -28,11 +28,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO
 
-- Fix the Navdrawer - Let clicking on the shadow close it, also let it define
-its own shadow.
-- Fix the modal - make it more reusable. Let it not be coupled with the
-- backdrop.
 - Work on the completion page.
 - Show the explanation for questions.
+- Add a spinner to the questions and answers page.
 - Add a reusable error showing component.
 - Add a reusable success showing component.
