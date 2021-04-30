@@ -21,7 +21,6 @@ import { TransactionsComponent } from './account/transactions/transactions.compo
 import { UserDataComponent } from './account/user-data/user-data.component';
 import { TransfersComponent } from './account/transfers/transfers.component';
 import { StatisticsComponent } from './account/statistics/statistics.component';
-import { FundAccountInfoComponent } from './account/fund-account-info/fund-account-info.component';
 import { AdminComponent } from './admin/admin.component';
 import { FundAccountComponent } from './admin/fund-account/fund-account.component';
 import { RegisterComponent } from './competition/register/register.component';
@@ -56,13 +55,11 @@ import { Alert2Component } from './shared/components/alert2/alert2.component';
     AccountComponent,
     CompetitionComponent,
     PageNotFoundComponent,
-    ReferralInfoComponent,
     SpinnerComponent,
     TransactionsComponent,
     UserDataComponent,
     TransfersComponent,
     StatisticsComponent,
-    FundAccountInfoComponent,
     AdminComponent,
     FundAccountComponent,
     RegisterComponent,
