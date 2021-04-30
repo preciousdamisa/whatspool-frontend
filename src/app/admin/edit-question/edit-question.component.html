@@ -37,8 +37,13 @@
       <span *ngIf="answer.invalid && answer.touched">Answer is required and should be either A, B, C, D, or E.</span>
     </div>
     <div>
+      <label for="explanation">Explanation</label>
+      <textarea id="explanation" type="text" rows="5" name="expl" #explanation="ngModel" ngModel></textarea>
+    </div>
+    <div>
       <label for="answer">Question number</label>
-      <input id="answer" type="number" name="no" #questionNumber="ngModel" [ngModel]="nextQuestionNo" required pattern="^[1-9]+[0-9]*$">
+      <input id="answer" type="number" name="no" #questionNumber="ngModel" [ngModel]="nextQuestionNo" required
+        pattern="^[1-9]+[0-9]*$">
       <span *ngIf="questionNumber.invalid && questionNumber.touched">Question number is required.</span>
     </div>
     <div>

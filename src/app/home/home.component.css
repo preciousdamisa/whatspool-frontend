@@ -3,12 +3,6 @@
   height: 600px;
 }
 
-@media (min-width: 40rem) {
-  .product-overview {
-    height: 450px;
-  }
-}
-
 .product-overview > h1 {
   font-size: 2.3rem;
   padding-top: 3.3rem;
@@ -100,6 +94,16 @@
   margin: 0.5rem;
   line-height: 1.8;
   font-size: 1.2rem;
+}
+
+.referral-description > a {
+  text-decoration: underline;
+}
+
+@media (min-width: 40rem) {
+  .product-overview {
+    height: 450px;
+  }
 }
 
 @media (min-width: 40rem) {

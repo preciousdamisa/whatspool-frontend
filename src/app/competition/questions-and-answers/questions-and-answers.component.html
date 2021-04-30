@@ -12,7 +12,8 @@
       <p>(C) {{q.optC}}</p>
       <p>(D) {{q.optD}}</p>
       <p>(E) {{q.optE}}</p>
-      <h5>Answer: {{q.ans}}</h5>
+      <h4>Answer: {{q.ans}}</h4>
+      <p *ngIf="q.expl">Explanation: {{q.expl}}</p>
     </div>
   </div>
 </section>
