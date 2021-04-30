@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 import { EditWinnersService } from './edit-winners.service';
@@ -11,6 +12,7 @@ import { EditWinnersService } from './edit-winners.service';
 export class EditWinnersComponent implements OnInit, OnDestroy {
   isDeleting = false;
   isFetching = false;
+  isAdding = false;
   successMsg!: string;
   errMsg!: string;
   winnersCount!: number;
@@ -46,6 +48,23 @@ export class EditWinnersComponent implements OnInit, OnDestroy {
       },
       (errMsg) => {
         this.isDeleting = false;
+        this.errMsg = errMsg;
+      }
+    );
+  }
+
+  onSubmit(form: NgForm) {
+    this.isAdding = true;
+    this.editWinnersService.addWinner(form.value).subscribe(
+      (res) => {
+        this.isAdding = false;
+        this.successMsg = 'Winner added successfully!';
+
+        form.reset();
+        this.getWinnersCount();
+      },
+      (errMsg) => {
+        this.isAdding = false;
         this.errMsg = errMsg;
       }
     );

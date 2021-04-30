@@ -18,4 +18,10 @@ export class EditWinnersService {
   getWinnersCount() {
     return this.myHttp.http.get(environment.whatspoolApiUrl + 'winners/count');
   }
+
+  addWinner(data: { firstName: string; lastName: string }) {
+    return this.http
+      .post(environment.whatspoolApiUrl + 'winners', data)
+      .pipe(catchError(this.myHttp.handleErr));
+  }
 }

@@ -12,3 +12,27 @@
     <app-spinner *ngIf="isDeleting"></app-spinner>{{isDeleting ? 'Deleting...' : 'Delete'}}
   </button>
 </section>
+<section>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <h1 class="form-title">Add a Winner</h1>
+    <div>
+      <label for="firstName">First name</label>
+      <input id="firstName" type="firstName" name="firstName" #firstName="ngModel" ngModel required minlength="2">
+      <span *ngIf="firstName.invalid && firstName.touched">Enter a valid first name.</span>
+    </div>
+    <div>
+      <label for="lastName">First name</label>
+      <input id="lastName" type="lastName" name="lastName" #lastName="ngModel" ngModel required minlength="2">
+      <span *ngIf="lastName.invalid && lastName.touched">Enter a valid last name.</span>
+    </div>
+    <div class="err-msg-container" *ngIf="errMsg">
+      <h4>Error!</h4>
+      <p>{{errMsg}}</p>
+      <button class="btn err-btn" type="button" (click)="errMsg = ''">Okay</button>
+    </div>
+    <button class="btn submit-btn" [disabled]="f.invalid || isAdding">
+      <app-spinner *ngIf="isAdding"></app-spinner> {{isAdding ? 'Adding...' :
+      'Add'}}
+    </button>
+  </form>
+</section>
