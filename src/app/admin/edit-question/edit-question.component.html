@@ -48,7 +48,7 @@
     </div>
     <div>
       <label for="subject">Subject</label>
-      <select name="subj" id="subject" ngModel #subject required>
+      <select name="subj" id="subject" ngModel required>
         <option *ngFor="let subj of subjects" [value]="subj">{{subj}}</option>
       </select>
     </div>

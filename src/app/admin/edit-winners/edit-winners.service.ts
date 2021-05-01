@@ -24,4 +24,12 @@ export class EditWinnersService {
       .post(environment.whatspoolApiUrl + 'winners', data)
       .pipe(catchError(this.myHttp.handleErr));
   }
+
+  toggleShowWinners(show: boolean) {
+    return this.http
+      .put<{ msg: string }>(environment.whatspoolApiUrl + 'winners', {
+        show,
+      })
+      .pipe(catchError(this.myHttp.handleErr));
+  }
 }

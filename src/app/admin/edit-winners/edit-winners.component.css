@@ -1,5 +1,5 @@
 section {
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .delete-btn {
@@ -7,7 +7,7 @@ section {
 }
 
 .form-title {
-  padding-top: 2rem;
+  padding-top: 1rem;
   text-align: center;
   color: #3f51b5;
 }
@@ -16,7 +16,8 @@ form {
   padding: 1.5rem;
 }
 
-input {
+input,
+select {
   padding: 0.5rem;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -35,6 +36,7 @@ span {
 }
 
 input,
+select,
 label,
 span {
   width: 100%;
@@ -46,7 +48,8 @@ label {
   font-weight: bold;
 }
 
-input.ng-touched.ng-invalid {
+input.ng-touched.ng-invalid,
+select.ng-touched.ng-invalid {
   border: 1px solid red;
   background: #f6c1c1;
 }

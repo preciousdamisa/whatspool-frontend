@@ -13,6 +13,7 @@ export class EditWinnersComponent implements OnInit, OnDestroy {
   isDeleting = false;
   isFetching = false;
   isAdding = false;
+  isToggling = false;
   successMsg!: string;
   errMsg!: string;
   winnersCount!: number;
@@ -66,6 +67,26 @@ export class EditWinnersComponent implements OnInit, OnDestroy {
       (errMsg) => {
         this.isAdding = false;
         this.errMsg = errMsg;
+      }
+    );
+  }
+
+  onToggleShowWinners(form: NgForm) {
+    const { showWinners } = form.value;
+    let show: boolean = false;
+    if (showWinners === 'show') {
+      show = true;
+    }
+
+    this.isToggling = true;
+    this.editWinnersService.toggleShowWinners(show).subscribe(
+      (res) => {
+        this.successMsg = res.msg;
+        this.isToggling = false;
+      },
+      (errMsg) => {
+        this.errMsg = errMsg;
+        this.isToggling = false;
       }
     );
   }
