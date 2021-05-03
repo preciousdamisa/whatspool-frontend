@@ -52,7 +52,6 @@ label {
   background: white;
   padding: 1rem;
   border-radius: 10px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   overflow-y: scroll;
 }
 
@@ -63,8 +62,8 @@ label {
 
 @media (min-width: 40rem) {
   .alert {
-    width: 60vw;
-    left: 20vw;
+    width: 40vw;
+    left: 30vw;
     overflow-y: scroll;
   }
 }

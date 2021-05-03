@@ -41,6 +41,7 @@ import { AlertComponent } from './shared/components/alert/alert.component';
 
 import { AuthInterceptorService } from './user/auth-interceptor.service';
 import { Alert2Component } from './shared/components/alert2/alert2.component';
+import { ErrorAlertComponent } from './shared/components/error-alert/error-alert.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import { Alert2Component } from './shared/components/alert2/alert2.component';
     EditWinnersComponent,
     AlertComponent,
     Alert2Component,
+    ErrorAlertComponent,
   ],
   imports: [
     BrowserModule,

@@ -28,5 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO
 
-- Add a reusable error showing component.
 - Add a reusable success alert component.

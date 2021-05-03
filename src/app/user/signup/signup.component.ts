@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs/internal/Subscription';
 
 import { UserService } from '../user.service';
 
@@ -21,6 +22,7 @@ export class SignupComponent implements OnInit {
     password: '',
   };
   referrer!: string;
+  subs!: Subscription;
 
   constructor(
     private userService: UserService,
@@ -122,7 +124,7 @@ export class SignupComponent implements OnInit {
     this.formData.password = password;
 
     this.isLoading = true;
-    this.userService
+    this.subs = this.userService
       .signup(firstName, lastName, phone, email, password, this.referrer)
       .subscribe(
         (res) => {
@@ -134,5 +136,13 @@ export class SignupComponent implements OnInit {
           this.errMsg = errMsg;
         }
       );
+  }
+
+  onDismissAlert() {
+    this.errMsg = '';
+  }
+
+  ngOnDestroy() {
+    if (this.subs) this.subs.unsubscribe();
   }
 }
