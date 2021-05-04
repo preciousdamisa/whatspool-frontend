@@ -28,4 +28,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO
 
-- Add a reusable success alert component.
+- Add a close button to the nav drawer.
+- Code clean up and proper error handling.

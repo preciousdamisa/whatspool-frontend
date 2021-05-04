@@ -60,6 +60,10 @@ label {
   margin: 0 0 1rem 0;
 }
 
+.alert-msg {
+  font-size: 1.2rem;
+}
+
 @media (min-width: 40rem) {
   .alert {
     width: 40vw;

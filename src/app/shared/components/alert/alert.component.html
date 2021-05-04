@@ -1,8 +1,8 @@
 <div class="backdrop" (click)="onDismiss()">
-  <div class="alert">
+  <div class="alert" [style]="{top: distanceFromTop}">
     <div class="center">
       <h1 class="alert-title">{{title}}</h1>
-      <p>{{message}}</p>
+      <p class="alert-msg">{{message}}</p>
     </div>
     <div class="center">
       <button class="btn alert-action px5" type="button" (click)="onDismiss()">Okay</button>

@@ -11,8 +11,8 @@
       <input id="password" type="password" name="password" #password="ngModel" ngModel required>
       <span *ngIf="password.invalid && password.touched">Password is required.</span>
     </div>
-    <app-error-alert *ngIf="errMsg" [message]="errMsg" distanceFromTop="40vh" (dismiss)="onDismissAlert()">
-    </app-error-alert>
+    <app-alert *ngIf="errMsg" title="Error!" [message]="errMsg" distanceFromTop="40vh" (dismiss)="onDismissAlert()">
+    </app-alert>
     <div class="center">
       <p>Don't have an account? <a class="dark-primary-color" routerLink="/signup">Signup</a></p>
     </div>

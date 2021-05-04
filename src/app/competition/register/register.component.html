@@ -1,6 +1,7 @@
 <section>
   <app-alert *ngIf="showAlert" title="Registration successful!" message="Congratulations! You've successfully registered for the next WhatsPool. We
-  hope you emerge a winner! Remember to set your alarm clock to 9:00 P.M. Goodluck!!!" (dismiss)="onDismissAlert()">
+  hope you emerge a winner! Remember to set your alarm clock to 9:00 P.M. Goodluck!!!" distanceFromTop="30vh"
+    (dismiss)="onDismissAlert()">
   </app-alert>
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <h1 class="form-title">WhatsPool Registration</h1>
@@ -25,11 +26,7 @@
         required>
       <span *ngIf="phone.invalid && phone.touched">Phone number must be 11 digits.</span>
     </div>
-    <div class="err-msg-container" *ngIf="errMsg">
-      <h4>Error!</h4>
-      <p>{{errMsg}}</p>
-      <button class="btn err-btn" type="button" (click)="errMsg = ''">Okay</button>
-    </div>
+    <app-alert *ngIf="errMsg" title="Error!" [message]="errMsg" distanceFromTop="40vh" (dismiss)="onDismissAlert()"></app-alert>
     <p class="center">Registration fee of <strong>#100</strong> would be deducted from your account.</p>
     <button class="btn register-btn px4" [disabled]="f.invalid">
       <app-spinner *ngIf="isLoading"></app-spinner> {{isLoading ? 'Registering you...' :
