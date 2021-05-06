@@ -1,5 +1,5 @@
 <div class="backdrop" (click)="onDismiss()">
-  <div class="alert">
+  <div class="alert" [style]="{top: distanceFromTop}">
     <ng-content></ng-content>
     <div class="center">
       <button class="btn alert-action px5" type="button" (click)="onDismiss()">Okay</button>

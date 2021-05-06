@@ -8,7 +8,7 @@ export class AlertComponent {
   @Input() title!: string;
   @Input() message!: string;
   // Specified using vh (Viewport Height).
-  @Input() distanceFromTop!: string;
+  @Input() distanceFromTop = '30vh';
   @Output() dismiss = new EventEmitter<void>();
 
   onDismiss() {

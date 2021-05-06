@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-alert2',
@@ -6,6 +6,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class Alert2Component {
   @Output() dismiss = new EventEmitter<void>();
+  // Specified using vh (Viewport Height).
+  @Input() distanceFromTop!: string;
 
   onDismiss() {
     this.dismiss.emit();

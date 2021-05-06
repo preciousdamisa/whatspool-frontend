@@ -52,18 +52,13 @@
         <option *ngFor="let subj of subjects" [value]="subj">{{subj}}</option>
       </select>
     </div>
-    <div class="err-msg-container" *ngIf="errMsg">
-      <h4>Error!</h4>
-      <p>{{errMsg}}</p>
-      <button class="btn err-btn" type="button" (click)="errMsg = ''">Okay</button>
-    </div>
-    <div class="success-msg-container" *ngIf="questionInfo">
-      <h4>Success!</h4>
+    <app-alert *ngIf="errMsg" title="Error!" [message]="errMsg" (dismiss)="onDismissAlert(f)"></app-alert>
+    <app-alert2 *ngIf="questionInfo" (dismiss)="onDismissAlert(f)">
+      <h2 class="center">Success!</h2>
       <hr>
-      <p>Question No: {{questionInfo.no}}</p>
-      <p>Question Text: {{questionInfo.que}}</p>
-      <button class="btn success-btn" type="button" (click)="onSuccess(f)">Okay</button>
-    </div>
+      <p><strong>Question No:</strong> {{questionInfo.no}}</p>
+      <p><strong>Question Text:</strong> {{questionInfo.que}}</p>
+    </app-alert2>
     <button class="btn add-question-btn" type="submit" [disabled]="f.invalid">
       <app-spinner *ngIf="isLoading"></app-spinner> {{isLoading ? 'Adding Question...' : 'Add Question'}}
     </button>

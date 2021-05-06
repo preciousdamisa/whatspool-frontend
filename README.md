@@ -28,6 +28,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO
 
-- Change the icon in winners take all in the home page to prize (money).
 - Use the alert component in all the admin components where needed.
 - Code clean up and proper error handling.

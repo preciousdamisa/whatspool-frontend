@@ -28,6 +28,7 @@ export class FundAccountComponent implements OnInit {
       (res: FundAccountResponseData) => {
         form.reset({ phone: form.value.phone, amount: 0 });
         this.fundInfo = res;
+        console.log(res);
         this.isLoading = false;
       },
       (errMsg) => {
@@ -37,8 +38,13 @@ export class FundAccountComponent implements OnInit {
     );
   }
 
-  onSuccess(form: NgForm) {
+  get successMsg() {
+    return `Account with ${this.fundInfo?.phone} has been funded with #${this.fundInfo?.amount}`;
+  }
+
+  onDismissAlert(form: NgForm) {
     this.fundInfo = null;
+    this.errMsg = '';
     form.reset();
   }
 }

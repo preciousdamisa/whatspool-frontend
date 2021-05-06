@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Question } from 'src/app/shared/models/question.model';
+import { Question } from '../../shared/models/question.model';
 import { Subscription } from 'rxjs';
 
 import { EditQuestionService } from './edit-question.service';
@@ -55,10 +55,11 @@ export class EditQuestionComponent implements OnInit, OnDestroy {
     );
   }
 
-  onSuccess(form: NgForm) {
+  onDismissAlert(form: NgForm) {
     form.reset();
-    this.getQuestionsCount();
+    this.errMsg = '';
     this.questionInfo = null;
+    this.getQuestionsCount();
   }
 
   ngOnDestroy() {

@@ -11,19 +11,8 @@
       <input type="number" id="amount" name="amount" #amount="ngModel" ngModel required pattern="^[1-9]+[0-9]*$">
       <span *ngIf="amount.invalid && amount.touched">Amount must be greater than 0.</span>
     </div>
-    <div class="err-msg-container" *ngIf="errMsg">
-      <h4>Error!</h4>
-      <p>{{errMsg}}</p>
-      <button class="btn err-btn" type="button" (click)="errMsg = ''">Okay</button>
-    </div>
-    <div class="success-msg-container" *ngIf="fundInfo">
-      <h4>Success!</h4>
-      <p>{{fundInfo.msg}}</p>
-      <hr>
-      <p>Phone number: {{fundInfo.phone}}</p>
-      <p>Amount: {{fundInfo.amount}}</p>
-      <button class="btn success-btn" type="button" (click)="onSuccess(f)">Okay</button>
-    </div>
+    <app-alert *ngIf="errMsg" title="Error!" [message]="errMsg" (dismiss)="onDismissAlert(f)"></app-alert>
+    <app-alert *ngIf="fundInfo" [title]="fundInfo.msg" [message]="successMsg" (dismiss)="onDismissAlert(f)"></app-alert>
     <button class="btn fund-account-btn" type="submit" [disabled]="f.invalid || isLoading">Fund Account</button>
   </form>
 </section>
