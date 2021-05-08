@@ -64,7 +64,7 @@
     </div> -->
     <app-alert *ngIf="errMsg" title="Error!" [message]="errMsg" distanceFromTop="40vh" (dismiss)="onDismissAlert()">
     </app-alert>
-    <p class="center">Have an account already? <a class="dark-primary-color" routerLink="/login">Login</a></p>
+    <p class="center">Have an account already? <a class="dark-primary-color" routerLink="/user/login">Login</a></p>
     <p class="center pt4">Important! Ensure you read all about participating in WhatsPool in the About page after your
       signup.</p>
     <button class="btn signup-btn" [disabled]="signupForm.invalid || isLoading">

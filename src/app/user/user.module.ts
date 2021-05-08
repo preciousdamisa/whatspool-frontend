@@ -16,8 +16,13 @@ import { SignupComponent } from './signup/signup.component';
     SharedModule,
     ReactiveFormsModule,
     RouterModule.forChild([
-      { path: 'signup', component: SignupComponent },
-      { path: 'login', component: LoginComponent },
+      {
+        path: '',
+        children: [
+          { path: 'signup', component: SignupComponent },
+          { path: 'login', component: LoginComponent },
+        ],
+      },
     ]),
   ],
 })

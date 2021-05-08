@@ -21,8 +21,10 @@
       <li class="main-nav__item"><a routerLink="contact-us" routerLinkActive="active">Contact Us</a></li>
       <li class="main-nav__item" *ngIf="isLoggedIn && isAdmin"><a routerLink="admin" routerLinkActive="active">Admin</a>
       </li>
-      <li class="main-nav__item" *ngIf="!isLoggedIn"><a routerLink="login" routerLinkActive="active">Log in</a></li>
-      <li class="main-nav__item" *ngIf="!isLoggedIn"><a routerLink="signup" routerLinkActive="active">Signup</a></li>
+      <li class="main-nav__item" *ngIf="!isLoggedIn"><a routerLink="user/login" routerLinkActive="active">Log in</a>
+      </li>
+      <li class="main-nav__item" *ngIf="!isLoggedIn"><a routerLink="user/signup" routerLinkActive="active">Signup</a>
+      </li>
       <li class="main-nav__item" *ngIf="isLoggedIn"><a (click)="onLogout()">Log out</a></li>
     </ul>
   </nav>
@@ -47,9 +49,9 @@
           Us</a></li>
       <li class="mobile-nav-item" *ngIf="isLoggedIn && isAdmin"><a routerLink="admin" routerLinkActive="active"
           (click)="onCloseNav()">Admin</a></li>
-      <li class="mobile-nav-item" *ngIf="!isLoggedIn"><a routerLink="login" routerLinkActive="active"
+      <li class="mobile-nav-item" *ngIf="!isLoggedIn"><a routerLink="user/login" routerLinkActive="active"
           (click)="onCloseNav()">Log in</a></li>
-      <li class="mobile-nav-item" *ngIf="!isLoggedIn"><a routerLink="signup" routerLinkActive="active"
+      <li class="mobile-nav-item" *ngIf="!isLoggedIn"><a routerLink="user/signup" routerLinkActive="active"
           (click)="onCloseNav()">Signup</a>
       </li>
       <li class="mobile-nav-item" *ngIf="isLoggedIn"><a (click)="onLogout()">Log out</a>

@@ -97,7 +97,7 @@ export class UserService {
 
   logout() {
     this.userSubj.next(null);
-    this.router.navigate(['/login']);
+    this.router.navigate(['/user/login']);
     localStorage.removeItem('userData');
 
     if (this.tokenExpirationTimer) {

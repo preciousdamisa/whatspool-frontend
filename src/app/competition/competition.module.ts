@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
 
 const routes: Routes = [
   {
-    path: 'competition',
+    path: '',
     component: CompetitionComponent,
     canActivate: [AuthGuardService],
     children: [

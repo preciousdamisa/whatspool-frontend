@@ -24,7 +24,7 @@ import { AuthGuardService } from '../user/auth-guard.service';
     CommonModule,
     RouterModule.forChild([
       {
-        path: 'account',
+        path: '',
         component: AccountComponent,
         canActivate: [AuthGuardService],
       },

@@ -25,7 +25,7 @@ export class AuthGuardService implements CanActivate {
     if (user || state.url === '/competition/winners') {
       return true;
     } else {
-      return this.router.navigate(['/login']);
+      return this.router.navigate(['/user/login']);
     }
   }
 }

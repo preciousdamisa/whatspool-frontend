@@ -17,7 +17,7 @@ import { AdminGuardService } from './admin-guard.service';
 
 const routes: Routes = [
   {
-    path: 'admin',
+    path: '',
     component: AdminComponent,
     canActivate: [AdminGuardService],
     children: [
