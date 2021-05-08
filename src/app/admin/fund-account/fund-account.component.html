@@ -3,16 +3,16 @@
     <h1 class="form-title">Fund Account</h1>
     <div>
       <label for="phone">Phone number</label>
-      <input type="text" id="phone" name="phone" #phone="ngModel" ngModel minlength="11" maxlength="11" required>
+      <input class="form-control" type="text" id="phone" name="phone" #phone="ngModel" ngModel minlength="11" maxlength="11" required>
       <span *ngIf="phone.invalid && phone.touched">Phone number must be 11 digits.</span>
     </div>
     <div>
       <label for="amount">Amount</label>
-      <input type="number" id="amount" name="amount" #amount="ngModel" ngModel required pattern="^[1-9]+[0-9]*$">
+      <input class="form-control" type="number" id="amount" name="amount" #amount="ngModel" ngModel required pattern="^[1-9]+[0-9]*$">
       <span *ngIf="amount.invalid && amount.touched">Amount must be greater than 0.</span>
     </div>
     <app-alert *ngIf="errMsg" title="Error!" [message]="errMsg" (dismiss)="onDismissAlert(f)"></app-alert>
     <app-alert *ngIf="fundInfo" [title]="fundInfo.msg" [message]="successMsg" (dismiss)="onDismissAlert(f)"></app-alert>
-    <button class="btn fund-account-btn" type="submit" [disabled]="f.invalid || isLoading">Fund Account</button>
+    <button class="btn submit-btn" type="submit" [disabled]="f.invalid || isLoading">Fund Account</button>
   </form>
 </section>

@@ -57,11 +57,6 @@ button:disabled {
   cursor: not-allowed;
 }
 
-.add-question-btn {
-  margin-top: 1.5rem;
-  width: 100%;
-}
-
 @media (min-width: 40rem) {
   form {
     margin: auto;

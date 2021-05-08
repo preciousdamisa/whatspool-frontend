@@ -3,20 +3,21 @@
     <h1 class="form-title">Login</h1>
     <div>
       <label for="email">E-Mail</label>
-      <input id="email" type="email" name="email" #email="ngModel" [ngModel]="defaultEmail" required email>
+      <input class="form-control" id="email" type="email" name="email" #email="ngModel" [ngModel]="defaultEmail"
+        required email>
       <span *ngIf="email.invalid && email.touched">Enter a valid E-Mail.</span>
     </div>
     <div>
       <label for="password">Password</label>
-      <input id="password" type="password" name="password" #password="ngModel" ngModel required>
+      <input class="form-control" id="password" type="password" name="password" #password="ngModel" ngModel required>
       <span *ngIf="password.invalid && password.touched">Password is required.</span>
     </div>
-    <app-alert *ngIf="errMsg" title="Error!" [message]="errMsg" distanceFromTop="40vh" (dismiss)="onDismissAlert()">
+    <app-alert *ngIf="errMsg" title="Error!" [message]="errMsg" (dismiss)="onDismissAlert()">
     </app-alert>
-    <p class="center">Don't have an account? <a class="dark-primary-color" routerLink="/user/signup">Signup</a></p>
-    <button class="btn login-btn" [disabled]="f.invalid || isLoading">
+    <button class="btn submit-btn" [disabled]="f.invalid || isLoading">
       <app-spinner *ngIf="isLoading"></app-spinner> {{isLoading ? 'Logging you in...' :
       'Login'}}
     </button>
+    <p class="center pt5">Don't have an account? <a class="dark-primary-color" routerLink="/user/signup">Signup</a></p>
   </form>
 </section>

@@ -28,5 +28,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO
 
-- Use the alert component in all the admin components where needed.
-- Code clean up and proper error handling.
+- Use the alert component in all the admin components where needed. Continue
+from competitors.
+- Code clean up, reuse CSS code by creating shared classes in
+styles.css
+- Show "No Questions" in the questions and answers page, when there
+are no questions.
+- Proper error handling.

@@ -3,11 +3,11 @@
     <h2 class="center py4">Set Next Quiz Time</h2>
     <div>
       <label for="date">Date</label>
-      <input type="date" id="date" name="date" ngModel required>
+      <input class="form-control" type="date" id="date" name="date" ngModel required>
     </div>
     <div>
       <label for="time">Time</label>
-      <input type="time" name="time" id="time" ngModel required>
+      <input class="form-control" type="time" name="time" id="time" ngModel required>
     </div>
     <div class="err-msg-container" *ngIf="errMsg">
       <h4>Error!</h4>
@@ -23,7 +23,7 @@
     </div>
     <span *ngIf="f.invalid && f.touched">All values must set.</span>
     <p class="center"><strong>Note:</strong> Time should be 1 hr less than the actual time.</p>
-    <button class="btn set-time-btn" [disabled]="isLoading || f.invalid" type="submit">
+    <button class="btn submit-btn" [disabled]="isLoading || f.invalid" type="submit">
       <app-spinner *ngIf="isLoading"></app-spinner> {{isLoading ? 'Setting...' : 'Set Quiz Date'}}
     </button>
   </form>

@@ -8,18 +8,6 @@ form {
   padding: 0 1rem;
 }
 
-input{
-  padding: 0.5rem;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-input:focus {
-  outline: none;
-  background: #dadbe4;
-  border-color: #3f51b5;
-}
-
 span {
   display: block;
   font-size: 0.8rem;
@@ -31,7 +19,6 @@ label,
 span {
   width: 100%;
   margin-bottom: 0.5rem;
-  font: inherit;
 }
 
 label {

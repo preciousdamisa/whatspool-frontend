@@ -1,7 +1,8 @@
 import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { NgForm } from '@angular/forms';
 
 import { QuestionsService } from './questions.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-questions',
@@ -12,14 +13,20 @@ export class QuestionsComponent implements OnDestroy {
   isDeleting!: boolean;
   successMsg!: string;
   errMsg!: string;
+  showForm = false;
   subscription!: Subscription;
 
   constructor(private queService: QuestionsService) {}
 
-  onDeleteQuestions() {
+  onDelete(form: NgForm) {
+    const formData = form.value;
+
+    if (formData.confirmDelete !== 'Delete') return;
+
     this.isDeleting = true;
     this.subscription = this.queService.deleteQuestions().subscribe(
       (res) => {
+        form.reset();
         this.successMsg = 'Questions deleted Successfully!';
         this.isDeleting = false;
       },
@@ -28,6 +35,11 @@ export class QuestionsComponent implements OnDestroy {
         this.errMsg = errMsg;
       }
     );
+  }
+
+  onDismiss() {
+    this.successMsg = '';
+    this.showForm = false;
   }
 
   ngOnDestroy() {

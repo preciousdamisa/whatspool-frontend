@@ -43,7 +43,7 @@
     <div>
       <label for="answer">Question number</label>
       <input id="answer" type="number" name="no" #questionNumber="ngModel" [ngModel]="nextQuestionNo" required
-        pattern="^[1-9]+[0-9]*$">
+        pattern="^[1-9]+[0-9]*$" readonly>
       <span *ngIf="questionNumber.invalid && questionNumber.touched">Question number is required.</span>
     </div>
     <div>
@@ -59,7 +59,7 @@
       <p><strong>Question No:</strong> {{questionInfo.no}}</p>
       <p><strong>Question Text:</strong> {{questionInfo.que}}</p>
     </app-alert2>
-    <button class="btn add-question-btn" type="submit" [disabled]="f.invalid">
+    <button class="btn submit-btn" type="submit" [disabled]="f.invalid">
       <app-spinner *ngIf="isLoading"></app-spinner> {{isLoading ? 'Adding Question...' : 'Add Question'}}
     </button>
   </form>

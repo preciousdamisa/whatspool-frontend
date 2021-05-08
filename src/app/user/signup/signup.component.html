@@ -3,7 +3,7 @@
     <h1 class="form-title">Signup To WhatsPool</h1>
     <div>
       <label>First name</label>
-      <input type="text" formControlName="firstName">
+      <input class="form-control" type="text" formControlName="firstName">
       <span *ngIf="firstName.invalid && firstName.touched">
         <span *ngIf="firstName.errors?.required">First name is required.</span>
         <span *ngIf="firstName.errors?.minlength">First name should be a minimum of 2 characters.</span>
@@ -12,7 +12,7 @@
     </div>
     <div>
       <label>Last name</label>
-      <input type="text" formControlName="lastName">
+      <input class="form-control" type="text" formControlName="lastName">
       <span *ngIf="lastName.invalid && lastName.touched">
         <span *ngIf="lastName.errors?.required">Last name is required.</span>
         <span *ngIf="lastName.errors?.minlength">Last name should be a minimum of 2
@@ -23,7 +23,7 @@
     </div>
     <div>
       <label>Phone number</label>
-      <input type="text" formControlName="phone">
+      <input class="form-control" type="text" formControlName="phone">
       <span *ngIf="phone.invalid && phone.touched">
         <span *ngIf="phone.errors?.required">Phone number is required.</span>
         <span *ngIf="phone.errors?.charLengthMustBeEleven">Phone number must be 11 digits.</span>
@@ -31,7 +31,7 @@
     </div>
     <div>
       <label>E-Mail</label>
-      <input type="email" formControlName="email">
+      <input class="form-control" type="email" formControlName="email">
       <span *ngIf="email.invalid && email.touched">
         <span *ngIf="email.errors?.required">E-Mail is required.</span>
         <span *ngIf="email.errors?.email">E-Mail must be valid.</span>
@@ -39,7 +39,7 @@
     </div>
     <div>
       <label>Password</label>
-      <input type="password" formControlName="password">
+      <input class="form-control" type="password" formControlName="password">
       <span *ngIf="password.invalid && password.touched">
         <span *ngIf="password.errors?.required">Password is required.</span>
         <span *ngIf="password.errors?.minlength">Password should be a minimum of 5
@@ -50,7 +50,7 @@
     </div>
     <div>
       <label>Confirm Password</label>
-      <input type="password" formControlName="confirmPassword">
+      <input class="form-control" type="password" formControlName="confirmPassword">
       <span *ngIf="confirmPassword.invalid && confirmPassword.touched">
         <span *ngIf="confirmPassword.errors?.required">Confirm password is required.</span>
         <span *ngIf="confirmPassword.errors?.passwordsMustBeSame">Both passwords must be the same.</span>
@@ -62,14 +62,14 @@
         <a>Terms &amp; Conditions</a>
       </span>
     </div> -->
-    <app-alert *ngIf="errMsg" title="Error!" [message]="errMsg" distanceFromTop="40vh" (dismiss)="onDismissAlert()">
+    <app-alert *ngIf="errMsg" title="Error!" [message]="errMsg" (dismiss)="onDismissAlert()">
     </app-alert>
-    <p class="center">Have an account already? <a class="dark-primary-color" routerLink="/user/login">Login</a></p>
     <p class="center pt4">Important! Ensure you read all about participating in WhatsPool in the About page after your
       signup.</p>
-    <button class="btn signup-btn" [disabled]="signupForm.invalid || isLoading">
+    <button class="btn submit-btn" [disabled]="signupForm.invalid || isLoading">
       <app-spinner *ngIf="isLoading"></app-spinner> {{isLoading ? 'Signing you up...' :
       'Signup'}}
     </button>
+    <p class="center mt5">Have an account already? <a class="dark-primary-color" routerLink="/user/login">Login</a></p>
   </form>
 </section>

@@ -21,26 +21,6 @@ label {
   display: block;
 }
 
-/* ***** BUTTON ***** */
-
-.btn {
-  font: inherit;
-  outline: none;
-  padding: 0.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 8px;
-  background: #ff5722;
-  border: 1px solid #ff5722;
-  color: white;
-}
-
-.btn:hover,
-.btn:active {
-  background: rgba(255, 87, 34, 0.8);
-  border: 1px solid rgba(255, 87, 34, 0.8);
-}
-
 /* ***** UTILITIES ***** */
 .alert {
   position: fixed;
@@ -80,6 +60,44 @@ label {
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.7);
+}
+
+.btn {
+  font: inherit;
+  outline: none;
+  padding: 0.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  background: #ff5722;
+  border: 1px solid #ff5722;
+  color: white;
+}
+
+.btn:hover,
+.btn:active {
+  background: rgba(255, 87, 34, 0.8);
+  border: 1px solid rgba(255, 87, 34, 0.8);
+}
+
+.btn:disabled {
+  color: #a1a1a1;
+  background-color: #ccc;
+  border-color: #a1a1a1;
+  cursor: not-allowed;
+}
+
+.btn-danger {
+  background: #fd4848;
+}
+
+.btn-shadow {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn {
+  margin-top: 1.5rem;
+  width: 100%;
 }
 
 .err-msg-container {
@@ -144,6 +162,19 @@ label {
   .card {
     width: 45%;
   }
+}
+
+.form-control {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font: inherit;
+}
+
+.form-control:focus {
+  outline: none;
+  background: #dadbe4;
+  border-color: #3f51b5;
 }
 
 /* ***** PADDING ***** */
@@ -467,11 +498,6 @@ label {
 
 .secondary-text {
   color: #757575;
-}
-
-/* ***** BUTTON ***** */
-.btn-shadow {
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
 }
 
 /* ***** TEXT ***** */
