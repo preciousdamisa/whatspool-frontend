@@ -15,7 +15,7 @@
       </li>
       <li class="main-nav__item call-to-action" *ngIf="isLoggedIn"><a routerLink="competition/check-status">Compete</a>
       </li>
-      <li class="main-nav__item"><a routerLink="competition/winners">Winners</a>
+      <li class="main-nav__item"><a routerLink="competition/winners" routerLinkActive="active">Winners</a>
       </li>
       <li class="main-nav__item"><a routerLink="about" routerLinkActive="active">About</a></li>
       <li class="main-nav__item"><a routerLink="contact-us" routerLinkActive="active">Contact Us</a></li>
@@ -32,18 +32,21 @@
 <nav class="backdrop" *ngIf="openNav" (click)="onCloseNav()">
   <div class="mobile-nav">
     <ul class="mobile-nav-items">
-      <li class="mobile-nav-item"><a><span class="accent-color brand-name">Whats</span><span
-            class="brand-name dark-primary-color">Pool</span></a></li>
+      <li class="mobile-nav-item brand-name"><a><span class="accent-color brand-name-part">Whats</span><span
+            class="brand-name-part dark-primary-color">Pool</span></a><img class="icon times-icon"
+          src="../../assets/icons/times.svg" alt="Close">
+      </li>
       <li class="mobile-nav-item"><img class="icon mr1" src="../../assets/icons/home.svg"><a routerLink=""
           routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="onCloseNav()">Home</a></li>
-      <li class="mobile-nav-item" *ngIf="isLoggedIn"><a routerLink="account" routerLinkActive="active"
-          (click)="onCloseNav()">My
+      <li class="mobile-nav-item" *ngIf="isLoggedIn"><img class="icon mr1" src="../../assets/icons/user-circle.svg"><a
+          routerLink="account" routerLinkActive="active" (click)="onCloseNav()">My
           Account</a></li>
-      <li class="mobile-nav-item call-to-action" *ngIf="isLoggedIn"><a routerLink="competition/check-status"
+      <li class="mobile-nav-item call-to-action" *ngIf="isLoggedIn"><img class="icon mr1"
+          src="../../assets/icons/hourglass.svg"><a routerLink="competition/check-status" routerLinkActive="active"
           (click)="onCloseNav()">Compete</a>
       </li>
       <li class="mobile-nav-item"><img class="icon mr1" src="../../assets/icons/trophy.svg"><a
-          routerLink="competition/winners" (click)="onCloseNav()">Winners</a>
+          routerLink="competition/winners" routerLinkActive="active" (click)="onCloseNav()">Winners</a>
       </li>
       <li class="mobile-nav-item"><img class="icon mr1" src="../../assets/icons/info-circle.svg"><a routerLink="about"
           routerLinkActive="active" (click)="onCloseNav()">About</a>
@@ -51,15 +54,20 @@
       <li class="mobile-nav-item"><img class="icon mr1" src="../../assets/icons/envelope.svg"><a routerLink="contact-us"
           routerLinkActive="active" (click)="onCloseNav()">Contact
           Us</a></li>
-      <li class="mobile-nav-item" *ngIf="isLoggedIn && isAdmin"><a routerLink="admin" routerLinkActive="active"
+      <li class="mobile-nav-item" *ngIf="isLoggedIn && isAdmin"><img class="icon mr1"
+          src="../../assets/icons/user-shield.svg"><a routerLink="admin" routerLinkActive="active"
           (click)="onCloseNav()">Admin</a></li>
       <li class="mobile-nav-item" *ngIf="!isLoggedIn"><img class="icon mr1" src="../../assets/icons/sign-in.svg"><a
           routerLink="user/login" routerLinkActive="active" (click)="onCloseNav()">Log in</a></li>
-      <li class="mobile-nav-item" *ngIf="!isLoggedIn"><img class="icon mr1" src="../../assets/icons/user-plus.svg"><a
+      <li *ngIf="!isLoggedIn" class="mobile-nav-item"><img class="icon mr1" src="../../assets/icons/user-plus.svg"><a
           routerLink="user/signup" routerLinkActive="active" (click)="onCloseNav()">Signup</a>
       </li>
-      <li class="mobile-nav-item" *ngIf="isLoggedIn"><a (click)="onLogout()">Log out</a>
-      </li>
+      <div *ngIf="isLoggedIn">
+        <hr>
+        <li class="mobile-nav-item"><img class="icon mr1" src="../../assets/icons/sign-out.svg"><a
+            (click)="onLogout()">Log out</a>
+        </li>
+      </div>
     </ul>
   </div>
 </nav>

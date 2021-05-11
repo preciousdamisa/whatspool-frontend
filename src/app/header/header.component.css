@@ -83,7 +83,7 @@
 }
 
 .icon {
-  height: 1.5rem;
+  height: 1.3rem;
 }
 
 .call-to-action > a {
@@ -98,16 +98,6 @@
   color: #303f9f;
 }
 
-.mobile-nav-item.call-to-action > a {
-  border: 2px solid #303f9f;
-}
-
-.call-to-action.mobile-nav-item > a:hover,
-.call-to-action.mobile-nav-item > a:active {
-  background: #303f9f;
-  color: white;
-}
-
 .mobile-nav {
   position: fixed;
   background: white;
@@ -119,27 +109,27 @@
   overflow-y: scroll;
 }
 
-.mobile-nav > img {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-}
-
 .mobile-nav-items {
   height: 100%;
   list-style: none;
-  margin: 1rem ;
+  margin: 0 1rem;
   padding: 0;
   text-align: left;
 }
 
-.mobile-nav-items:first-child {
-  margin-bottom: 3rem;
+.mobile-nav .brand-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.mobile-nav .brand-name {
-  font-size: 2rem;
+.mobile-nav .brand-name-part {
+  font-size: 1.8rem;
   font-weight: bold;
+}
+
+.mobile-nav .times-icon {
+  height: 1.6rem;
 }
 
 .mobile-nav-item {
@@ -147,12 +137,14 @@
 }
 
 .mobile-nav-item > a {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
+  width: 100%;
 }
 
-.active {
-  border-bottom: 3px solid white;
-  border-radius: 3px;
+.mobile-nav .active {
+  border-bottom: 3px solid #303f9f;
+  font-weight: bold;
+  border-radius: 4px;
 }
 
 @media (min-width: 40rem) {
@@ -162,5 +154,10 @@
 
   .toggle-button {
     display: none;
+  }
+
+  .active {
+    border-bottom: 3px solid white;
+    border-radius: 3px;
   }
 }

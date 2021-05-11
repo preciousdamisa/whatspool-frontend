@@ -451,18 +451,18 @@ label {
 
 /* ***** MARGIN LEFT AND RIGHT ***** */
 .mx1 {
-  margin-left: 4px;
-  margin-right: 4px;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .mx2 {
-  margin-left: 8px;
-  margin-right: 8px;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
 .mx3 {
-  margin-left: 12px;
-  margin-right: 12px;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 
 .mx4 {
