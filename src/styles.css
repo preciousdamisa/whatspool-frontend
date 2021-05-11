@@ -362,19 +362,23 @@ label {
 
 /* ***** MARGIN RIGHT ***** */
 .mr1 {
-  margin-right: 4px;
+  margin-right: 1rem;
 }
 
 .mr2 {
-  margin-right: 8px;
+  margin-right: 2rem;
 }
 
 .mr3 {
-  margin-right: 12px;
+  margin-right: 3rem;
 }
 
 .mr4 {
-  margin-right: 16px;
+  margin-right: 1rem;
+}
+
+.mr5 {
+  margin-right: 2rem;
 }
 
 /* ***** MARGIN TOP ***** */
@@ -412,7 +416,11 @@ label {
 }
 
 .mb4 {
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
+}
+
+.mb5 {
+  margin-bottom: 2rem;
 }
 
 /* ***** MARGIN TOP AND BOTTOM ***** */

@@ -1,14 +1,12 @@
 .main-header {
-  width: 100%;
+  width: 100vw;
   padding: 0.5rem 1rem;
   background-color: #303f9f;
   position: fixed;
   top: 0;
-}
-
-.main-header > div {
-  display: inline-block;
-  vertical-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .toggle-button {
@@ -52,19 +50,16 @@
 
 .main-nav {
   display: none;
-  width: calc(100% - 126px);
-  text-align: right;
-  vertical-align: middle;
 }
 
 .main-nav__items {
   margin: 0;
   padding: 0;
   list-style: none;
+  display: flex;
 }
 
 .main-nav__item {
-  display: inline-block;
   margin: 0 1rem;
 }
 
@@ -77,13 +72,18 @@
 }
 
 .mobile-nav-item > a {
-  color: #303f9f;
+  color: #757575;
+  font-weight: normal;
 }
 
 .main-nav__item > a:hover,
 .main-nav__item > a:active {
   border-bottom: 3px solid white;
   border-radius: 3px;
+}
+
+.icon {
+  height: 1.5rem;
 }
 
 .call-to-action > a {
@@ -126,16 +126,24 @@
 }
 
 .mobile-nav-items {
-  width: 90%;
   height: 100%;
   list-style: none;
-  margin: 20% auto;
+  margin: 1rem ;
   padding: 0;
-  text-align: center;
+  text-align: left;
+}
+
+.mobile-nav-items:first-child {
+  margin-bottom: 3rem;
+}
+
+.mobile-nav .brand-name {
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .mobile-nav-item {
-  margin: 1rem 0;
+  margin: 1.8rem 0;
 }
 
 .mobile-nav-item > a {
