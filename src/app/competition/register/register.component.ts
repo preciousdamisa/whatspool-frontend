@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs';
 import { User } from '../../user/user.model';
 import { UserService } from '../../user/user.service';
 import { RegisterService } from './register.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -13,6 +14,7 @@ import { RegisterService } from './register.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit, OnDestroy {
+  quizStartTime = environment.whatspoolGenStartTime;
   subscription!: Subscription;
   isLoading = false;
   showAlert = false;

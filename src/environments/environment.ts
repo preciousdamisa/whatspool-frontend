@@ -5,7 +5,13 @@
 export const environment = {
   production: false,
   whatspoolApiUrl: 'http://localhost:4000/api/',
-  whatspoolUrl: 'http://localhost:4200/'
+  whatspoolUrl: 'http://localhost:4200/',
+  whatspoolGenStartTime: '8:30 P.M',
+  whatspoolGenEndTime: '8:40 P.M',
+  whatspoolMusicStartTime: '8:50 P.M',
+  whatspoolMusicEndTime: '9:00 P.M',
+  whatspoolSportsTime: '9:10 P.M',
+  whatspoolSportsEndTime: '9:20 P.M',
 };
 
 /*

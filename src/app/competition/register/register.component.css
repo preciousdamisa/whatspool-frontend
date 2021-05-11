@@ -7,7 +7,7 @@ form {
   padding: 1rem;
 }
 
-span {
+input + span {
   display: block;
   font-size: 0.8rem;
   color: red;
@@ -16,7 +16,7 @@ span {
 input,
 label,
 textarea,
-span {
+input + span {
   width: 100%;
   margin-bottom: 0.5rem;
 }
