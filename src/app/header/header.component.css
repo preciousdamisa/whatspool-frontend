@@ -82,22 +82,6 @@
   border-radius: 3px;
 }
 
-.icon {
-  height: 1.3rem;
-}
-
-.call-to-action > a {
-  border: 2px solid white;
-  border-radius: 6px;
-  padding: 0.2rem 0.5rem;
-}
-
-.call-to-action > a:hover,
-.call-to-action > a:active {
-  background: white;
-  color: #303f9f;
-}
-
 .mobile-nav {
   position: fixed;
   background: white;
@@ -128,8 +112,14 @@
   font-weight: bold;
 }
 
-.mobile-nav .times-icon {
-  height: 1.6rem;
+.icon {
+  color: #757575;
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
+.brand-name i {
+  font-size: 1.6rem;
 }
 
 .mobile-nav-item {
@@ -159,5 +149,17 @@
   .active {
     border-bottom: 3px solid white;
     border-radius: 3px;
+  }
+
+  .call-to-action > a {
+    border: 2px solid white;
+    border-radius: 6px;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .call-to-action > a:hover,
+  .call-to-action > a:active {
+    background: white;
+    color: #303f9f;
   }
 }
