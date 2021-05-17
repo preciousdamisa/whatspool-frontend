@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
 import { CompetitorsService } from './competitors.service';
@@ -13,6 +14,7 @@ export class CompetitorsComponent implements OnInit, OnDestroy {
   isFetching = false;
   successMsg!: string;
   errMsg!: string;
+  showForm = false;
   competitorsCount!: number;
   subscription!: Subscription;
 
@@ -36,19 +38,30 @@ export class CompetitorsComponent implements OnInit, OnDestroy {
       });
   }
 
-  onDeleteCompetitors() {
+  onDelete(form: NgForm) {
+    const formData = form.value;
+
+    if (formData.confirmDelete !== 'Delete') return;
+
     this.isDeleting = true;
     this.subscription = this.competitorsService.deleteCompetitors().subscribe(
       (res) => {
+        console.log(res);
         this.isDeleting = false;
         this.competitorsCount = 0;
         this.successMsg = 'Competitors deleted Successfully!';
+        form.reset();
       },
       (errMsg) => {
         this.isDeleting = false;
         this.errMsg = errMsg;
       }
     );
+  }
+
+  onDismiss() {
+    this.successMsg = '';
+    this.showForm = false;
   }
 
   ngOnDestroy() {

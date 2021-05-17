@@ -1,13 +1,13 @@
 <div *ngIf="showForm" class="backdrop center">
-  <div class="alert" style="top: 30vh">
+  <div class="alert" style="top: 20vh">
     <form (ngSubmit)="onDelete(f)" #f="ngForm">
-      <h3 *ngIf="successMsg" class="mt5">{{successMsg}}</h3>
-      <h3 *ngIf="errMsg" class="mt5">{{errMsg}}</h3>
+      <h3 *ngIf="successMsg" class="mt1">{{successMsg}}</h3>
+      <h3 *ngIf="errMsg" class="mt1">{{errMsg}}</h3>
       <p>Type <strong>Delete</strong> to delete all questions</p>
       <div>
         <input class="form-control" type="text" name="confirmDelete" #confirmDelete="ngModel" ngModel required>
       </div>
-      <div class="mt4">
+      <div class="mt2">
         <button class="btn btn-danger px4 mr4" type="submit" [disabled]="confirmDelete.value !== 'Delete'">
           <app-spinner *ngIf="isDeleting"></app-spinner>{{isDeleting ? 'Deleting...' : 'Delete'}}
         </button>
