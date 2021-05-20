@@ -3,6 +3,31 @@ h2 {
   color: #3f51b5;
 }
 
+label {
+  font-weight: bold;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid #3f51b5;
+  outline: none;
+  width: 100%;
+  border-radius: 0;
+}
+
+input.ng-touched.ng-invalid {
+  border: 1px solid red;
+  background: #f6c1c1;
+}
+
+span {
+  display: block;
+  font-size: 0.8rem;
+  color: red;
+}
+
 p {
   line-height: 2;
   font-size: 1.2rem;
@@ -11,5 +36,4 @@ p {
 
 img {
   width: 90%;
-  max-width: 90%;
 }

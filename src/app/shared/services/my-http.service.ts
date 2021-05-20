@@ -30,6 +30,7 @@ export class MyHttpService {
     if (typeof err.error === 'string') {
       errMsg = err.error;
     }
+
     return throwError(errMsg);
   }
 }

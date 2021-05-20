@@ -1,6 +1,26 @@
 <section class="container mt5">
   <h1 class="dark-primary-color">Fund Your WhatsPool Account</h1>
-  <button class="btn">Proceed</button>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div>
+      <input id="amount" class="form-control" type="number" name="amount" #amount="ngModel" ngModel min="100"
+        pattern="^[1-9]+[0-9]*$" placeholder="Amount">
+      <span *ngIf="amount.invalid && amount.touched">Amount is required and should be a minimum of #100</span>
+    </div>
+    <button class="btn px2 mt1" [disabled]="amount.invalid || loading">
+      <app-spinner *ngIf="loading"></app-spinner> {{loading ? 'Loading' : 'Proceed'}}
+    </button>
+  </form>
+  <div *ngIf="showAlert" class="backdrop center">
+    <div class="alert" style="top: 20vh">
+      <p>Fund your account with #{{amount.value}}</p>
+      <div class="mt2">
+        <button class="btn px4" (click)="onDismiss()">Cancel</button>
+        <a [href]="response.data.authorization_url" class="btn px4 ml4">
+          Continue
+        </a>
+      </div>
+    </div>
+  </div>
   <p class="implore-text">Please read the information below</p>
   <hr>
   <p>To facilicate easy and quick funding of user accounts. WhatsPool makes use of an online payment gateway (Paystack).

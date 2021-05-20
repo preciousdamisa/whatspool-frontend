@@ -23,13 +23,13 @@ export class UserService {
 
   getUser() {
     const user = this.getStoredUserData();
-    if (user?.token) return user;
+    if (user) return user;
     return null;
   }
 
   private getStoredUserData() {
     const userData = localStorage.getItem('userData');
-    if (!userData) return;
+    if (!userData) return null;
 
     return User.fromJson(JSON.parse(userData));
   }

@@ -21,7 +21,7 @@ export class FundAccountService {
 
   fundAccount(phone: string, amount: number) {
     return this.http
-      .post<FundAccountResponseData>(environment.whatspoolApiUrl + 'manual-fund', {
+      .post<FundAccountResponseData>(environment.whatspoolApiUrl + 'manual-funding', {
         phone,
         amount,
       })

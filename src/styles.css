@@ -79,6 +79,7 @@ label {
   background: #ff5722;
   border: 1px solid #ff5722;
   color: white;
+  text-decoration: none;
 }
 
 .btn:hover,
@@ -374,11 +375,11 @@ label {
 
 /* ***** MARGIN BOTTOM ***** */
 .mb1 {
-  margin-bottom: 4px;
+  margin-bottom: 1rem;
 }
 
 .mb2 {
-  margin-bottom: 8px;
+  margin-bottom: 2rem;
 }
 
 .mb3 {

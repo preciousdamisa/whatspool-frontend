@@ -34,4 +34,6 @@ from winners.
 styles.css
 - Show "No Questions" in the questions and answers page, when there
 are no questions.
-- Thorough error handling.
+- Change to managing state with ngRx
+- Remove the check for nullness throughout the project. The user object should be adjusted
+to reflect this.
