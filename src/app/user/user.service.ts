@@ -85,7 +85,7 @@ export class UserService {
     const user = this.getStoredUserData();
 
     // If the token has not expired.
-    if (user?.token) {
+    if (user.token) {
       this.userSubj.next(user);
       this.router.navigate(['']);
 
