@@ -22,6 +22,13 @@ label {
 }
 
 /* ***** UTILITIES ***** */
+.container {
+  max-width: 68rem;
+  margin: auto;
+  overflow: auto;
+  padding: 0 1.2rem;
+}
+
 .alert {
   position: fixed;
   z-index: 100;
@@ -98,43 +105,6 @@ label {
 .submit-btn {
   margin-top: 1.5rem;
   width: 100%;
-}
-
-.err-msg-container {
-  padding: 0.5rem;
-  border-radius: 5px;
-  background: #ffc4c4;
-  color: #fd4848;
-  font-weight: bold;
-}
-
-.err-btn {
-  background: #fd4848;
-}
-
-.err-btn:hover,
-.err-btn:active {
-  background: rgba(253, 72, 72, 0.8);
-  border: 1px solid rgba(253, 72, 72, 0.8);
-}
-
-.success-msg-container {
-  padding: 0.5rem;
-  border-radius: 5px;
-  background: #aeffae;
-  color: white;
-  font-weight: bold;
-}
-
-.success-btn {
-  background: #67ff67;
-  border: 1px solid #67ff67;
-}
-
-.success-btn:hover,
-.success-btn:active {
-  background: rgba(103, 255, 103, 0.8);
-  border: 1px solid rgba(103, 255, 103, 0.8);
 }
 
 .card {

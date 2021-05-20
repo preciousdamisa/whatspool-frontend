@@ -3,6 +3,7 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { FundAccountInfoComponent } from './fund-account-info/fund-account-info.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
@@ -29,6 +30,7 @@ const routes: Routes = [
         (m) => m.CompetitionModule
       ),
   },
+  { path: 'fund-account-info', component: FundAccountInfoComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact-us', component: ContactUsComponent },
   { path: 'not-found', component: PageNotFoundComponent },

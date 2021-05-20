@@ -22,7 +22,6 @@ export class QuestionsAndAnswersComponent implements OnInit {
 
     this.qnaService.getQuestionsAndAnswers().subscribe(
       (res: Question[]) => {
-        console.log(res);
         this.questionsAndAnswers = res;
         this.isLoading = false;
       },
