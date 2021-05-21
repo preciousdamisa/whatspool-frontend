@@ -92,6 +92,8 @@ export class UserService {
       const tokenLifeSpan =
         user.tokenExpiryTime.getTime() - new Date().getTime();
       this.autoLogout(tokenLifeSpan);
+    } else {
+      this.logout();
     }
   }
 
