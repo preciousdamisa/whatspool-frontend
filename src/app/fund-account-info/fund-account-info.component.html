@@ -3,7 +3,7 @@
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div>
       <input id="amount" class="form-control" type="number" name="amount" #amount="ngModel" ngModel min="100"
-        pattern="^[1-9]+[0-9]*$" placeholder="Amount">
+        pattern="^[1-9]+[0-9]*$" placeholder="Enter Amount">
       <span *ngIf="amount.invalid && amount.touched">Amount is required and should be a minimum of #100</span>
     </div>
     <button class="btn px2 mt1" [disabled]="amount.invalid || loading">
@@ -12,7 +12,8 @@
   </form>
   <div *ngIf="showAlert" class="backdrop center">
     <div class="alert" style="top: 20vh">
-      <p>Fund your account with #{{amount.value}}</p>
+      <h2>Confirm Transaction</h2>
+      <p class="mt1">Fund my account with <strong>#{{amount.value}}</strong></p>
       <div class="mt2">
         <button class="btn px4" (click)="onDismiss()">Cancel</button>
         <a [href]="response.data.authorization_url" class="btn px4 ml4">
@@ -21,18 +22,33 @@
       </div>
     </div>
   </div>
-  <p class="implore-text">Please read the information below</p>
-  <hr>
+  <p class="implore-text">Please read the information below:</p>
   <p>To facilicate easy and quick funding of user accounts. WhatsPool makes use of an online payment gateway (Paystack).
-    Paystack is a trusted online payment service provider. It's used by thousands of businesses in Nigeria, Africa and
-    beyound.</p>
+    Paystack is a trusted online payment service provider.</p>
   <img
     src="https://scontent.flos1-1.fna.fbcdn.net/v/t1.6435-9/187962641_2142249942584161_6578651305350323034_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=730e14&_nc_eui2=AeEOaNA3xIcTttJV2YE0_h66fwldyphw5TN_CV3KmHDlM4Epqv19w61mhs4BmA7BqBcd7kItW_46-NruqSTXEax3&_nc_ohc=vzoItWuZLzcAX9XUqci&_nc_ht=scontent.flos1-1.fna&oh=4617c58f69b0ea5e6cfc0fc50a1aea7d&oe=60CB11D0"
     alt="WhatsPool accepts payments through Paystack">
   <p>Follow these steps to fund your WhatsPool account:</p>
   <h2>Step 1</h2>
-  <p>Click on the <strong>Proceed</strong> button above</p>
+  <p>Enter the amount you wish to fund your account with and click on the <strong>Proceed</strong> button above.</p>
   <h2>Step 2</h2>
-  <p>After clicking on the button, you get a popup, where you're to enter the amount you wish to fund your account with.
-    Enter the amount and click on <strong>Continue</strong></p>
+  <p>After clicking on the button, you get a popup, where you're to confirm the transaction. Simply click on "Continue".
+  </p>
+  <h2>Step 3</h2>
+  <p>Next, Paystack would show a popup, where you're to choose a payment method (Card or Transfer).</p>
+  <p>If you choose the Transfer method, ensure that you do not close your browser or the page until you're done with the
+    transfer. After making the
+    transfer to the account number specified, return to the page and click on the "I've sent the money" button.</p>
+  <p>Paystack would confirm your transfer and show a success page if it was successful.</p>
+  <p><strong>Important!</strong> Whichever payment method (Card or Transfer) you use, ensure you don't close your
+    browser or the page after seeing the Paystack success page. After the Paystack success page, you should also see the
+    WhatsPool success page shown
+    below, on which
+    you can click on the <strong>Okay</strong> button to return back to the WhatsPool website.</p>
+  <p>If any of these steps is unclear or if you encounter any issue while attempting to fund your account, please send a
+    WhatsApp message to {{supportLineOne}} or
+    send an email to whatspoolgame@gmail.com</p>
+  <img
+    src="https://scontent-los2-1.xx.fbcdn.net/v/t1.6435-9/189505866_288771516238093_1623136035828902457_n.jpg?_nc_cat=111&ccb=1-3&_nc_sid=8bfeb9&_nc_eui2=AeGMWY7PQ6IO3k36V-tHdS9w1Ffj7zVCSjDUV-PvNUJKMHkO67RYy6f_KHT3ofy3aScMSmnl8ImcgVQIXpwqxzOX&_nc_ohc=ctIhVGVW148AX9sPSaw&_nc_ht=scontent-los2-1.xx&oh=ccc55fd68a488ed6dcef51cf53da8d22&oe=60CEABD1"
+    alt="Sample fund account completion page">
 </section>

@@ -6,6 +6,7 @@ import {
   FundAccountInfo,
   FundAccountInfoService,
 } from './fund-acount-info.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-fund-account-info',
@@ -13,6 +14,7 @@ import {
   styleUrls: ['./fund-account-info.component.css'],
 })
 export class FundAccountInfoComponent implements OnDestroy {
+  supportLineOne = environment.whatspoolSupportLineOne;
   subs: Subscription;
   loading = false;
   response: FundAccountInfo;

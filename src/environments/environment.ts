@@ -12,6 +12,7 @@ export const environment = {
   whatspoolMusicEndTime: '9:00 P.M',
   whatspoolSportsTime: '9:10 P.M',
   whatspoolSportsEndTime: '9:20 P.M',
+  whatspoolSupportLineOne: '09024116189',
 };
 
 /*
