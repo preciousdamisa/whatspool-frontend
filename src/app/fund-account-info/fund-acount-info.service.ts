@@ -25,7 +25,7 @@ export class FundAccountInfoService {
   ) {}
 
   initFunding(amount: string) {
-    const user = this.userService.getUser();
+    const user = this.userService.getUser()!;
 
     const fundInfo = {
       amount,

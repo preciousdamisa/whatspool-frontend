@@ -23,13 +23,13 @@ export class UserService {
 
   getUser() {
     const user = this.getStoredUserData();
-    if (user) return user;
+    if (user?.token) return user;
     return null;
   }
 
   private getStoredUserData() {
     const userData = localStorage.getItem('userData');
-    if (!userData) return null;
+    if (!userData) return;
 
     return User.fromJson(JSON.parse(userData));
   }
@@ -85,7 +85,7 @@ export class UserService {
     const user = this.getStoredUserData();
 
     // If the token has not expired.
-    if (user.token) {
+    if (user?.token) {
       this.userSubj.next(user);
       this.router.navigate(['']);
 

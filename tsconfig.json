@@ -6,6 +6,7 @@
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "strictPropertyInitialization": false,  
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
@@ -19,11 +20,7 @@
     "lib": [
       "es2018",
       "dom"
-    ],
-        /* Strict Type-Checking Options */
-        "strict": true,                                 /* Enable all strict type-checking options. */
-        "strictNullChecks": false,                    /* Enable strict null checks. */
-        "strictPropertyInitialization": false,        /* Enable strict checking of property initialization in classes. */
+    ],                   
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
