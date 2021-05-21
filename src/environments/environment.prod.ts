@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
   whatspoolApiUrl: 'https://whatspool-nodejs.herokuapp.com/api/',
-  whatspoolUrl: 'https://whatspool-angular.herokuapp.com/',
+  whatspoolUrl: 'https://www.whatspool.com/',
   whatspoolGenStartTime: '8:30 P.M',
   whatspoolGenEndTime: '8:40 P.M',
   whatspoolMusicStartTime: '8:50 P.M',
