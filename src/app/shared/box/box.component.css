@@ -1,0 +1,10 @@
+.box {
+  float: left;
+  width: 33.3%;
+  padding: 50px;
+  text-align: center;
+}
+
+.box i {
+  padding-bottom: 10px;
+}

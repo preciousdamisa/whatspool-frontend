@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { environment } from '../../../environments/environment';
 import { UserService } from '../user.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  supportLineOne = environment.whatspoolSupportLineOne;
   isLoading = false;
   errMsg = '';
   defaultEmail = '';

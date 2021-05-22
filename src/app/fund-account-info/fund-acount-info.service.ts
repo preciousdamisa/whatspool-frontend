@@ -40,6 +40,6 @@ export class FundAccountInfoService {
         environment.whatspoolApiUrl + 'init-funding',
         fundInfo
       )
-      .pipe(timeout(5000), catchError(this.myHttp.handleErr));
+      .pipe(timeout(10000), catchError(this.myHttp.handleErr));
   }
 }
