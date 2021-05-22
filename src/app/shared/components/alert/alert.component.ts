@@ -7,7 +7,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class AlertComponent {
   @Input() title!: string;
   @Input() message!: string;
-  // Specified using vh (Viewport Height).
   @Input() distanceFromTop = '30vh';
   @Output() dismiss = new EventEmitter<void>();
 

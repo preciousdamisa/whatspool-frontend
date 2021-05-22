@@ -37,3 +37,4 @@ are no questions.
 - Change to managing state with ngRx
 - Remove the check for nullness throughout the project. The user object should be adjusted
 to reflect this.
+- Implement separate methods in the date translator for return the time and date.

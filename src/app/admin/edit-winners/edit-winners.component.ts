@@ -10,10 +10,12 @@ import { EditWinnersService } from './edit-winners.service';
   styleUrls: ['./edit-winners.component.css'],
 })
 export class EditWinnersComponent implements OnInit, OnDestroy {
-  isDeleting = false;
-  isFetching = false;
-  isAdding = false;
-  isToggling = false;
+  deleting = false;
+  showForm = false;
+  fetching = false;
+  adding = false;
+  toggling = false;
+  showAlert = false;
   successMsg!: string;
   errMsg!: string;
   winnersCount!: number;
@@ -26,46 +28,56 @@ export class EditWinnersComponent implements OnInit, OnDestroy {
   }
 
   getWinnersCount() {
-    this.isFetching = true;
+    this.fetching = true;
     this.editWinnersService
       .getWinnersCount()
       .then((res) => {
         this.winnersCount = res.data.count;
-        this.isFetching = false;
+        this.fetching = false;
       })
       .catch((ex) => {
-        this.isFetching = false;
+        this.fetching = false;
         console.log(ex);
       });
   }
 
-  onDeleteWinners() {
-    this.isDeleting = true;
+  onDelete(form: NgForm) {
+    const formData = form.value;
+
+    if (formData.confirmDelete !== 'Delete') return;
+
+    this.deleting = true;
     this.subscription = this.editWinnersService.deleteWinners().subscribe(
       (res) => {
         this.winnersCount = 0;
-        this.isDeleting = false;
+        this.deleting = false;
         this.successMsg = 'Winners deleted Successfully!';
+        form.reset();
       },
       (errMsg) => {
-        this.isDeleting = false;
+        this.deleting = false;
         this.errMsg = errMsg;
       }
     );
   }
 
+  onDismiss() {
+    this.successMsg = '';
+    this.showForm = false;
+  }
+
   onSubmit(form: NgForm) {
-    this.isAdding = true;
+    this.adding = true;
     this.editWinnersService.addWinner(form.value).subscribe(
       (res) => {
-        this.isAdding = false;
+        this.adding = false;
         this.successMsg = 'Winner added successfully!';
 
         form.reset();
         this.getWinnersCount();
       },
       (errMsg) => {
-        this.isAdding = false;
+        this.adding = false;
         this.errMsg = errMsg;
       }
     );
@@ -78,17 +90,25 @@ export class EditWinnersComponent implements OnInit, OnDestroy {
       show = true;
     }
 
-    this.isToggling = true;
+    this.toggling = true;
     this.editWinnersService.toggleShowWinners(show).subscribe(
       (res) => {
         this.successMsg = res.msg;
-        this.isToggling = false;
+        this.toggling = false;
+        this.showAlert = true;
       },
       (errMsg) => {
         this.errMsg = errMsg;
-        this.isToggling = false;
+        this.toggling = false;
+        this.showAlert = true;
       }
     );
+  }
+
+  onSuccessfulToggle() {
+    this.showAlert = false;
+    this.errMsg = '';
+    this.successMsg = '';
   }
 
   ngOnDestroy() {

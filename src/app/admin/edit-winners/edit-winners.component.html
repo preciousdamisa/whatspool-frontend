@@ -1,9 +1,19 @@
-<div class="center">
-  <h3 *ngIf="successMsg" class="mt1" (click)="successMsg = ''">{{successMsg}}</h3>
-  <div class="err-msg-container mt1" *ngIf="errMsg">
-    <h4>Error!</h4>
-    <p>{{errMsg}}</p>
-    <button class="btn err-btn" type="button" (click)="errMsg = ''">Okay</button>
+<div *ngIf="showForm" class="backdrop center">
+  <div class="alert" style="top: 20vh">
+    <form (ngSubmit)="onDelete(f)" #f="ngForm">
+      <h3 *ngIf="successMsg" class="mt1">{{successMsg}}</h3>
+      <h3 *ngIf="errMsg" class="mt1">{{errMsg}}</h3>
+      <p>Type <strong>Delete</strong> to delete all winners</p>
+      <div>
+        <input class="form-control" type="text" name="confirmDelete" #confirmDelete="ngModel" ngModel required>
+      </div>
+      <div class="mt2">
+        <button class="btn btn-danger px4 mr4" type="submit" [disabled]="confirmDelete.value !== 'Delete'">
+          <app-spinner *ngIf="deleting"></app-spinner>{{deleting ? 'Deleting...' : 'Delete'}}
+        </button>
+        <button class="btn px4" (click)="onDismiss()">Cancel</button>
+      </div>
+    </form>
   </div>
 </div>
 <section>
@@ -23,13 +33,15 @@
       <input id="lastName" type="lastName" name="lastName" #lastName="ngModel" ngModel required minlength="2">
       <span *ngIf="lastName.invalid && lastName.touched">Enter a valid last name.</span>
     </div>
-    <button class="btn submit-btn" [disabled]="f.invalid || isAdding">
-      <app-spinner *ngIf="isAdding"></app-spinner> {{isAdding ? 'Adding...' :
+    <button class="btn submit-btn" [disabled]="f.invalid || adding">
+      <app-spinner *ngIf="adding"></app-spinner> {{adding ? 'Adding...' :
       'Add'}}
     </button>
   </form>
 </section>
 <section>
+  <app-alert *ngIf="showAlert" title="Success!" [message]="successMsg || errMsg" (dismiss)="onSuccessfulToggle()">
+  </app-alert>
   <form (ngSubmit)="onToggleShowWinners(toggleWinnersForm)" #toggleWinnersForm="ngForm">
     <h1 class="form-title">Toggle Show Winners</h1>
     <div>
@@ -40,19 +52,17 @@
         <option value="hide">Hide</option>
       </select>
     </div>
-    <button class="btn submit-btn" [disabled]="toggleWinnersForm.invalid || isToggling">
-      <app-spinner *ngIf="isToggling"></app-spinner>{{isToggling ? 'Toggling...' :
+    <button class="btn submit-btn" [disabled]="toggleWinnersForm.invalid || toggling">
+      <app-spinner *ngIf="toggling"></app-spinner>{{toggling ? 'Toggling...' :
       'Toggle'}}
     </button>
   </form>
 </section>
 <section class="center pt4">
-  <div class="center pt4" *ngIf="isDeleting">
+  <div class="center pt4" *ngIf="deleting">
     <app-in-page-spinner></app-in-page-spinner>
     <h2 class="pt4">Deleting winners...</h2>
   </div>
   <h3>Click the button below to delete all winners.</h3>
-  <button class="btn delete-btn" (click)="onDeleteWinners()" [disabled]="isDeleting">
-    <app-spinner *ngIf="isDeleting"></app-spinner>{{isDeleting ? 'Deleting...' : 'Delete'}}
-  </button>
+  <button class="btn delete-btn" (click)="showForm = true;" [disabled]="deleting">Delete</button>
 </section>

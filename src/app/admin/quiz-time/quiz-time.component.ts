@@ -12,43 +12,47 @@ import { DateTranslator } from '../../shared/utils/date-translator';
 })
 export class QuizTimeComponent implements OnDestroy {
   subscription!: Subscription;
-  isLoading = false;
+  loading = false;
+  successMsg = '';
   errMsg = '';
-  showSuccessDialog = false;
-  quizTime!: QuizTimeResponseData;
+  showAlert = false;
+  quizTime: QuizTimeResponseData;
 
   constructor(private quizTimeService: QuizTimeService) {}
 
-  onSubmit(form: NgForm) {    
+  onSubmit(form: NgForm) {
     const date = form.value['date'];
     const time = form.value['time'];
 
     const quizTime = date + 'T' + time + ':00.000Z';
 
-    this.isLoading = true;
+    this.loading = true;
     this.subscription = this.quizTimeService.setQuizTime(quizTime).subscribe(
       (res: QuizTimeResponseData) => {
         this.quizTime = res;
-        this.isLoading = false;
-        this.showSuccessDialog = true;
+        this.loading = false;
+        this.successMsg = `Next quiz time is: ${DateTranslator.readableString(
+          this.quizTime.newQuizTime
+        )}`;
+        this.showAlert = true;
       },
       (errMsg) => {
         this.errMsg = errMsg;
-        this.isLoading = false;
+        this.loading = false;
+        this.showAlert = true;
       }
     );
   }
 
-  getQuizTime() {
-    return {
-      time: DateTranslator.readableString(this.quizTime.newQuizTime),
-      duration: this.quizTime.duration,
-    };
-  }
-
   onSuccess(form: NgForm) {
     form.reset();
-    this.showSuccessDialog = false;
+    this.showAlert = false;
+  }
+  
+  onDismiss() {
+    this.showAlert = false;
+    this.errMsg = '';
+    this.successMsg = '';
   }
 
   ngOnDestroy() {

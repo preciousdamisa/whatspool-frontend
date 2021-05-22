@@ -7,4 +7,6 @@ export class DateTranslator {
       'MMMM Do YYYY'
     )}`;
   }
+
+  // TODO: Implement separate methods for return the time and date.
 }
