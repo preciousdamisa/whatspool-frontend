@@ -28,12 +28,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO
 
-- Use the alert component in all the admin components where needed. Continue
-from winners.
-- Code clean up, reuse CSS code by creating shared classes in
-styles.css
 - Show "No Questions" in the questions and answers page, when there
 are no questions.
+- Code clean up, reuse CSS code by creating shared classes in
+styles.css
 - Change to managing state with ngRx
 - Remove the check for nullness throughout the project. The user object should be adjusted
 to reflect this.

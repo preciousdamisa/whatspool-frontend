@@ -61,9 +61,7 @@ export class WinnersComponent implements OnInit {
 
   getQuizDate() {
     {
-      return `Winners from ${moment(this.quizDate).format('dddd')}, ${moment(
-        this.quizDate
-      ).format('MMMM Do YYYY')}.`;
+      return `Winners from the last WhatsPool`;
     }
   }
 }

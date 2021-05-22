@@ -18,6 +18,7 @@ import { BoxComponent } from './box/box.component';
     AlertComponent,
     Alert2Component,
     InPageSpinnerComponent,
+    BoxComponent,
     SpinnerComponent,
   ],
 })
