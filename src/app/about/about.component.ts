@@ -10,4 +10,6 @@ import { environment } from '../../environments/environment';
 export class AboutComponent {
   quizStartTime = environment.whatspoolGenStartTime;
   quizEndTime = environment.whatspoolGenEndTime;
+  noOfWinners = environment.numberOfWinners;
+  noOfWinnersSpeltOut = environment.numberOfWinnersSpeltOut;
 }

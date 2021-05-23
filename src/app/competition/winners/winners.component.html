@@ -9,8 +9,8 @@
   <div>
     <h2 class="center" *ngIf="firstPlaceWinners.length === 0">No 1st Place Winners</h2>
     <table *ngIf="firstPlaceWinners.length !== 0">
-      <caption>1st Place Winners (1 - 10)</caption>
-      <caption>Prize: #2,500</caption>
+      <caption>1st Place Winners (1 - 2)</caption>
+      <caption>Prize: #3,000</caption>
       <tr>
         <th>#</th>
         <th>Firstname</th>
@@ -26,7 +26,7 @@
   <div>
     <h2 class="center" *ngIf="secondPlaceWinners.length === 0">No 2nd Place Winners</h2>
     <table *ngIf="secondPlaceWinners.length !== 0">
-      <caption>2nd Place Winners (11 - 25)</caption>
+      <caption>2nd Place Winners (3 - 5)</caption>
       <caption>Prize: #2,000</caption>
       <tr>
         <th>#</th>
@@ -43,8 +43,8 @@
   <div>
     <h2 class="center" *ngIf="thirdPlaceWinners.length === 0">No 3rd Place Winners</h2>
     <table *ngIf="thirdPlaceWinners.length !== 0">
-      <caption>3rd Place Winners (26 - 45)</caption>
-      <caption>Prize: #1,500</caption>
+      <caption>3rd Place Winners (6 - 10)</caption>
+      <caption>Prize: #1,000</caption>
       <tr>
         <th>#</th>
         <th>Firstname</th>
@@ -54,40 +54,6 @@
         <td>{{i3 + 1}}</td>
         <td>{{thirdPW.firstName}}</td>
         <td>{{thirdPW.lastName}}</td>
-      </tr>
-    </table>
-  </div>
-  <div>
-    <h2 class="center" *ngIf="fourthPlaceWinners.length === 0">No 4th Place Winners</h2>
-    <table *ngIf="fourthPlaceWinners.length !== 0">
-      <caption>4th Place Winners (46 - 70)</caption>
-      <caption>Prize: #1,000</caption>
-      <tr>
-        <th>#</th>
-        <th>Firstname</th>
-        <th>Lastname</th>
-      </tr>
-      <tr *ngFor="let fourthPW of fourthPlaceWinners; let i4 = index">
-        <td>{{i4 + 1}}</td>
-        <td>{{fourthPW.firstName}}</td>
-        <td>{{fourthPW.lastName}}</td>
-      </tr>
-    </table>
-  </div>
-  <div>
-    <h2 class="center" *ngIf="fifthPlaceWinners.length === 0">No 5th Place Winners</h2>
-    <table *ngIf="fifthPlaceWinners.length !== 0">
-      <caption>5th Place Winners (71 - 100)</caption>
-      <caption>Prize: #500</caption>
-      <tr>
-        <th>#</th>
-        <th>Firstname</th>
-        <th>Lastname</th>
-      </tr>
-      <tr *ngFor="let fifthPW of fifthPlaceWinners; let i5 = index">
-        <td>{{i5 + 1}}</td>
-        <td>{{fifthPW.firstName}}</td>
-        <td>{{fifthPW.lastName}}</td>
       </tr>
     </table>
   </div>

@@ -18,8 +18,6 @@ export class WinnersComponent implements OnInit {
   firstPlaceWinners: Winner[] = [];
   secondPlaceWinners: Winner[] = [];
   thirdPlaceWinners: Winner[] = [];
-  fourthPlaceWinners: Winner[] = [];
-  fifthPlaceWinners: Winner[] = [];
   errMsg = '';
 
   constructor(private quizService: QuizService) {}
@@ -35,8 +33,6 @@ export class WinnersComponent implements OnInit {
           this.firstPlaceWinners = this.createWinners(res.firstPlaceWinners);
           this.secondPlaceWinners = this.createWinners(res.secondPlaceWinners);
           this.thirdPlaceWinners = this.createWinners(res.thirdPlaceWinners);
-          this.fourthPlaceWinners = this.createWinners(res.fourthPlaceWinners);
-          this.fifthPlaceWinners = this.createWinners(res.fifthPlaceWinners);
         }
 
         this.isLoading = false;

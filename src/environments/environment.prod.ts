@@ -8,5 +8,7 @@ export const environment = {
   whatspoolMusicEndTime: '9:00 P.M',
   whatspoolSportsTime: '9:10 P.M',
   whatspoolSportsEndTime: '9:20 P.M',
+  numberOfWinners: 10,
+  numberOfWinnersSpeltOut: 'ten',
   whatspoolSupportLineOne: '09024116189',
 };
