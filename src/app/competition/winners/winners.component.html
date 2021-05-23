@@ -3,7 +3,7 @@
   <h2 class="center pt5">Loading winners...</h2>
 </div>
 <header *ngIf="!isLoading" class="center">
-  <h2 class="px3">Winners From The Last WhatsPool</h2>
+  <h2 class="px3">{{getQuizDate()}}</h2>
 </header>
 <section *ngIf="!isLoading">
   <div>

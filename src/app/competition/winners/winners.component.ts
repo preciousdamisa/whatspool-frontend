@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import * as moment from 'moment';
 
 import { QuizService } from '../quiz/quiz.service';
 import { Winner } from './winner.model';
@@ -56,5 +57,13 @@ export class WinnersComponent implements OnInit {
     }
 
     return winners;
+  }
+
+  getQuizDate() {
+    {
+      return `Winners from ${moment(this.quizDate).format('dddd')}, ${moment(
+        this.quizDate
+      ).format('MMMM Do YYYY')}.`;
+    }
   }
 }
