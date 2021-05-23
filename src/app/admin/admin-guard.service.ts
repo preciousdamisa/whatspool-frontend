@@ -23,8 +23,9 @@ export class AdminGuardService implements CanActivate {
     | UrlTree
     | boolean {
     const isAdmin = this.userService.getUser()?.isAdmin;
+    const isModerator = this.userService.getUser()?.isModerator;
 
-    if (isAdmin) {
+    if (isAdmin || isModerator) {
       return true;
     } else {
       return this.router.navigate(['']);

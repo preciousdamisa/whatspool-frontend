@@ -57,7 +57,7 @@
       <li class="mobile-nav-item"><i class="fa fa-envelope icon"></i><a routerLink="contact-us"
           routerLinkActive="active" (click)="onCloseNav()">Contact
           Us</a></li>
-      <li class="mobile-nav-item" *ngIf="isLoggedIn && isAdmin"><i class="fa fa-user-shield icon"></i><a
+      <li class="mobile-nav-item" *ngIf="isLoggedIn && (isAdmin || isModerator)"><i class="fa fa-user-shield icon"></i><a
           routerLink="admin" routerLinkActive="active" (click)="onCloseNav()">Admin</a></li>
       <li class="mobile-nav-item" *ngIf="!isLoggedIn"><i class="fa fa-sign-in-alt icon"></i><a routerLink="user/login"
           routerLinkActive="active" (click)="onCloseNav()">Log in</a></li>

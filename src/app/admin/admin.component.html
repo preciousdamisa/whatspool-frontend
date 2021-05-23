@@ -1,12 +1,13 @@
 <nav>
   <ul class="nav-items">
-    <li class="nav-item" routerLink="fund-account" routerLinkActive="active"><a>Fund Account</a></li>
-    <li class="nav-item" routerLink="add-question" routerLinkActive="active"><a>Add Question</a></li>
-    <li class="nav-item" routerLink="questions" routerLinkActive="active"><a>Questions</a></li>
-    <li class="nav-item" routerLink="competitors" routerLinkActive="active"><a>Competitors</a></li>
-    <li class="nav-item" routerLink="edit-winners" routerLinkActive="active"><a>Edit Winners</a></li>
-    <li class="nav-item" routerLink="quiz-time" routerLinkActive="active"><a>Set Quiz Time</a></li>
-    <li class="nav-item" routerLink="/competition/questions-and-answers" routerLinkActive="active"><a>Questions & Answers</a></li>
+    <li *ngIf="isAdmin" class="nav-item" routerLink="fund-account" routerLinkActive="active"><a>Fund Account</a></li>
+    <li *ngIf="isAdmin" class="nav-item" routerLink="add-question" routerLinkActive="active"><a>Add Question</a></li>
+    <li *ngIf="isAdmin" class="nav-item" routerLink="questions" routerLinkActive="active"><a>Questions</a></li>
+    <li *ngIf="isAdmin" class="nav-item" routerLink="competitors" routerLinkActive="active"><a>Competitors</a></li>
+    <li *ngIf="isAdmin" class="nav-item" routerLink="edit-winners" routerLinkActive="active"><a>Edit Winners</a></li>
+    <li *ngIf="isAdmin" class="nav-item" routerLink="quiz-time" routerLinkActive="active"><a>Set Quiz Time</a></li>
+    <li class="nav-item" routerLink="/competition/questions-and-answers" routerLinkActive="active"><a>Questions &
+        Answers</a></li>
   </ul>
 </nav>
 <router-outlet></router-outlet>

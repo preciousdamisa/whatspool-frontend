@@ -11,6 +11,7 @@ import { UserService } from '../user/user.service';
 export class HeaderComponent implements OnInit, OnDestroy {
   isLoggedIn = false;
   isAdmin: boolean | undefined;
+  isModerator: boolean | undefined;
   openNav = false;
   drawerSub = new Subscription();
   userSub = new Subscription();
@@ -20,10 +21,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.isLoggedIn = !!this.userService.getUser();
     this.isAdmin = this.userService.getUser()?.isAdmin;
+    this.isModerator = this.userService.getUser()?.isModerator;
 
     this.userSub = this.userService.userSubj.subscribe((user) => {
       this.isLoggedIn = !!user;
       this.isAdmin = user?.isAdmin;
+      this.isModerator = user?.isModerator;
     });
   }
 

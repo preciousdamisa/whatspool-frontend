@@ -1,14 +1,12 @@
-#contact-section {
-  background: #3f51b5;
-}
-
 .box {
-  float: left;
-  width: 33.3%;
-  padding: 50px;
+  padding: 2rem;
   text-align: center;
 }
 
-.box i {
+i {
   padding-bottom: 10px;
+}
+
+p {
+  font-size: 1.1rem;
 }

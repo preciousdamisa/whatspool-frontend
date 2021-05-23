@@ -447,8 +447,13 @@ label {
 }
 
 /* ***** COLOURS ***** */
+.bg-primary-color {
+  background: #3f51b5;
+  color: #fff;
+}
+
 .white {
-  color: white;
+  color: #fff;
 }
 
 .primary-color {

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import * as moment from 'moment';
 import { Subscription } from 'rxjs';
 
 import { QuizService } from '../quiz/quiz.service';
@@ -57,11 +56,5 @@ export class WinnersComponent implements OnInit {
     }
 
     return winners;
-  }
-
-  getQuizDate() {
-    {
-      return `Winners from the last WhatsPool`;
-    }
   }
 }

@@ -4,33 +4,35 @@
   <header *ngIf="!isLoading" class="center">
     <h2 class="px3">We Would Love To Hear From You</h2>
   </header>
-  <p class="caution-text center px3">Let us know how WhatsPool can be made better. Thank you!
-  </p>
-  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <form class="mt2" (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div>
       <label for="firstName">First name</label>
-      <input class="form-control" id="firstName" type="text" name="firstName" #firstName="ngModel" [ngModel]="user?.firstName" required>
+      <input class="form-control" id="firstName" type="text" name="firstName" #firstName="ngModel"
+        [ngModel]="user?.firstName" required>
       <span *ngIf="firstName.invalid && firstName.touched">First name is required.</span>
     </div>
     <div>
       <label for="lastName">Last name</label>
-      <input class="form-control" id="lastName" type="text" name="lastName" #lastName="ngModel" [ngModel]="user?.lastName" required>
+      <input class="form-control" id="lastName" type="text" name="lastName" #lastName="ngModel"
+        [ngModel]="user?.lastName" required>
       <span *ngIf="lastName.invalid && lastName.touched">Last name is required.</span>
     </div>
     <div>
       <label for="email">E-Mail</label>
-      <input class="form-control" id="email" type="email" name="email" #email="ngModel" [ngModel]="user?.email" required email>
+      <input class="form-control" id="email" type="email" name="email" #email="ngModel" [ngModel]="user?.email" required
+        email>
       <span *ngIf="email.invalid && email.touched">Enter a valid E-Mail.</span>
     </div>
     <div>
       <label for="phone">Phone number</label>
-      <input class="form-control" type="text" id="phone" name="phone" #phone="ngModel" [ngModel]="user?.phone" minlength="11" maxlength="11"
-        required>
+      <input class="form-control" type="text" id="phone" name="phone" #phone="ngModel" [ngModel]="user?.phone"
+        minlength="11" maxlength="11" required>
       <span *ngIf="phone.invalid && phone.touched">Phone number must be 11 digits.</span>
     </div>
     <div>
       <label for="message">Your message</label>
-      <textarea class="form-control" id="message" type="text" rows="10" name="message" #message="ngModel" ngModel required></textarea>
+      <textarea class="form-control" id="message" type="text" rows="10" name="message" #message="ngModel" ngModel
+        required></textarea>
       <span *ngIf="message.invalid && message.touched">Message is required.</span>
     </div>
     <div class="err-msg-container" *ngIf="errMsg">
@@ -44,11 +46,13 @@
     </button>
   </form>
 </section>
-<section id="contact-section">
-  <div class="container">
-    <app-box iconInfo="fa fa-hotel fa-3x" title="Location" subtitle="59C, ICE Road, Innovation Hub, Off Wire Road, Benin city, Nigeria.">
+<section id="contact-section" class="bg-primary-color">
+  <div class="container box-container mt3">
+    <app-box iconInfo="fa fa-hotel fa-3x" title="Location"
+      subtitle="59C, ICE Road, Innovation Hub, Off Wire Road, Benin city, Nigeria.">
     </app-box>
-    <app-box iconInfo="fa fa-phone fa-3x" title="Phone Number" subtitle="+234 9024116189"></app-box>
-    <app-box iconInfo="fa fa-envelope fa-3x" title="Email Address" subtitle="whatpoolgame@gmail.com"></app-box>
+    <app-box iconInfo="fa fa-phone fa-3x" title="Phone Number" subtitle="+234 9024116189 (WhatsApp)"></app-box>
+    <app-box iconInfo="fa fa-envelope fa-3x" title="Email Address" subtitle="whatpoolgame@gmail.com">
+    </app-box>
   </div>
 </section>
