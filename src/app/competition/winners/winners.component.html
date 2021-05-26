@@ -1,7 +1,3 @@
-<div *ngIf="isLoading" style="padding-top: 5rem">
-  <app-in-page-spinner></app-in-page-spinner>
-  <h2 class="center pt5">Loading winners...</h2>
-</div>
 <header class="center">
   <h2 class="px2">{{getQuizDate()}}</h2>
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
@@ -16,6 +12,10 @@
     <button class="btn mx3 mt1" [disabled]="type.value === 'Select Type'">View Winners</button>
   </form>
 </header>
+<div *ngIf="isLoading">
+  <app-in-page-spinner></app-in-page-spinner>
+  <h2 class="center pt5">Loading winners...</h2>
+</div>
 <section *ngIf="!isLoading">
   <div>
     <h2 class="center" *ngIf="firstPlaceWinners.length === 0">No 1st Place Winners</h2>
