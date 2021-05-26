@@ -4,17 +4,18 @@
 
 export const environment = {
   production: false,
-  whatspoolApiUrl: 'http://localhost:4000/api/',
-  whatspoolUrl: 'http://localhost:4200/',
-  whatspoolGenStartTime: '8:30 P.M',
-  whatspoolGenEndTime: '8:40 P.M',
-  whatspoolMusicStartTime: '8:50 P.M',
-  whatspoolMusicEndTime: '9:00 P.M',
-  whatspoolSportsTime: '9:10 P.M',
-  whatspoolSportsEndTime: '9:20 P.M',
+  whatsPoolApiUrl: 'http://localhost:4000/api/',
+  whatsPoolUrl: 'http://localhost:4200/',
+  whatsPoolMusicStartTime: '8:00 P.M',
+  whatsPoolMusicEndTime: '8:10 P.M',
+  whatsPoolSportsStartTime: '8:20 P.M',
+  whatsPoolSportsEndTime: '8:30 P.M',
+  whatsPoolGenStartTime: '8:40 P.M',
+  whatsPoolGenEndTime: '8:50 P.M',
   numberOfWinners: 10,
   numberOfWinnersSpeltOut: 'ten',
-  whatspoolSupportLineOne: '09024116189',
+  whatsPoolSupportLineOne: '09024116189',
+  whatsPoolEmailAddress: 'whatspoolgame@gmail.com',
 };
 
 /*

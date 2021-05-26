@@ -37,7 +37,7 @@ export class FundAccountInfoService {
 
     return this.http
       .post<FundAccountInfo>(
-        environment.whatspoolApiUrl + 'init-funding',
+        environment.whatsPoolApiUrl + 'init-funding',
         fundInfo
       )
       .pipe(timeout(10000), catchError(this.myHttp.handleErr));

@@ -16,7 +16,7 @@ export class ContactUsService {
     msg: string;
   }) {
     return this.http
-      .post(environment.whatspoolApiUrl + 'messages', msgInfo)
+      .post(environment.whatsPoolApiUrl + 'messages', msgInfo)
       .pipe(catchError(this.myHttp.handleErr));
   }
 }

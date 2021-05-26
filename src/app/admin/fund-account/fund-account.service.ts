@@ -21,10 +21,13 @@ export class FundAccountService {
 
   fundAccount(phone: string, amount: number) {
     return this.http
-      .post<FundAccountResponseData>(environment.whatspoolApiUrl + 'manual-funding', {
-        phone,
-        amount,
-      })
+      .post<FundAccountResponseData>(
+        environment.whatsPoolApiUrl + 'manual-funding',
+        {
+          phone,
+          amount,
+        }
+      )
       .pipe(catchError(this.myHttpService.handleErr));
   }
 }

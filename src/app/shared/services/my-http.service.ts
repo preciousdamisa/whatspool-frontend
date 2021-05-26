@@ -19,7 +19,7 @@ export class MyHttpService {
     const token = User.fromJson(JSON.parse(userData)).token;
 
     return axios.create({
-      baseURL: environment.whatspoolApiUrl,
+      baseURL: environment.whatsPoolApiUrl,
       headers: { 'x-auth-token': token },
     });
   }

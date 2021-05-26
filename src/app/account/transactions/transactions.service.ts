@@ -12,7 +12,7 @@ export class TransactionService {
 
   getTransactions() {
     return this.http
-      .get<Transaction[]>(environment.whatspoolApiUrl + 'transactions')
+      .get<Transaction[]>(environment.whatsPoolApiUrl + 'transactions')
       .pipe(catchError(this.myHttp.handleErr));
   }
 }

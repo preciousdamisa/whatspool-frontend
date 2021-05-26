@@ -11,13 +11,13 @@ export class CompetitorsService {
 
   deleteCompetitors() {
     return this.http
-      .delete(environment.whatspoolApiUrl + 'competitors/all')
+      .delete(environment.whatsPoolApiUrl + 'competitors/all')
       .pipe(catchError(this.myHttp.handleErr));
   }
 
   getCompetitorsCount() {
     return this.myHttp.http.get(
-      environment.whatspoolApiUrl + 'competitors/count'
+      environment.whatsPoolApiUrl + 'competitors/count'
     );
   }
 }

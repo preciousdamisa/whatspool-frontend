@@ -54,6 +54,10 @@ select.ng-touched.ng-invalid {
   background: #f6c1c1;
 }
 
+.winners-count {
+  display: inline-block;
+}
+
 @media (min-width: 40rem) {
   section {
     width: 40%;

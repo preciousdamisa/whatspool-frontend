@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { QuizService, QuizTime } from './quiz.service';
+import { QuizService, QuizTime, whatsPoolType } from './quiz.service';
 import { Competitor } from './../competitor.model';
 import { Question } from '../../shared/models/question.model';
 
@@ -11,6 +11,7 @@ import { Question } from '../../shared/models/question.model';
   styleUrls: ['./quiz.component.css'],
 })
 export class QuizComponent implements OnDestroy {
+  whatsPoolType = whatsPoolType();
   hasStarted = false;
   isLoading = false;
   isSubmitting = false;
@@ -34,6 +35,7 @@ export class QuizComponent implements OnDestroy {
         res.data.id,
         res.data.user,
         res.data.currentQuestionNumber,
+        res.data.type,
         res.data.score
       );
 
@@ -53,15 +55,15 @@ export class QuizComponent implements OnDestroy {
           res.data.optC,
           res.data.optD,
           res.data.optE,
-          res.data.no
+          res.data.no,
+          res.data.type
         );
 
         res = await this.quizService.startQuiz();
         const quizTime = new QuizTime(
           res.data.startTime,
           res.data.endTime,
-          res.data.duration,
-          res.data.remainingTime
+          res.data.duration
         );
 
         this.setTimer(quizTime);
@@ -78,14 +80,11 @@ export class QuizComponent implements OnDestroy {
     // only set it after one (1) second, causing it to be undefined
     // in the places that it's used, like the timeout function and
     // in the template.
-    this.quizRemainingTime =
-      quizTime.startTime + quizTime.duration - new Date().getTime();
+    this.quizEndTime = quizTime.startTime + quizTime.duration;
+    this.quizRemainingTime = this.quizEndTime - new Date().getTime();
 
     this.intervalId = setInterval(() => {
-      this.quizRemainingTime =
-        quizTime.startTime + quizTime.duration - new Date().getTime();
-
-      this.quizEndTime = quizTime.startTime + quizTime.duration;
+      this.quizRemainingTime = this.quizEndTime - new Date().getTime();
     }, 1000);
 
     this.timeoutId = setTimeout(() => {
@@ -108,7 +107,8 @@ export class QuizComponent implements OnDestroy {
       await this.quizService.submitAnswer(
         this.competitor.id,
         this.competitor.currentQuestionNumber,
-        data.answer
+        data.answer,
+        this.whatsPoolType
       );
 
       // Clear the current interval and timeout,
@@ -142,7 +142,9 @@ export class QuizComponent implements OnDestroy {
   }
 
   getSubmitBtnText() {
-    return this.competitor.currentQuestionNumber === 10 ? 'Submit' : 'Next Question';
+    return this.competitor.currentQuestionNumber === 10
+      ? 'Submit'
+      : 'Next Question';
   }
 
   ngOnDestroy() {

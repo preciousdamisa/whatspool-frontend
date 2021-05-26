@@ -11,7 +11,7 @@ import { EditQuestionService } from './edit-question.service';
   styleUrls: ['./edit-question.component.css'],
 })
 export class EditQuestionComponent implements OnInit, OnDestroy {
-  subjects = ['Maths', 'English', 'General', 'Current Affairs'];
+  types = ['Select Type', 'Gen', 'Music', 'Sports'];
   isLoading = false;
   questionInfo!: Question | null;
   nextQuestionNo!: number;
@@ -21,7 +21,7 @@ export class EditQuestionComponent implements OnInit, OnDestroy {
   constructor(private addQueService: EditQuestionService) {}
 
   ngOnInit(): void {
-    this.getQuestionsCount();
+    // this.getQuestionsCount();
   }
 
   async getQuestionsCount() {
@@ -59,7 +59,7 @@ export class EditQuestionComponent implements OnInit, OnDestroy {
     form.reset();
     this.errMsg = '';
     this.questionInfo = null;
-    this.getQuestionsCount();
+    // this.getQuestionsCount();
   }
 
   ngOnDestroy() {

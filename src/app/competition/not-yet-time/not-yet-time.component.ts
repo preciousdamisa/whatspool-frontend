@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { environment } from '../../../environments/environment';
+import { QuizService, whatsPoolType } from '../quiz/quiz.service';
 
 @Component({
   selector: 'app-not-yet-time',
@@ -8,6 +8,9 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./not-yet-time.component.css'],
 })
 export class NotYetTimeComponent {
-  quizStartTime = environment.whatspoolGenStartTime;
-  quizEndTime = environment.whatspoolGenEndTime;
+  whatsPoolType = whatsPoolType();
+  startTime = this.quizService.getStartTime();
+  endTime = this.quizService.getEndTime();
+
+  constructor(private quizService: QuizService) {}
 }

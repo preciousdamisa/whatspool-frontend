@@ -3,6 +3,7 @@ export class Competitor {
     public id: string,
     public user: string,
     public currentQuestionNumber: number,
+    public type: string,
     public score?: number
   ) {}
 }

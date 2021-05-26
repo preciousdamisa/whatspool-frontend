@@ -14,7 +14,9 @@ export class QuestionsAndAnswersService {
 
   getQuestionsAndAnswers() {
     return this.http
-      .get<Question[]>(environment.whatspoolApiUrl + 'questions/questions-and-answers')
+      .get<Question[]>(
+        environment.whatsPoolApiUrl + 'questions/questions-and-answers'
+      )
       .pipe(catchError(this.myHttp.handleErr));
   }
 }

@@ -12,7 +12,7 @@ export class AccountService {
 
   fetchCurrentUser() {
     return this.http
-      .get<User>(environment.whatspoolApiUrl + 'users/me')
+      .get<User>(environment.whatsPoolApiUrl + 'users/me')
       .pipe(catchError(this.myHttp.handleErr));
   }
 }

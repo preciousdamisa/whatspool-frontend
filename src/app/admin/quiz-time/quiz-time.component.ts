@@ -11,6 +11,7 @@ import { DateTranslator } from '../../shared/utils/date-translator';
   styleUrls: ['./quiz-time.component.css'],
 })
 export class QuizTimeComponent implements OnDestroy {
+  types = ['Select Type', 'Gen', 'Music', 'Sports'];
   subscription!: Subscription;
   loading = false;
   successMsg = '';
@@ -23,8 +24,9 @@ export class QuizTimeComponent implements OnDestroy {
   onSubmit(form: NgForm) {
     const date = form.value['date'];
     const time = form.value['time'];
+    const type = form.value['type'];
 
-    const quizTime = date + 'T' + time + ':00.000Z';
+    const quizTime = { time: date + 'T' + time + ':00.000Z', type };
 
     this.loading = true;
     this.subscription = this.quizTimeService.setQuizTime(quizTime).subscribe(
@@ -48,7 +50,7 @@ export class QuizTimeComponent implements OnDestroy {
     form.reset();
     this.showAlert = false;
   }
-  
+
   onDismiss() {
     this.showAlert = false;
     this.errMsg = '';

@@ -2,8 +2,19 @@
   <app-in-page-spinner></app-in-page-spinner>
   <h2 class="center pt5">Loading winners...</h2>
 </div>
-<header *ngIf="!isLoading" class="center">
-  <h2 class="px3">{{getQuizDate()}}</h2>
+<header class="center">
+  <h2 class="px2">{{getQuizDate()}}</h2>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div>
+      <label for="type">WhatsPool Type</label>
+      <select name="type" id="type" ngModel="Select Type" #type="ngModel" required>
+        <option *ngFor="let type of types" [value]="type">{{type}}</option>
+      </select>
+      <span *ngIf="(type.invalid || type.value === 'Select Type') && type.touched">Select either Gen, Music or
+        Sports.</span>
+    </div>
+    <button class="btn mx3 mt1" [disabled]="type.value === 'Select Type'">View Winners</button>
+  </form>
 </header>
 <section *ngIf="!isLoading">
   <div>

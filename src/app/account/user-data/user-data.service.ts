@@ -22,7 +22,7 @@ export class UserDataService {
   getAccBalance() {
     return this.http
       .get<AccountBalance>(
-        environment.whatspoolApiUrl +
+        environment.whatsPoolApiUrl +
           `users/${this.userService.getUser()?.id}/balance`
       )
       .pipe(catchError(this.myHttp.handleErr));

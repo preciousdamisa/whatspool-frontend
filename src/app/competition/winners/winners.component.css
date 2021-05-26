@@ -1,8 +1,50 @@
 header {
-  padding: 2rem 0;
+  padding: 1rem 1rem 0;
   background: #303f9f;
   width: 100%;
   color: white;
+}
+
+form {
+  padding: 1rem;
+}
+
+select + span {
+  display: block;
+  font-size: 0.8rem;
+  color: red;
+}
+
+label,
+select,
+select + span {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  font: inherit;
+}
+
+select {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+label {
+  font-weight: bold;
+}
+
+@media (min-width: 40rem) {
+  form {
+    margin: auto;
+    width: 25rem;
+  }
+}
+
+.btn:active,
+.btn:hover {
+  background: #ff5722;
+  border: 1px solid #ff5722;
 }
 
 section {

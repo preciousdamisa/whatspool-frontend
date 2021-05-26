@@ -14,10 +14,11 @@ export interface QuizTimeResponseData {
 export class QuizTimeService {
   constructor(private http: HttpClient, private myHttp: MyHttpService) {}
 
-  setQuizTime(quizTime: string) {
+  setQuizTime(quizTime: { time: string; type: string }) {
     return this.http
-      .put<QuizTimeResponseData>(environment.whatspoolApiUrl + 'quiz-time', {
-        newQuizTime: quizTime,
+      .put<QuizTimeResponseData>(environment.whatsPoolApiUrl + 'quiz-time', {
+        time: quizTime.time,
+        type: quizTime.type,
       })
       .pipe(catchError(this.myHttp.handleErr));
   }

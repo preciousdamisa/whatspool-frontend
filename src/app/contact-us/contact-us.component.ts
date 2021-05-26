@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 import { User } from '../user/user.model';
 import { UserService } from '../user/user.service';
@@ -12,6 +13,7 @@ import { ContactUsService } from './contact-us.service';
   styleUrls: ['./contact-us.component.css'],
 })
 export class ContactUsComponent implements OnInit, OnDestroy {
+  whatsPoolEmailAddress = environment.whatsPoolEmailAddress;
   subscription!: Subscription;
   isLoading = false;
   showAlert = false;
@@ -25,6 +27,10 @@ export class ContactUsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.user = this.userService.getUser();
+  }
+
+  get whatsPoolSupportLine() {
+    return environment.whatsPoolSupportLineOne + ' (WhatsApp)';
   }
 
   onSubmit(form: NgForm) {

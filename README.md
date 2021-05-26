@@ -28,6 +28,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO
 
+- Fix the error of NaN showing when the user navigates backwards, after not finishing
+the quiz, and a user who finishes or didn't finish shouldn't see the WhatsPool has begun
+page, when they navigate backwards. Also the possible -1 that shows when the time is up, try
+to replicate it by setting the quiz duration to 600000
+- Let the Time not move in the quiz page.
 - Show "No Questions" in the questions and answers page, when there
 are no questions.
 - Code clean up, reuse CSS code by creating shared classes in

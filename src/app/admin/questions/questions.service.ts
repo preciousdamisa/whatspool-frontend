@@ -11,7 +11,7 @@ export class QuestionsService {
 
   deleteQuestions() {
     return this.http
-      .delete(environment.whatspoolApiUrl + 'questions')
+      .delete(environment.whatsPoolApiUrl + 'questions')
       .pipe(catchError(this.myHttp.handleErr));
   }
 }

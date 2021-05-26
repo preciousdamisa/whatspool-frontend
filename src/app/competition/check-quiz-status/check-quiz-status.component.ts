@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnDestroy } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -11,14 +12,19 @@ import { QuizService } from '../quiz/quiz.service';
   styleUrls: ['./check-quiz-status.component.css'],
 })
 export class CheckQuizStatusComponent implements OnDestroy {
+  types = ['Select Type', 'Gen', 'Music', 'Sports'];
   isLoading = false;
   subscription!: Subscription;
 
   constructor(private quizService: QuizService, private router: Router) {}
 
-  onCheckCompetitionStatus() {
+  onCheckCompetitionStatus(form: NgForm) {
+    const type = form.value.type;
+
+    localStorage.setItem('whatsPoolType', type);
+
     this.isLoading = true;
-    this.subscription = this.quizService.checkQuizStatus().subscribe(
+    this.subscription = this.quizService.checkQuizStatus(type).subscribe(
       () => {
         this.isLoading = false;
         // Quiz has started

@@ -18,7 +18,35 @@ li {
 }
 
 .check-status-btn {
-  width: 80%;
+  width: 100%;
+}
+
+form {
+  padding: 1rem;
+}
+
+select + span {
+  display: block;
+  font-size: 0.8rem;
+  color: red;
+}
+
+label,
+select,
+select + span {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  font: inherit;
+}
+
+select {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+label {
+  font-weight: bold;
 }
 
 @media (min-width: 40rem) {
@@ -26,5 +54,10 @@ li {
   .check-status-btn {
     width: 25rem;
     margin: 2rem auto;
+  }
+
+  form {
+    margin: auto;
+    width: 25rem;
   }
 }

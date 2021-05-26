@@ -19,8 +19,8 @@ export class AuthInterceptorService implements HttpInterceptor {
     console.log(req.url);
 
     if (
-      req.url === environment.whatspoolApiUrl + 'users' ||
-      req.url === environment.whatspoolApiUrl + 'auth'
+      req.url === environment.whatsPoolApiUrl + 'users' ||
+      req.url === environment.whatsPoolApiUrl + 'auth'
     ) {
       return next.handle(req);
     } else {

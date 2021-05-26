@@ -14,7 +14,7 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./fund-account-info.component.css'],
 })
 export class FundAccountInfoComponent implements OnDestroy {
-  supportLineOne = environment.whatspoolSupportLineOne;
+  supportLineOne = environment.whatsPoolSupportLineOne;
   subs: Subscription;
   loading = false;
   response: FundAccountInfo;

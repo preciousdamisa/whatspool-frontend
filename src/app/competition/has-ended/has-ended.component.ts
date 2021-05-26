@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { environment } from '../../../environments/environment';
+import { QuizService, whatsPoolType } from '../quiz/quiz.service';
 
 @Component({
   selector: 'app-has-ended',
@@ -8,6 +8,8 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./has-ended.component.css'],
 })
 export class HasEndedComponent {
-  quizStartTime = environment.whatspoolGenStartTime;
-  quizEndTime = environment.whatspoolGenEndTime;
+  constructor(private quizService: QuizService) {}
+  whatsPoolType = whatsPoolType();
+  startTime = this.quizService.getStartTime();
+  endTime = this.quizService.getEndTime();
 }

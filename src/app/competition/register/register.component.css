@@ -7,7 +7,8 @@ form {
   padding: 1rem;
 }
 
-input + span {
+input + span,
+select + span {
   display: block;
   font-size: 0.8rem;
   color: red;
@@ -15,10 +16,18 @@ input + span {
 
 input,
 label,
-textarea,
-input + span {
+select,
+input + span,
+select + span {
   width: 100%;
   margin-bottom: 0.5rem;
+  font: inherit;
+}
+
+select {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 label {

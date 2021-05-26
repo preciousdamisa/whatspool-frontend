@@ -1,6 +1,7 @@
 <div class="center mx4" *ngIf="!hasStarted">
   <i class="fa fa-hourglass-half fa-3x secondary-text mt5"></i>
-  <h3 class="mt1 secondary-text">WhatsPool has begun, click the button below to start. Goodluck!!!</h3>
+  <h3 class="mt1 secondary-text">WhatsPool {{whatsPoolType}} has begun, click the button below to start. Goodluck!!!
+  </h3>
   <button class="btn start-btn mt5" (click)="onStartQuiz()">Start</button>
 </div>
 <div class="center" *ngIf="isLoading" style="padding-top: 5rem">

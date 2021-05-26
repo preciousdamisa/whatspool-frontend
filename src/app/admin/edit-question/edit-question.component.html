@@ -43,14 +43,16 @@
     <div>
       <label for="answer">Question number</label>
       <input id="answer" type="number" name="no" #questionNumber="ngModel" [ngModel]="nextQuestionNo" required
-        pattern="^[1-9]+[0-9]*$" readonly>
+        pattern="^[1-9]+[0-9]*$">
       <span *ngIf="questionNumber.invalid && questionNumber.touched">Question number is required.</span>
     </div>
     <div>
-      <label for="subject">Subject</label>
-      <select name="subj" id="subject" ngModel required>
-        <option *ngFor="let subj of subjects" [value]="subj">{{subj}}</option>
+      <label for="type">WhatsPool Type</label>
+      <select name="type" id="type" ngModel="Select Type" #type="ngModel" required>
+        <option *ngFor="let type of types" [value]="type">{{type}}</option>
       </select>
+      <span *ngIf="(type.invalid || type.value === 'Select Type') && type.touched">Select either Gen, Music or
+        Sports.</span>
     </div>
     <app-alert *ngIf="errMsg" title="Error!" [message]="errMsg" (dismiss)="onDismissAlert(f)"></app-alert>
     <app-alert2 *ngIf="questionInfo" (dismiss)="onDismissAlert(f)">
@@ -59,7 +61,7 @@
       <p><strong>Question No:</strong> {{questionInfo.no}}</p>
       <p><strong>Question Text:</strong> {{questionInfo.que}}</p>
     </app-alert2>
-    <button class="btn submit-btn" type="submit" [disabled]="f.invalid">
+    <button class="btn submit-btn" type="submit" [disabled]="f.invalid || type.value === 'Select Type'">
       <app-spinner *ngIf="isLoading"></app-spinner> {{isLoading ? 'Adding Question...' : 'Add Question'}}
     </button>
   </form>

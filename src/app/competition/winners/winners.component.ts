@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
 import * as moment from 'moment';
+import { NgForm } from '@angular/forms';
 
 import { QuizService } from '../quiz/quiz.service';
 import { Winner } from './winner.model';
@@ -10,7 +11,8 @@ import { Winner } from './winner.model';
   templateUrl: './winners.component.html',
   styleUrls: ['./winners.component.css'],
 })
-export class WinnersComponent implements OnInit {
+export class WinnersComponent {
+  types = ['Select Type', 'Gen', 'Music', 'Sports'];
   isLoading = false;
   subscription!: Subscription;
   quizDate!: number | undefined;
@@ -22,10 +24,18 @@ export class WinnersComponent implements OnInit {
 
   constructor(private quizService: QuizService) {}
 
-  ngOnInit(): void {
+  onSubmit(form: NgForm) {
     this.isLoading = true;
-    this.quizService.getWinners().subscribe(
+    this.quizService.getWinners(form.value.type).subscribe(
       (res) => {
+        console.log(res);
+
+        // Clear previous winners, just in case there are no winners for the
+        // new winners type selection.
+        this.firstPlaceWinners = [];
+        this.secondPlaceWinners = [];
+        this.thirdPlaceWinners = [];
+
         if (res.haveWinners) {
           this.quizDate = res.firstPlaceWinners[0].createdAt;
 

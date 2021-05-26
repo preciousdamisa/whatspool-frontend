@@ -14,13 +14,13 @@ export class EditQuestionService {
 
   addQuestion(question: Question) {
     return this.http
-      .post<Question>(environment.whatspoolApiUrl + 'questions', question)
+      .post<Question>(environment.whatsPoolApiUrl + 'questions', question)
       .pipe(catchError(this.myHttp.handleErr));
   }
 
   getQuestionCount() {
     return this.myHttp.http.get(
-      environment.whatspoolApiUrl + 'questions/count'
+      environment.whatsPoolApiUrl + 'questions/count'
     );
   }
 }

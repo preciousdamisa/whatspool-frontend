@@ -19,7 +19,9 @@
 <section>
   <div class="center">
     <h3>Winners Count:</h3>
-    <h1>{{winnersCount}}</h1>
+    <h1 class="winners-count">Gen: {{winnersCount.genWinnersCount}}</h1>
+    <h1 class="winners-count mx1">Music: {{winnersCount.musicWinnersCount}}</h1>
+    <h1 class="winners-count">Sports: {{winnersCount.sportsWinnersCount}}</h1>
   </div>
   <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <h1 class="form-title">Add a Winner</h1>
@@ -51,6 +53,14 @@
         <option value="show">Show</option>
         <option value="hide">Hide</option>
       </select>
+    </div>
+    <div>
+      <label for="type">WhatsPool Type</label>
+      <select name="type" id="type" ngModel="Select Type" #type="ngModel" required>
+        <option *ngFor="let type of types" [value]="type">{{type}}</option>
+      </select>
+      <span *ngIf="(type.invalid || type.value === 'Select Type') && type.touched">Select either Gen, Music or
+        Sports.</span>
     </div>
     <button class="btn submit-btn" [disabled]="toggleWinnersForm.invalid || toggling">
       <app-spinner *ngIf="toggling"></app-spinner>{{toggling ? 'Toggling...' :

@@ -7,6 +7,7 @@ import { User } from '../../user/user.model';
 import { UserService } from '../../user/user.service';
 import { RegisterService } from './register.service';
 import { environment } from '../../../environments/environment';
+import { QuizService } from '../quiz/quiz.service';
 
 @Component({
   selector: 'app-register',
@@ -14,7 +15,8 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit, OnDestroy {
-  quizStartTime = environment.whatspoolGenStartTime;
+  types = ['Select Type', 'Gen', 'Music', 'Sports'];
+  quizStartTime: string;
   subscription!: Subscription;
   isLoading = false;
   showAlert = false;
@@ -24,7 +26,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private userService: UserService,
-    private registerService: RegisterService
+    private registerService: RegisterService,
+    private quizService: QuizService
   ) {}
 
   ngOnInit(): void {
@@ -32,7 +35,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(form: NgForm) {
-    const { firstName, lastName, email, phone } = form.value;
+    const { firstName, lastName, email, phone, type } = form.value;
+    this.quizStartTime = this.quizService.getStartTime(type);
 
     const regInfo = {
       userId: this.user?.id,
@@ -40,6 +44,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
       lastName,
       email,
       phone,
+      type,
       amount: 100,
       purpose: 'WhatsPool registration.',
     };

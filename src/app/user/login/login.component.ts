@@ -11,7 +11,7 @@ import { UserService } from '../user.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  supportLineOne = environment.whatspoolSupportLineOne;
+  supportLineOne = environment.whatsPoolSupportLineOne;
   isLoading = false;
   errMsg = '';
   defaultEmail = '';

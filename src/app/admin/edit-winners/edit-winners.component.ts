@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
-import { EditWinnersService } from './edit-winners.service';
+import { EditWinnersService, WinnersCount } from './edit-winners.service';
 
 @Component({
   selector: 'app-edit-winners',
@@ -10,6 +10,7 @@ import { EditWinnersService } from './edit-winners.service';
   styleUrls: ['./edit-winners.component.css'],
 })
 export class EditWinnersComponent implements OnInit, OnDestroy {
+  types = ['Select Type', 'Gen', 'Music', 'Sports'];
   deleting = false;
   showForm = false;
   fetching = false;
@@ -18,21 +19,31 @@ export class EditWinnersComponent implements OnInit, OnDestroy {
   showAlert = false;
   successMsg!: string;
   errMsg!: string;
-  winnersCount!: number;
+  winnersCount: WinnersCount = {
+    genWinnersCount: 0,
+    musicWinnersCount: 0,
+    sportsWinnersCount: 0,
+  };
   subscription!: Subscription;
 
   constructor(private editWinnersService: EditWinnersService) {}
 
   ngOnInit() {
-    this.getWinnersCount();
+    this.getCount();
   }
 
-  getWinnersCount() {
+  getCount() {
     this.fetching = true;
     this.editWinnersService
       .getWinnersCount()
       .then((res) => {
-        this.winnersCount = res.data.count;
+        console.log(res.data);
+        this.winnersCount = {
+          genWinnersCount: res.data.genWinnersCount,
+          musicWinnersCount: res.data.musicWinnersCount,
+          sportsWinnersCount: res.data.sportsWinnersCount,
+        };
+
         this.fetching = false;
       })
       .catch((ex) => {
@@ -49,7 +60,11 @@ export class EditWinnersComponent implements OnInit, OnDestroy {
     this.deleting = true;
     this.subscription = this.editWinnersService.deleteWinners().subscribe(
       (res) => {
-        this.winnersCount = 0;
+        this.winnersCount = {
+          genWinnersCount: 0,
+          musicWinnersCount: 0,
+          sportsWinnersCount: 0,
+        };
         this.deleting = false;
         this.successMsg = 'Winners deleted Successfully!';
         form.reset();
@@ -74,7 +89,7 @@ export class EditWinnersComponent implements OnInit, OnDestroy {
         this.successMsg = 'Winner added successfully!';
 
         form.reset();
-        this.getWinnersCount();
+        this.getCount();
       },
       (errMsg) => {
         this.adding = false;
@@ -84,14 +99,14 @@ export class EditWinnersComponent implements OnInit, OnDestroy {
   }
 
   onToggleShowWinners(form: NgForm) {
-    const { showWinners } = form.value;
+    const { showWinners, type } = form.value;
     let show: boolean = false;
     if (showWinners === 'show') {
       show = true;
     }
 
     this.toggling = true;
-    this.editWinnersService.toggleShowWinners(show).subscribe(
+    this.editWinnersService.toggleShowWinners({ show, type }).subscribe(
       (res) => {
         this.successMsg = res.msg;
         this.toggling = false;

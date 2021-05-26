@@ -12,7 +12,7 @@ export class TransfersService {
 
   getTransfers() {
     return this.http
-      .get<Transfer[]>(environment.whatspoolApiUrl + 'transfers')
+      .get<Transfer[]>(environment.whatsPoolApiUrl + 'transfers')
       .pipe(catchError(this.myHttp.handleErr));
   }
 }

@@ -54,7 +54,7 @@ export class UserService {
     if (!referrer) delete signupData.referrer;
 
     return this.http
-      .post<AuthResponseData>(environment.whatspoolApiUrl + 'users', signupData)
+      .post<AuthResponseData>(environment.whatsPoolApiUrl + 'users', signupData)
       .pipe(
         tap((res) => {
           this.handleAuth(res);
@@ -69,7 +69,7 @@ export class UserService {
 
   login(email: string, password: string) {
     return this.http
-      .post<AuthResponseData>(environment.whatspoolApiUrl + 'auth', {
+      .post<AuthResponseData>(environment.whatsPoolApiUrl + 'auth', {
         email,
         password,
       })
