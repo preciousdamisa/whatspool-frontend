@@ -18,10 +18,10 @@
 </div>
 <section *ngIf="!isLoading">
   <div>
-    <h2 class="center" *ngIf="firstPlaceWinners.length === 0">No 1st Place Winners</h2>
+    <h2 class="center" *ngIf="firstPlaceWinners.length === 0">No 1st Place Winners Yet</h2>
     <table *ngIf="firstPlaceWinners.length !== 0">
-      <caption>1st Place Winners (1 - 2)</caption>
-      <caption>Prize: #3,000</caption>
+      <caption>1st Place Winners (1)</caption>
+      <caption>Prize: #5,000</caption>
       <tr>
         <th>#</th>
         <th>Firstname</th>
@@ -35,10 +35,10 @@
     </table>
   </div>
   <div>
-    <h2 class="center" *ngIf="secondPlaceWinners.length === 0">No 2nd Place Winners</h2>
+    <h2 class="center" *ngIf="secondPlaceWinners.length === 0">No 2nd Place Winners Yet</h2>
     <table *ngIf="secondPlaceWinners.length !== 0">
-      <caption>2nd Place Winners (3 - 5)</caption>
-      <caption>Prize: #2,000</caption>
+      <caption>2nd Place Winners (2 - 4)</caption>
+      <caption>Prize: #3,000</caption>
       <tr>
         <th>#</th>
         <th>Firstname</th>
@@ -52,9 +52,9 @@
     </table>
   </div>
   <div>
-    <h2 class="center" *ngIf="thirdPlaceWinners.length === 0">No 3rd Place Winners</h2>
+    <h2 class="center" *ngIf="thirdPlaceWinners.length === 0">No 3rd Place Winners Yet</h2>
     <table *ngIf="thirdPlaceWinners.length !== 0">
-      <caption>3rd Place Winners (6 - 10)</caption>
+      <caption>3rd Place Winners (5 - 10)</caption>
       <caption>Prize: #1,000</caption>
       <tr>
         <th>#</th>

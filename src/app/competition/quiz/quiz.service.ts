@@ -37,7 +37,6 @@ export class QuizService {
   }
 
   getCompetitor() {
-    console.log(whatsPoolType());
     return this.myHttpService.http?.get('competitors/' + whatsPoolType());
   }
 

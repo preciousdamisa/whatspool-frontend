@@ -31,9 +31,17 @@
       <span *ngIf="firstName.invalid && firstName.touched">Enter a valid first name.</span>
     </div>
     <div>
-      <label for="lastName">First name</label>
+      <label for="lastName">Last name</label>
       <input id="lastName" type="lastName" name="lastName" #lastName="ngModel" ngModel required minlength="2">
       <span *ngIf="lastName.invalid && lastName.touched">Enter a valid last name.</span>
+    </div>
+    <div>
+      <label for="type">WhatsPool Type</label>
+      <select name="type" id="type" ngModel="Select Type" #type="ngModel" required>
+        <option *ngFor="let type of types" [value]="type">{{type}}</option>
+      </select>
+      <span *ngIf="(type.invalid || type.value === 'Select Type') && type.touched">Select either Gen, Music or
+        Sports.</span>
     </div>
     <button class="btn submit-btn" [disabled]="f.invalid || adding">
       <app-spinner *ngIf="adding"></app-spinner> {{adding ? 'Adding...' :

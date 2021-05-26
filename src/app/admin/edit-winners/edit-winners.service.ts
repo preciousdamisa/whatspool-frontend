@@ -27,7 +27,7 @@ export class EditWinnersService {
     );
   }
 
-  addWinner(data: { firstName: string; lastName: string }) {
+  addWinner(data: { firstName: string; lastName: string; type: string }) {
     return this.http
       .post(environment.whatsPoolApiUrl + 'winners', data)
       .pipe(catchError(this.myHttp.handleErr));
