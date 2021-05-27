@@ -1,4 +1,10 @@
 <section>
+  <div class="center">
+    <h2>Questions Count:</h2>
+    <h3 class="questions-count">Gen: {{questionsCount.genQuestionsCount}}</h3>
+    <h3 class="questions-count mx1">Music: {{questionsCount.musicQuestionsCount}}</h3>
+    <h3 class="questions-count">Sports: {{questionsCount.sportsQuestionsCount}}</h3>
+  </div>
   <form #f="ngForm" (ngSubmit)="onSubmit(f)">
     <h1 class="form-title">Add Question</h1>
     <div>

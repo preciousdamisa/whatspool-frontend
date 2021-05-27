@@ -28,6 +28,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## TODO
 
+- Add the selection of type to deleting questions, competitors and winners.
 - Fix the error of NaN showing when the user navigates backwards, after not finishing
 the quiz, and a user who finishes or didn't finish shouldn't see the WhatsPool has begun
 page, when they navigate backwards. Also the possible -1 that shows when the time is up, try

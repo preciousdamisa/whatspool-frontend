@@ -1,10 +1,14 @@
 <section class="center">
+  <div class="center">
+    <h2>Competitors Count:</h2>
+    <h3 class="competitors-count">Gen: {{competitorsCount.genCompetitorsCount}}</h3>
+    <h3 class="competitors-count mx1">Music: {{competitorsCount.musicCompetitorsCount}}</h3>
+    <h3 class="competitors-count">Sports: {{competitorsCount.sportsCompetitorsCount}}</h3>
+  </div>
   <div class="center" *ngIf="isDeleting" style="padding-top: 5rem">
     <app-in-page-spinner></app-in-page-spinner>
     <h2 class="pt5">Loading competitors...</h2>
   </div>
-  <h3>Competitors Count:</h3>
-  <h1>{{competitorsCount}}</h1>
   <div *ngIf="showForm" class="backdrop center">
     <div class="alert" style="top: 20vh">
       <form (ngSubmit)="onDelete(f)" #f="ngForm">

@@ -18,6 +18,10 @@ export function whatsPoolType() {
   return localStorage.getItem('whatsPoolType');
 }
 
+export function setWhatsPoolType(type: string) {
+  localStorage.setItem('whatsPoolType', type);
+}
+
 type WhatsPoolType = 'Gen' | 'Music' | 'Sports';
 
 @Injectable({ providedIn: 'root' })

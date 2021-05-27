@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Question } from '../../shared/models/question.model';
 import { Subscription } from 'rxjs';
 
-import { EditQuestionService } from './edit-question.service';
+import { EditQuestionService, QuestionsCount } from './edit-question.service';
 
 @Component({
   selector: 'app-edit-question',
@@ -15,30 +15,29 @@ export class EditQuestionComponent implements OnInit, OnDestroy {
   isLoading = false;
   questionInfo!: Question | null;
   nextQuestionNo!: number;
+  questionsCount: QuestionsCount = {
+    genQuestionsCount: 0,
+    musicQuestionsCount: 0,
+    sportsQuestionsCount: 0,
+  };
   errMsg = '';
   subscription!: Subscription;
 
   constructor(private addQueService: EditQuestionService) {}
 
   ngOnInit(): void {
-    // this.getQuestionsCount();
+    this.getQuestionsCount();
   }
 
-  async getQuestionsCount() {
-    this.addQueService
-      .getQuestionCount()
-      .then((res) => {
-        const count = res.data.count;
-        if (count === 10) {
-          this.nextQuestionNo = count;
-          return;
-        } else {
-          this.nextQuestionNo = count + 1;
-        }
-      })
-      .catch((err) => {
+  getQuestionsCount() {
+    this.addQueService.getQuestionsCount().subscribe(
+      (res) => {
+        this.questionsCount = res;
+      },
+      (err) => {
         console.log(err);
-      });
+      }
+    );
   }
 
   onSubmit(form: NgForm) {
@@ -59,7 +58,7 @@ export class EditQuestionComponent implements OnInit, OnDestroy {
     form.reset();
     this.errMsg = '';
     this.questionInfo = null;
-    // this.getQuestionsCount();
+    this.getQuestionsCount();
   }
 
   ngOnDestroy() {

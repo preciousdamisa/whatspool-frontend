@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
-import { CompetitorsService } from './competitors.service';
+import { CompetitorsCount, CompetitorsService } from './competitors.service';
 
 @Component({
   selector: 'app-competitors',
@@ -15,7 +15,11 @@ export class CompetitorsComponent implements OnInit, OnDestroy {
   successMsg!: string;
   errMsg!: string;
   showForm = false;
-  competitorsCount!: number;
+  competitorsCount: CompetitorsCount = {
+    genCompetitorsCount: 0,
+    musicCompetitorsCount: 0,
+    sportsCompetitorsCount: 0,
+  };
   subscription!: Subscription;
 
   constructor(private competitorsService: CompetitorsService) {}
@@ -26,16 +30,16 @@ export class CompetitorsComponent implements OnInit, OnDestroy {
 
   getCompetitorsCount() {
     this.isFetching = true;
-    this.competitorsService
-      .getCompetitorsCount()
-      .then((res) => {
-        this.competitorsCount = res.data.count;
+    this.competitorsService.getCompetitorsCount().subscribe(
+      (res) => {
+        this.competitorsCount = res;
         this.isFetching = false;
-      })
-      .catch((ex) => {
+      },
+      (ex) => {
         this.isFetching = false;
         console.log(ex);
-      });
+      }
+    );
   }
 
   onDelete(form: NgForm) {
@@ -48,7 +52,11 @@ export class CompetitorsComponent implements OnInit, OnDestroy {
       (res) => {
         console.log(res);
         this.isDeleting = false;
-        this.competitorsCount = 0;
+        this.competitorsCount = {
+          genCompetitorsCount: 0,
+          musicCompetitorsCount: 0,
+          sportsCompetitorsCount: 0,
+        };
         this.successMsg = 'Competitors deleted Successfully!';
         form.reset();
       },

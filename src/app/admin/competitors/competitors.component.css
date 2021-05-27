@@ -2,6 +2,10 @@ section {
   padding: 2rem;
 }
 
+.competitors-count {
+  display: inline-block;
+}
+
 .delete-btn {
   width: 80%;
 }

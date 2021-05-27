@@ -5,6 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { environment } from '../../../environments/environment';
 import { MyHttpService } from '../../shared/services/my-http.service';
 import { Question } from '../../shared/models/question.model';
+import { whatsPoolType } from '../quiz/quiz.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,7 +16,8 @@ export class QuestionsAndAnswersService {
   getQuestionsAndAnswers() {
     return this.http
       .get<Question[]>(
-        environment.whatsPoolApiUrl + 'questions/questions-and-answers'
+        environment.whatsPoolApiUrl +
+          `questions/${whatsPoolType()}/questions-and-answers`
       )
       .pipe(catchError(this.myHttp.handleErr));
   }

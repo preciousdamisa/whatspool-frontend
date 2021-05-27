@@ -20,3 +20,32 @@ nav {
   color: white;
   font-weight: bold;
 }
+
+select {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+span {
+  display: block;
+  font-size: 0.8rem;
+  color: red;
+}
+
+select,
+label,
+span {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  font: inherit;
+}
+
+label {
+  font-weight: bold;
+}
+
+select.ng-touched.ng-invalid {
+  border: 1px solid red;
+  background: #f6c1c1;
+}

@@ -2,6 +2,10 @@ section {
   padding: 1rem;
 }
 
+.winners-count {
+  display: inline-block;
+}
+
 .delete-btn {
   width: 80%;
 }
@@ -52,10 +56,6 @@ input.ng-touched.ng-invalid,
 select.ng-touched.ng-invalid {
   border: 1px solid red;
   background: #f6c1c1;
-}
-
-.winners-count {
-  display: inline-block;
 }
 
 @media (min-width: 40rem) {
