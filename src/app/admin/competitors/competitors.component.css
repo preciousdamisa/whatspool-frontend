@@ -6,6 +6,48 @@ section {
   display: inline-block;
 }
 
+form {
+  padding: 1rem;
+}
+
+input + span,
+select + span {
+  display: block;
+  font-size: 0.8rem;
+  color: red;
+}
+
+label,
+input,
+select,
+select + span {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  font: inherit;
+}
+
+select {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+label {
+  font-weight: bold;
+}
+
+input.ng-touched.ng-invalid {
+  border: 1px solid red;
+  background: #f6c1c1;
+}
+
+@media (min-width: 40rem) {
+  form {
+    margin: auto;
+    width: 25rem;
+  }
+}
+
 .delete-btn {
   width: 80%;
 }

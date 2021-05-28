@@ -43,29 +43,27 @@ export class CompetitorsComponent implements OnInit, OnDestroy {
     );
   }
 
-  onDelete(form: NgForm) {
+  onDelete(form: NgForm, whatsPoolType: string) {
     const formData = form.value;
 
     if (formData.confirmDelete !== 'Delete') return;
 
     this.isDeleting = true;
-    this.subscription = this.competitorsService.deleteCompetitors().subscribe(
-      (res) => {
-        console.log(res);
-        this.isDeleting = false;
-        this.competitorsCount = {
-          genCompetitorsCount: 0,
-          musicCompetitorsCount: 0,
-          sportsCompetitorsCount: 0,
-        };
-        this.successMsg = 'Competitors deleted Successfully!';
-        form.reset();
-      },
-      (errMsg) => {
-        this.isDeleting = false;
-        this.errMsg = errMsg;
-      }
-    );
+    this.subscription = this.competitorsService
+      .deleteCompetitors(whatsPoolType)
+      .subscribe(
+        (res) => {
+          console.log(res);
+          this.isDeleting = false;
+          this.getCompetitorsCount();
+          this.successMsg = res.msg;
+          form.reset();
+        },
+        (errMsg) => {
+          this.isDeleting = false;
+          this.errMsg = errMsg;
+        }
+      );
   }
 
   onDismiss() {

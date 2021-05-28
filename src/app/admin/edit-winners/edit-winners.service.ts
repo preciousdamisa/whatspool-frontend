@@ -15,9 +15,9 @@ export interface WinnersCount {
 export class EditWinnersService {
   constructor(private http: HttpClient, private myHttp: MyHttpService) {}
 
-  deleteWinners() {
+  deleteWinners(type: string) {
     return this.http
-      .delete(environment.whatsPoolApiUrl + 'winners/all')
+      .delete<{ msg: string }>(environment.whatsPoolApiUrl + 'winners/' + type)
       .pipe(catchError(this.myHttp.handleErr));
   }
 

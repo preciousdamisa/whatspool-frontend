@@ -15,9 +15,11 @@ export interface CompetitorsCount {
 export class CompetitorsService {
   constructor(private http: HttpClient, private myHttp: MyHttpService) {}
 
-  deleteCompetitors() {
+  deleteCompetitors(type: string) {
     return this.http
-      .delete(environment.whatsPoolApiUrl + 'competitors')
+      .delete<{ msg: string }>(
+        environment.whatsPoolApiUrl + 'competitors/' + type
+      )
       .pipe(catchError(this.myHttp.handleErr));
   }
 

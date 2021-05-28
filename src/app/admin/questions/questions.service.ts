@@ -9,9 +9,11 @@ import { environment } from '../../../environments/environment';
 export class QuestionsService {
   constructor(private http: HttpClient, private myHttp: MyHttpService) {}
 
-  deleteQuestions() {
+  deleteQuestions(type: string) {
     return this.http
-      .delete(environment.whatsPoolApiUrl + 'questions')
+      .delete<{ msg: string }>(
+        environment.whatsPoolApiUrl + 'questions/' + type
+      )
       .pipe(catchError(this.myHttp.handleErr));
   }
 }

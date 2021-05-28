@@ -10,6 +10,7 @@ import { QuestionsService } from './questions.service';
   styleUrls: ['./questions.component.css'],
 })
 export class QuestionsComponent implements OnDestroy {
+  types = ['Select Type', 'Gen', 'Music', 'Sports'];
   isDeleting!: boolean;
   successMsg!: string;
   errMsg!: string;
@@ -18,23 +19,25 @@ export class QuestionsComponent implements OnDestroy {
 
   constructor(private queService: QuestionsService) {}
 
-  onDelete(form: NgForm) {
+  onDelete(form: NgForm, whatsPoolType: string) {
     const formData = form.value;
 
     if (formData.confirmDelete !== 'Delete') return;
 
     this.isDeleting = true;
-    this.subscription = this.queService.deleteQuestions().subscribe(
-      (res) => {
-        form.reset();
-        this.successMsg = 'Questions deleted Successfully!';
-        this.isDeleting = false;
-      },
-      (errMsg) => {
-        this.isDeleting = false;
-        this.errMsg = errMsg;
-      }
-    );
+    this.subscription = this.queService
+      .deleteQuestions(whatsPoolType)
+      .subscribe(
+        (res) => {
+          form.reset();
+          this.successMsg = res.msg;
+          this.isDeleting = false;
+        },
+        (errMsg) => {
+          this.isDeleting = false;
+          this.errMsg = errMsg;
+        }
+      );
   }
 
   onDismiss() {

@@ -29,10 +29,10 @@ export class EditWinnersComponent implements OnInit, OnDestroy {
   constructor(private editWinnersService: EditWinnersService) {}
 
   ngOnInit() {
-    this.getCount();
+    this.getWinnersCount();
   }
 
-  getCount() {
+  getWinnersCount() {
     this.fetching = true;
     this.editWinnersService
       .getWinnersCount()
@@ -52,28 +52,26 @@ export class EditWinnersComponent implements OnInit, OnDestroy {
       });
   }
 
-  onDelete(form: NgForm) {
+  onDelete(form: NgForm, whatsPoolType: string) {
     const formData = form.value;
 
     if (formData.confirmDelete !== 'Delete') return;
 
     this.deleting = true;
-    this.subscription = this.editWinnersService.deleteWinners().subscribe(
-      (res) => {
-        this.winnersCount = {
-          genWinnersCount: 0,
-          musicWinnersCount: 0,
-          sportsWinnersCount: 0,
-        };
-        this.deleting = false;
-        this.successMsg = 'Winners deleted Successfully!';
-        form.reset();
-      },
-      (errMsg) => {
-        this.deleting = false;
-        this.errMsg = errMsg;
-      }
-    );
+    this.subscription = this.editWinnersService
+      .deleteWinners(whatsPoolType)
+      .subscribe(
+        (res) => {
+          this.getWinnersCount();
+          this.deleting = false;
+          this.successMsg = res.msg;
+          form.reset();
+        },
+        (errMsg) => {
+          this.deleting = false;
+          this.errMsg = errMsg;
+        }
+      );
   }
 
   onDismiss() {
@@ -89,7 +87,7 @@ export class EditWinnersComponent implements OnInit, OnDestroy {
         this.successMsg = 'Winner added successfully!';
 
         form.reset();
-        this.getCount();
+        this.getWinnersCount();
       },
       (errMsg) => {
         this.adding = false;

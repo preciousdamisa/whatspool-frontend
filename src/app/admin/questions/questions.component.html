@@ -1,14 +1,23 @@
 <div *ngIf="showForm" class="backdrop center">
   <div class="alert" style="top: 20vh">
-    <form (ngSubmit)="onDelete(f)" #f="ngForm">
+    <form (ngSubmit)="onDelete(f, type.value)" #f="ngForm">
       <h3 *ngIf="successMsg" class="mt1">{{successMsg}}</h3>
       <h3 *ngIf="errMsg" class="mt1">{{errMsg}}</h3>
       <p>Type <strong>Delete</strong> to delete all questions</p>
       <div>
         <input class="form-control" type="text" name="confirmDelete" #confirmDelete="ngModel" ngModel required>
       </div>
+      <div>
+        <label for="type">WhatsPool Type</label>
+        <select name="type" id="type" ngModel="Select Type" #type="ngModel" required>
+          <option *ngFor="let type of types" [value]="type">{{type}}</option>
+        </select>
+        <span *ngIf="(type.invalid || type.value === 'Select Type') && type.touched">Select either Gen, Music or
+          Sports.</span>
+      </div>
       <div class="mt2">
-        <button class="btn btn-danger px4 mr4" type="submit" [disabled]="confirmDelete.value !== 'Delete'">
+        <button class="btn btn-danger px4 mr4" type="submit"
+          [disabled]="confirmDelete.value !== 'Delete' || type.value === 'Select Type'">
           <app-spinner *ngIf="isDeleting"></app-spinner>{{isDeleting ? 'Deleting...' : 'Delete'}}
         </button>
         <button class="btn px4" (click)="onDismiss()">Cancel</button>
