@@ -13,7 +13,7 @@ import { Winner } from './winner.model';
 })
 export class WinnersComponent {
   types = ['Select Type', 'Gen', 'Music', 'Sports'];
-  isLoading = false;
+  loading = false;
   subscription!: Subscription;
   quizDate!: number | undefined;
   haveWinners = false;
@@ -21,14 +21,15 @@ export class WinnersComponent {
   secondPlaceWinners: Winner[] = [];
   thirdPlaceWinners: Winner[] = [];
   errMsg = '';
+  triedFetching = false;
 
   constructor(private quizService: QuizService) {}
 
   onSubmit(form: NgForm) {
-    this.isLoading = true;
+    this.loading = true;
     this.quizService.getWinners(form.value.type).subscribe(
       (res) => {
-        console.log(res);
+        this.triedFetching = true;
 
         // Clear previous winners, just in case there are no winners for the
         // new winners type selection.
@@ -45,10 +46,11 @@ export class WinnersComponent {
           this.thirdPlaceWinners = this.createWinners(res.thirdPlaceWinners);
         }
 
-        this.isLoading = false;
+        this.loading = false;
       },
       (errMsg) => {
-        this.isLoading = false;
+        this.triedFetching = true;
+        this.loading = false;
         this.errMsg = errMsg;
         console.log(errMsg);
       }

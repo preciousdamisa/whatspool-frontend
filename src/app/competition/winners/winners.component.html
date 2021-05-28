@@ -12,13 +12,16 @@
     <button class="btn mx3 mt1" [disabled]="type.value === 'Select Type'">View Winners</button>
   </form>
 </header>
-<div *ngIf="isLoading">
-  <app-in-page-spinner></app-in-page-spinner>
-  <h2 class="center pt5">Loading winners...</h2>
-</div>
-<section *ngIf="!isLoading">
-  <div>
-    <h2 class="center" *ngIf="firstPlaceWinners.length === 0">No 1st Place Winners Yet</h2>
+<section>
+  <div *ngIf="loading">
+    <app-in-page-spinner></app-in-page-spinner>
+    <h2 class="center pt5">Loading winners...</h2>
+  </div>
+  <h3 class="center" *ngIf="type.value === 'Select Type'">Select either Gen, Music or Sports to view winners.</h3>
+  <h2 class="center" *ngIf="firstPlaceWinners.length === 0 && triedFetching && type.value != 'Select Type'">No 1st Place
+    Winners Yet
+  </h2>
+  <div *ngIf="type.value !== 'Select Type' && !loading">
     <table *ngIf="firstPlaceWinners.length !== 0">
       <caption>1st Place Winners (1)</caption>
       <caption>Prize: #5,000</caption>
@@ -34,8 +37,10 @@
       </tr>
     </table>
   </div>
-  <div>
-    <h2 class="center" *ngIf="secondPlaceWinners.length === 0">No 2nd Place Winners Yet</h2>
+  <h2 class="center" *ngIf="secondPlaceWinners.length === 0 && triedFetching && type.value != 'Select Type'">No 2nd
+    Place Winners Yet
+  </h2>
+  <div *ngIf="type.value !== 'Select Type' && !loading">
     <table *ngIf="secondPlaceWinners.length !== 0">
       <caption>2nd Place Winners (2 - 4)</caption>
       <caption>Prize: #3,000</caption>
@@ -51,8 +56,10 @@
       </tr>
     </table>
   </div>
-  <div>
-    <h2 class="center" *ngIf="thirdPlaceWinners.length === 0">No 3rd Place Winners Yet</h2>
+  <h2 class="center" *ngIf="thirdPlaceWinners.length === 0 && triedFetching && type.value != 'Select Type'">No 3rd Place
+    Winners Yet
+  </h2>
+  <div *ngIf="type.value !== 'Select Type' && !loading">
     <table *ngIf="thirdPlaceWinners.length !== 0">
       <caption>3rd Place Winners (5 - 10)</caption>
       <caption>Prize: #1,000</caption>

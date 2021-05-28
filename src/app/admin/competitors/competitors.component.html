@@ -18,6 +18,14 @@
         <div>
           <input class="form-control" type="text" name="confirmDelete" #confirmDelete="ngModel" ngModel required>
         </div>
+        <div>
+          <label for="type">WhatsPool Type</label>
+          <select name="type" id="type" ngModel="Select Type" #type="ngModel" required>
+            <option *ngFor="let type of types" [value]="type">{{type}}</option>
+          </select>
+          <span *ngIf="(type.invalid || type.value === 'Select Type') && type.touched">Select either Gen, Music or
+            Sports.</span>
+        </div>
         <div class="mt2">
           <button class="btn btn-danger px4 mr4" type="submit" [disabled]="confirmDelete.value !== 'Delete'">
             <app-spinner *ngIf="isDeleting"></app-spinner>{{isDeleting ? 'Deleting...' : 'Delete'}}

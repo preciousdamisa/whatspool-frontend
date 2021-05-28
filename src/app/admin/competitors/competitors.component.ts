@@ -10,6 +10,7 @@ import { CompetitorsCount, CompetitorsService } from './competitors.service';
   styleUrls: ['./competitors.component.css'],
 })
 export class CompetitorsComponent implements OnInit, OnDestroy {
+  types = ['Select Type', 'Gen', 'Music', 'Sports'];
   isDeleting = false;
   isFetching = false;
   successMsg!: string;
